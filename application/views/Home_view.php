@@ -7,9 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>AH</h1>
-    <footer>
-        
-    </footer>
+    <a href="<?php echo base_url('index.php/private_area/logout') ?>">Logout</a>
 </body>
 </html>

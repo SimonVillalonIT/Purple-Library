@@ -381,7 +381,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</header>
-
+		<?php if($this->session->flashdata('message')){
+				echo '
+					<div>
+						'.$this->session->flashdata("message").'
+					</div>
+				';
+			} ?>
 		<div class="slider">
 		<div class="container-all">
 			<input type="radio" name="image-slide" id="1" hidden />
@@ -440,18 +446,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		</div>
-
 		<div class="overlay" id="overlay">
 			<div class="popup" id="popUp">
 				<i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
 				<h3>Inicio de sesión</h3>
 				<h4>Descubre tu próxima lectura</h4>
-				<form action="<?php echo base_url('index.php/Home_controller')?>" method="POST">
+				<form action="<?php echo base_url('index.php/Login_controller/validacion')?>" method="POST">
 					<div class="contenedor-inputs">
 						<label id="l-e">Ingrese su email</label>
-						<input id="email" type="email" placeholder="E-mail">
+						<input id="email" type="email" name="Email" placeholder="E-mail" value="<?php echo set_value("Email"); ?>">
+						<span><?php echo form_error('Email'); ?></span>
 						<label id="l-c">Ingrese su contraseña</label>
-						<input id="contraseña" type="text" placeholder="Contraseña">
+						<input id="contraseña" type="password" name="Contraseña" placeholder="Contraseña" value="<?php echo set_value("Contraseña"); ?>">
+						<span><?php echo form_error('Contraseña'); ?></span>
 					</div>
 					<input type="submit" class="btn-submit" value="Confirmar">
 				</form>
