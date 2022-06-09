@@ -150,11 +150,14 @@
 			justify-content: center;
 			visibility: hidden;
 		}
+        .overlay h3{
+            text-shadow: 4px 2px #6f1db9;
+        }
 		.overlay.active{
 			visibility: visible;
 		}
 		.popup{
-			background: #141414;
+			background: rgba(20,20,20,0.5);
 			box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 			border-radius: 6px;
 			padding: 20px;
@@ -224,7 +227,14 @@
             display: flex;
             flex-wrap: wrap;
         }
-        .opcion{
+        .item-registro{
+            cursor: pointer;
+            position: relative;
+            display: flex;
+			flex-direction: column;
+			flex-shrink: 0;
+			flex-grow: 0;
+			max-width: 100%;
             margin: 10px;
             width: 200px;
             height: 200px;
@@ -232,14 +242,39 @@
             transition: 0.5s;
 
         }
-        .opcion:hover{
+        .item-registro:hover{
             border: 2px solid #6F1DB9;
-            transform: scale(1.05);
         }
         .seleccionado{
             border:2px solid #6f1db9;
             transform: scale(1.05);
         }
+        .seleccionado .capa{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .capa{
+            display: none;
+            transition: 1.0s;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				0deg,
+				rgba(0,0,0,0.7),
+				rgba(0,0,0,0.7)
+			)
+		}
+        .capa h1{
+            text-shadow: 4px 2px #6f1db9;
+        }
+        .item-registro:hover > .capa{
+            transition: 0.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+		}
 		.btn-submit{
 			margin-top: 12px;
 			position:relative;
@@ -331,15 +366,39 @@
 				            <h3>Categorías</h3>
 				            <h4>Descubre libros estre nuestras categorías</h4>
 					        <div class="categorias">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/ciencia_ficcion.jpg" id="cnc-fic">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/fantasia.jpg" id="fant">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/romance.jpg" id="rom">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/humor.jpg" id="com">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/policial.jpg" id="poli">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/horror.jpg" id="hor">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/musica.jpg" id="mus">
-                                <img class="opcion" src="<?php echo base_url();?>imgs/categorias/misterio.jpg" id="mist">  
-					        </div>
+                                <div class="item-registro" id="cnc-fic">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/ciencia_ficcion.jpg">
+                                    <div class="capa"><h1>Ciencia Ficción</h1></div>
+                                </div>
+                                <div class="item-registro" id="fant">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/fantasia.jpg">
+                                    <div class="capa"><h1>Fantasia</h1></div>
+                                </div>
+                                <div class="item-registro" id="rom">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/romance.jpg">
+                                    <div class="capa"><h1>Romance</h1></div>
+                                </div>
+                                <div class="item-registro" id="com">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/humor.jpg">
+                                    <div class="capa"><h1>Humor</h1></div>
+                                </div>
+                                <div class="item-registro" id="poli">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/policial.jpg">
+                                    <div class="capa"><h1>Policial</h1></div>
+                                </div>
+                                <div class="item-registro" id="hor">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/horror.jpg">
+                                    <div class="capa"><h1>Horror</h1></div>
+                                </div>
+                                <div class="item-registro" id="mus">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/musica.jpg">
+                                    <div class="capa"><h1>Musica</h1></div>
+                                </div>
+                                <div class="item-registro" id="mist">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/misterio.jpg">
+                                    <div class="capa"><h1>Misterio</h1></div>  
+                                </div>
+                            </div>
 
                             <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
                             </div>
