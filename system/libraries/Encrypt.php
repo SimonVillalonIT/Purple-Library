@@ -26,7 +26,7 @@
  */
 class CI_Encrypt {
 	var $CI;
-	var $encryption_key	= '';
+	var $encryption_key	= 'llaveencriptadoraa';
 	var $_hash_type	= 'sha1';
 	var $_mcrypt_exists = FALSE;
 	var $_mcrypt_cipher;

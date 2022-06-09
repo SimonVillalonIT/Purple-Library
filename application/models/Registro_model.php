@@ -18,7 +18,8 @@ class Registro_model extends CI_Model{
                 'is_email_verified' => 'yes'
             );
             $this->db->where('verification_key', $key);
-            $this->db->update('user',$data);
+            $this->db->update('usuario',$data);
+            return true;
         }
         else
         {

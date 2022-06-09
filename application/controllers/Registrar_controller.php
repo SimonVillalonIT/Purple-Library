@@ -21,7 +21,8 @@ class Registrar_controller extends CI_Controller{
         $this->form_validation->set_rules('Apellido', 'Apellido', 'required|trim');
         $this->form_validation->set_rules('Email', 'Email', 'required|trim|valid_email|is_unique[usuario.email]');
         $this->form_validation->set_rules('Contraseña','Contraseña','required');
-        if ($this->form_validation->run()) {
+        if ($this->form_validation->run()) 
+        {
             $verification_key = md5(rand());
             $encrypted_password = $this->encrypt->encode($this->input->post('Contraseña'));
             $data = array(
@@ -31,6 +32,7 @@ class Registrar_controller extends CI_Controller{
                 'Contraseña'=> $encrypted_password,
                 'verification_key'=> $verification_key,
             );
+        
             $id = $this->Registro_model->insertar($data);
             if($id > 0)
             {
