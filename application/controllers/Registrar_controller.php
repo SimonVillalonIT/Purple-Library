@@ -21,6 +21,12 @@ class Registrar_controller extends CI_Controller{
         $this->form_validation->set_rules('Apellido', 'Apellido', 'required|trim');
         $this->form_validation->set_rules('Email', 'Email', 'required|trim|valid_email|is_unique[usuario.email]');
         $this->form_validation->set_rules('Contraseña','Contraseña','required');
+        $this->form_validation->set_rules('Re-contraseña', 'Password Confirmation', 'trim|required|matches[Contraseña]');
+        $this->form_validation->set_message('required', 'Campo requerido');
+        $this->form_validation->set_message('is_unique', 'El email ya esta asociado a otra cuenta');
+        $this->form_validation->set_message('matches', 'Las contraseñas no coinciden');
+        $this->form_validation->set_message('valid_email', 'Debe escribir un e-mail válido');
+        
         if ($this->form_validation->run()) 
         {
             $verification_key = md5(rand());
@@ -60,7 +66,7 @@ class Registrar_controller extends CI_Controller{
                 $this->email->subject($asunto);
                 $this->email->message($mensaje);
                 if ($this->email->send()) {
-                    $this->session->set_flashdata('message','Verifica tu correo donde recibirás el mail de validación');
+                    $this->session->set_flashdata('message','<div id="Verificar"><p>Verifica tu correo donde recibirás el mail de validación</p></div>');
                     redirect('Registrar_controller');
                 }
 
@@ -78,13 +84,13 @@ class Registrar_controller extends CI_Controller{
             $verification_key = $this->uri->segment(3);
             if($this->Registro_model->verificar_email($verification_key))
             {
-                $data['message'] = 
-                '<h1 aling="center">Tu Email se ha verificado de manera exitosa,
-                ahora puedes registrarte en <a href"'.base_url('index.php/Inicio_controller').'">Aqui</a></h1>'; 
+                $data['message'] = '<div class="Verificar">
+                <h1 aling="center">Tu Email se ha verificado de manera exitosa,
+                ahora puedes registrarte <a href="'.base_url().'index.php/Inicio_controller">aquí</a></h1></div>'; 
             }
             else
             {
-                $data['message'] ='<h1 align="center">Link Invalido</h1>';
+                $data['message'] ='<div id="error"><h1 align="center">Link Invalido</h1></div>';
             }
         $this->load->view('verificacion_email', $data);
         

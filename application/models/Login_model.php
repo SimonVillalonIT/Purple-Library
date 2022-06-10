@@ -11,21 +11,27 @@
                 foreach($query->result() as $row){
                     if($row->is_email_verified == 'yes'){
                         $store_password = $this->encrypt->decode($row->Contraseña);
-                        if($contraseña = $store_password){
+                        if($contraseña == $store_password){
                             $this->session->set_userdata('ID',$row->ID);
                         }
                         else{
-                            return 'Contraseña incorrecta';
+                            return '<div style="background-color:red; margin:0; width:100%">
+                                        <h3 style="text-align:center; margin:0;">El email ingresado o la contraseña ingresada es incorrecto</h3>
+                                    </div>';
                         }
                     }
                     else{
-                        return 'Primero verifica tu correo de confirmación';
+                        return '<div style="background-color:#E6BF00; margin:0; width:100%">
+                        <h3 style="text-align:center;color:white; margin:0;">Primero verifica tu correo de confirmación</h3>
+                    </div>';
                     }
                 }
 
             }
             else{
-                return 'Email incorrecto';
+                return '<div style="background-color:red; margin:0; width:100%">
+                <h3 style="text-align:center; margin:0;">El email ingresado o la contraseña ingresada es incorrecto</h3>
+            </div>';
             }
             $this->db->where('Contraseña');
 

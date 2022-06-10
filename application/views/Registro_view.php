@@ -16,6 +16,16 @@
             position: fixed;
             z-index: -1;
         }
+        #Verificar{
+            display: flex;
+            width: 100%;
+            background: rgba(20,20,20,0.5);
+            font-size: 22px;
+            color: #6F1DB9;
+            justify-content: center;
+            border-radius: 12px;
+
+        }
         .main-container{
             position: relative;
             z-index: 99;
@@ -37,6 +47,7 @@
             align-items: center;
             display: flex;
             flex-wrap: nowrap;
+            margin-bottom: 40px;
         }
         .par-item{
             align-items: flex-start;
@@ -50,7 +61,6 @@
 			font-size: 16px;
             width: 335px;
 			height: 40px;
-			margin-bottom: 40px;
 			background: #171717;
 			outline: none;
 			color: white;
@@ -269,6 +279,20 @@
         .capa h1{
             text-shadow: 4px 2px #6f1db9;
         }
+        .item{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .formcontainer span{
+            margin: 0;
+            height: 30px;
+        } 
+
+        span p{
+            margin: 0;
+            color: red;
+        }
         .item-registro:hover > .capa{
             transition: 0.5;
             display: flex;
@@ -301,7 +325,12 @@
 		.popup.active a:hover{
 			text-shadow: 1px 1px 2px #6F1DB9;
 		}
-        
+        .valorcategoria{
+            visibility: hidden;
+            height: 1px;
+            margin: 0;
+            width: 100%;
+        }
 
     </style>
 </head>
@@ -335,18 +364,19 @@
                         <div class="abajo-item">
                             <div class="item">
                                 <label for="Email">Correo Electrónico</label>
-                            </div>
-                            <div class="item">
-                                <input type="email" name="Email" id="Email" placeholder="Correo Electronico" value="<?php echo set_value('Email'); ?>" >
+                                <input type="text" name="Email" id="Email" placeholder="Correo Electronico" value="<?php echo set_value('Email'); ?>" >
                                 <span><?php echo form_error('Email'); ?></span>
                             </div>
                         </div>    
                         <div class="abajo-item">
                             <div class="item">
                                 <label for="Contraseña">Contraseña</label>
+                                <input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña" value="<?php echo set_value('Contraseña'); ?>">
                             </div>
                             <div class="item">
-                                <input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña" value="<?php echo set_value('Contraseña'); ?>">
+                                <label for="Re-contraseña">Confirme su contraseña</label>
+                                <input type="password" name="Re-contraseña" id="Re-contraseña" placeholder="Reingrese la contraseña" value="<?php echo set_value('Re-contraseña'); ?>">
+                                <span><?php echo form_error('Re-contraseña'); ?></span>
                             </div>
                         </div>   
                         <div class="abajo-item">
@@ -366,6 +396,14 @@
 				            <h3>Categorías</h3>
 				            <h4>Descubre libros estre nuestras categorías</h4>
 					        <div class="categorias">
+                                <input type="checkbox" name="Ciencia Ficción" id="CNC-FIC" class="valorcategoria">
+                                <input type="checkbox" name="Fantasia" id="FANT" class="valorcategoria">
+                                <input type="checkbox" name="Romance" id="ROM" class="valorcategoria">
+                                <input type="checkbox" name="Humor" id="COM" class="valorcategoria">
+                                <input type="checkbox" name="Policial" id="POLI" class="valorcategoria">
+                                <input type="checkbox" name="Horror" id="HOR" class="valorcategoria">
+                                <input type="checkbox" name="Musica" id="MUS" class="valorcategoria">
+                                <input type="checkbox" name="Misterio" id="MIST" class="valorcategoria">
                                 <div class="item-registro" id="cnc-fic">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/ciencia_ficcion.jpg">
                                     <div class="capa"><h1>Ciencia Ficción</h1></div>

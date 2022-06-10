@@ -18,8 +18,8 @@ class Login_controller extends CI_Controller {
 
     function validacion()
     {
-        $this->form_validation->set_rules('Email','Email Address', 'required|trim|valid_email');
-        $this->form_validation->set_rules('Contraseña', 'Password', 'required');
+        $this->form_validation->set_rules('Email','Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('Contraseña', 'Contraseña', 'required');
 
         if ($this->form_validation->run())
         {
