@@ -348,19 +348,15 @@
             } ?>
             <form action="<?php echo base_url('index.php/Registrar_controller/validacion')?>" method="post">
                 <div class="formcontainer">
-                    <div class="parrafo">
-                        <div class="par-item">
-                            <label for="Nombre">Nombre</label>
-                            <input type="text" name="Nombre" id="Nombre" placeholder="Nombre" value="<?php echo set_value('Nombre'); ?>">
-                            <span><?php echo form_error('Nombre'); ?></span>
-                        </div>
-                        <div class="par-item">
-                            <label for="Apellido">Apellido</label>
-                            <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" value="<?php echo set_value('Apellido'); ?>">    
-                            <span><?php echo form_error('Apellido'); ?></span>
-                        </div>
-                    </div>
                     <div class="abajo">
+                        <div class="abajo-item">
+                            <div class="item">
+                                <label for="Nombre">Nombre de usuario</label>
+                                <input type="text" name="Nombre" id="Nombre" placeholder="Nombre de Usuario" value="<?php echo set_value('Nombre'); ?>" >
+                                <span><?php echo form_error('Nombre'); ?></span>
+                            </div>
+                        </div>    
+
                         <div class="abajo-item">
                             <div class="item">
                                 <label for="Email">Correo Electrónico</label>
@@ -396,14 +392,14 @@
 				            <h3>Categorías</h3>
 				            <h4>Descubre libros estre nuestras categorías</h4>
 					        <div class="categorias">
-                                <input type="checkbox" name="Ciencia Ficción" id="CNC-FIC" class="valorcategoria">
-                                <input type="checkbox" name="Fantasia" id="FANT" class="valorcategoria">
-                                <input type="checkbox" name="Romance" id="ROM" class="valorcategoria">
-                                <input type="checkbox" name="Humor" id="COM" class="valorcategoria">
-                                <input type="checkbox" name="Policial" id="POLI" class="valorcategoria">
-                                <input type="checkbox" name="Horror" id="HOR" class="valorcategoria">
-                                <input type="checkbox" name="Musica" id="MUS" class="valorcategoria">
-                                <input type="checkbox" name="Misterio" id="MIST" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="2" id="CNC-FIC" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="1" id="FANT" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="5" id="POLI" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="7" id="MUS" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="8" id="MIST" class="valorcategoria">
                                 <div class="item-registro" id="cnc-fic">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/ciencia_ficcion.jpg">
                                     <div class="capa"><h1>Ciencia Ficción</h1></div>

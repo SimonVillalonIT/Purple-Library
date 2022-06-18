@@ -19,6 +19,15 @@
             align-items: center;
             border-bottom: 2px solid #6F1DB9;;
         }
+        header img{
+            width: 20px;
+            height: auto;
+            transition: .2s;
+            cursor: pointer;
+        }	
+		header img:hover{
+			filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
+		}
         h1{
             margin: 0;
             margin-left: 20px;
@@ -77,10 +86,10 @@
         <div class="logo"><h1>Logo</h1></div>
 		<div class="buscador"></div>
         <div class="links">
-            <li><a href="<?php echo base_url('index.php/private_area/logout') ?>">Logout</a></li>
             <li><a href="">Categorias</a></li>
-            <li><a href="">Perfil</a></li>
-            <li><a href="">Algo</a></li>   
+            <li><a href="">Algo</a></li>
+            <li><img id="User" src="<?php echo base_url("imgs/user.png");?>"></li>
+            <li><img id="LogOut" src="<?php echo base_url("imgs/LogOut.png");?>"></li>   
         </div>
     </header>
     
@@ -108,6 +117,17 @@
     <footer>
         
     </footer>
+<script> 
 
+    const btn_logOut = document.getElementById("LogOut");
+    const btn_user = document.getElementById("User");
+    
+    btn_logOut.addEventListener('click',()=>{
+    window.location.href = "<?php echo base_url('index.php/private_area/logout');?>"
+})
+    btn_user.addEventListener('click', ()=>{
+        window.location.href = "";
+    });
+</script>
 </body>
 </html>

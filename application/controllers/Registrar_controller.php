@@ -17,9 +17,8 @@ class Registrar_controller extends CI_Controller{
 
     function validacion()
     {
-        $this->form_validation->set_rules('Nombre', 'Nombre', 'required|trim');
-        $this->form_validation->set_rules('Apellido', 'Apellido', 'required|trim');
-        $this->form_validation->set_rules('Email', 'Email', 'required|trim|valid_email|is_unique[usuario.email]');
+        $this->form_validation->set_rules('Nombre', 'Nombre', 'required|trim|is_unique[usuario.Nombre]');
+        $this->form_validation->set_rules('Email', 'Email', 'required|trim|valid_email|is_unique[usuario.Email]');
         $this->form_validation->set_rules('Contraseña','Contraseña','required');
         $this->form_validation->set_rules('Re-contraseña', 'Password Confirmation', 'trim|required|matches[Contraseña]');
         $this->form_validation->set_message('required', 'Campo requerido');
@@ -33,12 +32,17 @@ class Registrar_controller extends CI_Controller{
             $encrypted_password = $this->encrypt->encode($this->input->post('Contraseña'));
             $data = array(
                 'Nombre'=> $this->input->post('Nombre'),
-                'Apellido'=> $this->input->post('Apellido'),
                 'Email'=> $this->input->post('Email'),
                 'Contraseña'=> $encrypted_password,
                 'verification_key'=> $verification_key,
             );
-        
+            
+            $categorias = $this->input->post('checkbox');
+            foreach($categorias as $llave => $valor){
+                $this->Registro_model->insertarcategoria($this->input->post('Nombre'),$valor);
+            }
+
+
             $id = $this->Registro_model->insertar($data);
             if($id > 0)
             {

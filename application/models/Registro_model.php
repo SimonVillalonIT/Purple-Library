@@ -3,9 +3,11 @@ class Registro_model extends CI_Model{
     
     function insertar($data){
         $this->db->insert('usuario', $data);
-        
         return $this->db->insert_id();
 
+    }
+    function insertarcategoria($Nombre,$categorias){
+        $this->db->query('INSERT INTO categoriausuario (Nombre,IDCategoria) VALUES ("'.$Nombre.'",'.$categorias.')');
     }
    
     function verificar_email($key){

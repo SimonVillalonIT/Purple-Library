@@ -377,7 +377,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="contenedor">
 				<h1>Logo</h1>
 				<div class="registro">
-						<img src="<?php echo base_url();?>imgs/candado.png" id="login">
+						<img src="<?php echo base_url();?>imgs/LogIn.png" id="login">
 				</div>
 			</div>
 		</header>
