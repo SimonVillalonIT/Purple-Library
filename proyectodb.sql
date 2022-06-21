@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2022 a las 08:44:38
+-- Tiempo de generación: 21-06-2022 a las 15:58:34
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -75,8 +75,16 @@ CREATE TABLE `libro` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Autor` varchar(50) NOT NULL,
-  `Descripcion` varchar(700) NOT NULL
+  `Descripcion` varchar(700) NOT NULL,
+  `img` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `libro`
+--
+
+INSERT INTO `libro` (`ID`, `Nombre`, `Autor`, `Descripcion`, `img`) VALUES
+(1, 'Prueba', 'ASDASD', 'asdsadasdasdasdasdsadsa', '');
 
 -- --------------------------------------------------------
 
@@ -162,7 +170,7 @@ ALTER TABLE `categoriausuario`
 -- AUTO_INCREMENT de la tabla `libro`
 --
 ALTER TABLE `libro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

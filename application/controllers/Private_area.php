@@ -21,6 +21,8 @@ class Private_area extends CI_Controller {
         }
         redirect('Inicio_controller');
     }
+   
 }
+    
 
 ?>

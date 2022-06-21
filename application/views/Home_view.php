@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js");?>"></script>
+    <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.min.css");?>">
+    <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.min.css");?>">
     <title>Document</title>
     <style type="text/css">
 
@@ -11,7 +17,6 @@
             background-color: #171717;
             font-family: "Century Gothic";
             margin: 0;
-            color: white;
         }
         header{
             display: flex;
@@ -29,6 +34,7 @@
 			filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
 		}
         h1{
+            color: white;
             margin: 0;
             margin-left: 20px;
         }
@@ -38,11 +44,6 @@
         header a{
             margin-right: 20px;
             
-        }
-        .buscador{
-            height: 40px;
-            width: 300px;
-            background-color: red;
         }
         .links{
             list-style: none;
@@ -56,6 +57,7 @@
             margin: 0;
         }
         main{
+            color: white;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -78,13 +80,36 @@
             width: 120px;
             height: 200px;
         }
-    </style>
+        .buscador form{
+            display: flex;
+        }
+        #provider-json{
+            margin-top: 10px;
+            width: 250px;
+        }
+        #buscar{
+            margin-left: 5px;
+            margin-top: 10px;
+            width: 25px;
+            height: 30px;
+            transition: .2s;
+        }
+        #buscar:hover{
+			filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
+        }
+            </style>
 </head>
 <body>
 
     <header>
         <div class="logo"><h1>Logo</h1></div>
-		<div class="buscador"></div>
+		<div class="buscador">
+            <form method="POST" action="">
+                <input id="provider-json">
+                <input id="buscar" type="image" src="<?php echo base_url("imgs/lupa.png");?>">
+            </form>
+        </div>
+
         <div class="links">
             <li><a href="">Categorias</a></li>
             <li><a href="">Algo</a></li>
@@ -128,6 +153,42 @@
     btn_user.addEventListener('click', ()=>{
         window.location.href = "";
     });
+</script>
+
+<script>
+    var options = {
+	url: "<?php echo base_url('index.php/Buscador_controller/buscar')?>",
+	getValue: "Nombre",
+    theme:"purple",
+    template: {
+        type: "description",
+        fields: {
+            description: "Autor"
+        }
+    },
+	list: {
+        maxNumberOfElements: 5,
+		match: {
+			enabled: true
+		},
+        
+		showAnimation: {
+			type: "fade", //normal|slide|fade
+			time: 400,
+			callback: function() {}
+		},
+
+		hideAnimation: {
+			type: "slide", //normal|slide|fade
+			time: 400,
+			callback: function() {}
+		}
+	},
+
+};
+
+$("#provider-json").easyAutocomplete(options);
+
 </script>
 </body>
 </html>
