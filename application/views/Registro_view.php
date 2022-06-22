@@ -392,8 +392,8 @@
 				            <h3>Categorías</h3>
 				            <h4>Descubre libros estre nuestras categorías</h4>
 					        <div class="categorias">
-                                <input type="checkbox" name="checkbox[]" value="2" id="CNC-FIC" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="1" id="FANT" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="5" id="POLI" class="valorcategoria">

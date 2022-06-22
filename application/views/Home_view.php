@@ -74,11 +74,22 @@
             overflow: hidden;
             border-radius: 5px;
         }
-
-        .main img{
+        .tarjeta{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             margin: 20px;
-            width: 120px;
-            height: 200px;
+            width: 200px;
+            height: 300px;
+            border: 1px solid black;
+            padding: 0;
+        }
+        .tarjeta img{
+            height: 250px;
+        }
+        .tarjeta h3{
+            margin: 0;
+            text-align: center;
         }
         .buscador form{
             display: flex;
@@ -124,16 +135,12 @@
                 Leyendo
             </h1>
             <div class="main">
-               <img src="">
-               <img src="">
-               <img src="">
-               <img src="">
-               <img src="">
-               <img src="">
-               <img src="">
-               <img src="">
-               <img src="">
-               <img src="">
+              <?php
+              foreach($recomendacion as $row){ 
+              echo "<div class="."tarjeta"."><img src='".base_url("imgs/".$row->img)."'>";
+              echo "<h3>".$row->Titulo."</h3></div>";
+            }
+              ?>
             </div>
         </div>
         <div class="recomendaciones"></div>
@@ -158,7 +165,7 @@
 <script>
     var options = {
 	url: "<?php echo base_url('index.php/Buscador_controller/buscar')?>",
-	getValue: "Nombre",
+	getValue: "Titulo",
     theme:"purple",
     template: {
         type: "description",

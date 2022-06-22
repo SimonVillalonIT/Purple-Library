@@ -6,8 +6,8 @@ class Registro_model extends CI_Model{
         return $this->db->insert_id();
 
     }
-    function insertarcategoria($Nombre,$categorias){
-        $this->db->query('INSERT INTO categoriausuario (Nombre,IDCategoria) VALUES ("'.$Nombre.'",'.$categorias.')');
+    function insertarcategoria($ID,$categorias){
+        $this->db->query('INSERT INTO categoriausuario (IDUsuario,IDCategoria) VALUES ("'.$ID.'",'.$categorias.')');
     }
    
     function verificar_email($key){

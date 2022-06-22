@@ -37,13 +37,11 @@ class Registrar_controller extends CI_Controller{
                 'verification_key'=> $verification_key,
             );
             
+            $id = $this->Registro_model->insertar($data);
             $categorias = $this->input->post('checkbox');
             foreach($categorias as $llave => $valor){
-                $this->Registro_model->insertarcategoria($this->input->post('Nombre'),$valor);
+                $this->Registro_model->insertarcategoria($id,$valor);
             }
-
-
-            $id = $this->Registro_model->insertar($data);
             if($id > 0)
             {
                 $asunto = "Por favor verifique su email para registrarte";
@@ -102,3 +100,5 @@ class Registrar_controller extends CI_Controller{
 }
 }
 ?>
+
+
