@@ -48,22 +48,22 @@ class Registrar_controller extends CI_Controller{
                 $mensaje ="  
                 <p>Hola ".$this->input->post('Nombre'). "</p>
                 <p>Este es un email de verificación desde Nodecidimoselnombredelapagina. Para completar el registro y iniciar sesion en la pagina. Verifica clickeando en el siguiente <a href='".base_url()."index.php/Registrar_controller/verificar_email/".$verification_key."'>link</a>.</p>
-    <p>Una vez que clickees este link tu email será verificado y podrás ingresar al sistema.</p>
-    <p>Gracias,</p>
-    ";
+                <p>Una vez que clickees este link tu email será verificado y podrás ingresar al sistema.</p>
+                <p>Gracias,</p>
+                ";
                 $config = array(
                     'protocol' => 'smtp',
-                    'smtp_host' => 'smtp.mailtrap.io',
-                    'smtp_port' => 465,
-                    'smtp_user' => '4035ee3691c990',
-                    'smtp_pass' => '9a8223bca10025',
+                    'smtp_host' => 'in-v3.mailjet.com',
+                    'smtp_port' => 587,
+                    'smtp_user' => '5a99d66889a0b7a0f626abddd23722b3',
+                    'smtp_pass' => 'af6a9a6baf144197bfe8e654c053866f',
                     'mailtype' => 'html',
                     'charset' => 'iso-8859-1',
                     'wordwrap' => TRUE
                 );
                 $this->load->library('email', $config);
                 $this->email->set_newline("\r\n");
-                $this->email->from('simonvillalon@alumnos.itr3.edu.ar');
+                $this->email->from('simonvillalon9@gmail.com');
                 $this->email->to($this->input->post('Email'));
                 $this->email->subject($asunto);
                 $this->email->message($mensaje);

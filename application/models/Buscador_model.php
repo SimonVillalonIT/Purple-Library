@@ -8,7 +8,7 @@
         return $this->db->get('noticias');
       }
       public function buscar(){
-        $this->db->select('ID, Titulo, Autor, Descripcion');
+        $this->db->select('ID, Titulo, Autor, Descripcion, img');
         $this->db->from('libro');
         $consulta = $this->db->get();
         return $consulta->result();

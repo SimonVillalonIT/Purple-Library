@@ -345,7 +345,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		.btn-submit{
 			margin-top: 12px;
-			position:relative;
 			display: inline-block;
 			padding: 15px 30px;
 			letter-spacing: 4px;
@@ -377,7 +376,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="contenedor">
 				<h1>Logo</h1>
 				<div class="registro">
-						<img src="<?php echo base_url();?>imgs/LogIn.png" id="login">
+						<img src="<?php echo base_url();?>imgs/iconos/LogIn.png" id="login">
 				</div>
 			</div>
 		</header>
@@ -399,49 +398,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 			<div class="slide">
 				<div class="item-slide">
-					<img src="<?php echo base_url();?>imgs/1.jpg" >
+					<img src="<?php echo base_url();?>imgs/slider/1.jpg" >
 					<div class="capa"><h1 id="id1">Fantasia</h1></div>
 				</div>
 				<div class="item-slide">
-					<img src="<?php echo base_url();?>imgs/romance.jpg" >
+					<img src="<?php echo base_url();?>imgs/slider/romance.jpg" >
 					<div class="capa"><h1 id="id2">Romance</h1></div>
 				</div>
 				<div class="item-slide">
-					<img src="<?php echo base_url();?>imgs/comedia.jpg" >
+					<img src="<?php echo base_url();?>imgs/slider/comedia.jpg" >
 					<div class="capa"><h1 id="id3">Comedia</h1></div>
 				</div>
 				<div class="item-slide">
-					<img src="<?php echo base_url();?>imgs/4.jpg" >
+					<img src="<?php echo base_url();?>imgs/slider/4.jpg" >
 					<div class="capa"><h1 id="id4">Ciencia Ficción</h1></div>
 				</div>
 				<div class="item-slide">
-					<img src="<?php echo base_url();?>imgs/policial.jpg" >
+					<img src="<?php echo base_url();?>imgs/slider/5.jpg" >
 					<div class="capa"><h1 id="id5">Policial</h1></div>
 				</div>
 				<div class="item-slide">
-					<img src="<?php echo base_url();?>imgs/6.jpg" >
+					<img src="<?php echo base_url();?>imgs/slider/6.jpg" >
 					<div class="capa"><h1 id="id6">Terror y Misterio</h1></div>
 				</div>
 			</div>
 
 			<div class="pagination">
 				<label for="1" class="pagination-item">
-					<img src="<?php echo base_url();?>imgs/1.jpg">
+					<img src="<?php echo base_url();?>imgs/slider/1.jpg">
 				</label>
 				<label for="2" class="pagination-item">
-					<img src="<?php echo base_url();?>imgs/romance.jpg">
+					<img src="<?php echo base_url();?>imgs/slider/romance.jpg">
 				</label>
 				<label for="3" class="pagination-item">
-					<img src="<?php echo base_url();?>imgs/comedia.jpg">
+					<img src="<?php echo base_url();?>imgs/slider/comedia.jpg">
 				</label>
 				<label for="4" class="pagination-item">
-					<img src="<?php echo base_url();?>imgs/4.jpg">
+					<img src="<?php echo base_url();?>imgs/slider/4.jpg">
 				</label>
 				<label for="5" class="pagination-item">
-					<img src="<?php echo base_url();?>imgs/policial.jpg">
+					<img src="<?php echo base_url();?>imgs/slider/5.jpg">
 				</label>
 				<label for="6" class="pagination-item">
-					<img src="<?php echo base_url();?>imgs/6.jpg">
+					<img src="<?php echo base_url();?>imgs/slider/6.jpg">
 				</label>
 			</div>
 		</div>
