@@ -76,6 +76,7 @@
         }
         .tarjeta{
             display: flex;
+            align-items: center;
             flex-direction: column;
             justify-content: center;
             margin: 20px;
@@ -83,9 +84,21 @@
             height: 300px;
             border: 1px solid black;
             padding: 0;
+            background-color: #6F1DB9;
+            border-radius: 6px;
         }
         .tarjeta img{
-            height: 250px;
+            height: 290px;
+            width: 190px;
+            border-radius: 6px;
+        }
+        .texto{
+            height: 290px;
+            width: 190px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
         }
         .tarjeta h3{
             margin: 0;
@@ -107,6 +120,27 @@
         }
         #buscar:hover{
 			filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
+        }
+        .capa{
+            align-items: center;
+            justify-content: center;
+            display: none;
+            transition: 1.0s;
+			position: absolute;
+			width: 200px;
+			height: 300px;
+			background: linear-gradient(
+				0deg,
+				rgba(0,0,0,0.7),
+				rgba(0,0,0,0.7)
+			)
+		}
+        .tarjeta:hover .capa{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         }
             </style>
 </head>
@@ -138,7 +172,7 @@
               <?php
               foreach($recomendacion as $row){ 
               echo "<div class="."tarjeta"."><img src='".base_url("imgs/".$row->img)."'>";
-              echo "<h3>".$row->Titulo."</h3></div>";
+              echo "<div class="."capa"."><div class="."texto"."><h3>".$row->Titulo."</h3><h4>$row->Autor<h4></div></div></div>";
             }
               ?>
             </div>
@@ -197,5 +231,6 @@
 $("#provider-json").easyAutocomplete(options);
 
 </script>
+
 </body>
 </html>

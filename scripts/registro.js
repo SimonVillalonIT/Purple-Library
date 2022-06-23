@@ -27,6 +27,7 @@ let btn_horror = document.getElementById("HOR");
 let btn_musica = document.getElementById("MUS");
 let btn_misterio = document.getElementById("MIST");
 
+
 cienciaficcion.addEventListener("click", ()=> {
     cienciaficcion.classList.toggle("seleccionado");
     if(btn_cienciaficcion.checked == true){
