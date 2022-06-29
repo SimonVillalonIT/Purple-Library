@@ -124,15 +124,15 @@
     <header>
         <div class="logo"><h1>Logo</h1></div>
 		<div class="buscador">
-            <form method="POST" action="">
-                <input id="provider-json">
+            <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
+                <input id="provider-json" name="keyword">
                 <input id="buscar" type="image" src="<?php echo base_url("imgs/iconos/lupa.png");?>">
             </form>
         </div>
 
         <div class="links">
+            <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png");?>"></li>
             <li><a href="">Categorias</a></li>
-            <li><a href="">Algo</a></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png");?>"></li>
             <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png");?>"></li>   
         </div>
@@ -169,10 +169,13 @@
 
     const btn_logOut = document.getElementById("LogOut");
     const btn_user = document.getElementById("User");
-    
+    const btn_home = ducument.getElementById("Home")
     btn_logOut.addEventListener('click',()=>{
     window.location.href = "<?php echo base_url('index.php/private_area/logout');?>"
 })
+    btn_home.addEventListener('click', ()=>{
+        window.location.href = "<?php echo base_url('index.php/private_area');?>";
+    });
     btn_user.addEventListener('click', ()=>{
         window.location.href = "";
     });

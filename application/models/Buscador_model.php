@@ -13,6 +13,11 @@
         $consulta = $this->db->get();
         return $consulta->result();
       }
+      public function mostrarbusqueda($keyword){
+        $sql = "SELECT * FROM libro WHERE Titulo LIKE '%$keyword%'";
+        $query = $this->db->query($sql);
+        return $query->result();
+      }
     }
 
   ?>
