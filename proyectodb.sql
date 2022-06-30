@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2022 a las 01:59:50
+-- Tiempo de generación: 30-06-2022 a las 02:14:23
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.7
 
@@ -96,7 +96,13 @@ INSERT INTO `categorialibro` (`ID`, `IDCategoria`, `IDLibro`) VALUES
 (31, 3, 70),
 (32, 3, 71),
 (33, 3, 72),
-(34, 3, 73);
+(34, 3, 73),
+(35, 3, 74),
+(36, 3, 75),
+(37, 3, 76),
+(38, 3, 77),
+(39, 3, 78),
+(40, 3, 80);
 
 -- --------------------------------------------------------
 
@@ -179,7 +185,9 @@ INSERT INTO `libro` (`ID`, `Titulo`, `Autor`, `Descripcion`, `img`) VALUES
 (75, 'Segunda Primera Impresión', 'Sally Thorne', 'Ruthie Midona ha trabajado en la recepción de Providence Luxury Retirement Villa durante seis años, dedicando toda su vida adulta a cuidar a los residentes de la Villa, mantener la propiedad (con la ayuda de tutoriales de YouTube de bricolaje) y proteger a las tortugas en peligro de extinción que viven en los jardines de la Villa. En algún momento del camino, ha olvidado que es joven y hermosa, y que hay un mundo fuera del trabajo, hasta que conoce al hijo del promotor inmobiliario que acaba de adquirir el centro de jubilación.\r\n\r\nTeddy Prescott ha pasado los últimos años de fiesta, durmiendo hasta tarde, tatuándose cuando está aburrido y, en general, no se toma la vida demasiado en serio, algo que su padre, que sueña con preparar a Teddy para que sea su sucesor, no puede entender. Cuando Teddy necesita un lugar para estrellarse, su padre aprovecha la oportunidad para que crezca. Dejará que Teddy se quede en una de las cabañas en el lugar en la casa de retiro, pero solo si trabaja para ganarse la vida. Teddy está de acuerdo: puede cambiar algunas bombillas y recortar algunos setos, sin sudor. Pero Ruthie también tiene planes para Teddy.', 'SegundaImpresion.jpg'),
 (76, 'La Charla Ex', 'Rachel Lynn Solomon', 'Shay Goldstein ha sido productora en su estación de radio pública de Seattle durante casi una década, y no puede imaginar trabajar en ningún otro lugar. Pero últimamente ha sido un choque constante entre ella y su nuevo colega, Dominic Yun, quien acaba de salir de un programa de maestría en periodismo y está convencido de que sabe todo sobre la radio pública.\r\n\r\nCuando la estación en apuros necesita un nuevo concepto, Shay propone un espectáculo que su jefe ilumina con emoción. En The Ex Talk, dos ex ofrecerán consejos de relación en vivo, en el aire. Su jefe decide que Shay y Dominic son los coanfitriones perfectos, dado lo mucho que ya se desprecian mutuamente. A ninguno de los dos le encanta la idea de mentir a los oyentes, pero es esto o el desempleo. Su audiencia invierte rápidamente, y no pasa mucho tiempo antes de que The Ex Talk se convierta en una escucha obligada en Seattle y suba en las listas de podcasts.', 'LaCharlaEx.jpg'),
 (77, 'Mientras Estábamos Saliendo', 'Jasmine Guillory', 'Ben Stephens nunca se ha molestado con relaciones serias. Tiene muchas citas casuales para mantenerlo ocupado, drama familiar que está tratando de ignorar y su trabajo publicitario en el que enfocarse. Sin embargo, cuando Ben aterriza una gran campaña publicitaria con la estrella de cine Anna Gardiner, es difícil mantenerla puramente profesional. Anna no solo es hermosa y sexy, también tiene los pies en la tierra y es considerada, y él no puede evitar coquetear un poco ...\r\n\r\nAnna Gardiner tiene una misión: hacerse un nombre familiar, y esta campaña publicitaria será una gran distracción mientras espera saber si ha reservado su próxima película. Sin embargo, no esperaba que Ben Stephens fuera su mayor distracción. Ella sabe que mezclar negocios con placer nunca funciona, pero ¿por qué no disfrutar de un coqueteo inofensivo?', 'CuandoSaliendo.jpg'),
-(78, 'El Plan de Citas', 'Sara Desai', 'Daisy Patel es una ingeniera de software que entiende las listas y la lógica mejor que los jefes y novios. Con su vida todo planeado, y sin interés en el amor, lo único que no puede darle a su familia es el matrimonio que esperan. Con pocas opciones, le pide a su enamorado de la infancia que sea su prometido señuelo.\r\n\r\nLiam Murphy es un capitalista de riesgo con algo que demostrar. Cuando se entera de que su herencia depende de estar casado, se da cuenta de que la hermana pequeña de su mejor amigo tiene la solución perfecta a su problema. Un matrimonio de conveniencia sacará a los parientes de Daisy de su espalda y cumplirá con los términos del testamento de su difunto abuelo. Si tan solo no le hubiera roto el tierno corazón adolescente hace nueve años ...', 'PlanCita.jpg');
+(78, 'El Plan de Citas', 'Sara Desai', 'Daisy Patel es una ingeniera de software que entiende las listas y la lógica mejor que los jefes y novios. Con su vida todo planeado, y sin interés en el amor, lo único que no puede darle a su familia es el matrimonio que esperan. Con pocas opciones, le pide a su enamorado de la infancia que sea su prometido señuelo.\r\n\r\nLiam Murphy es un capitalista de riesgo con algo que demostrar. Cuando se entera de que su herencia depende de estar casado, se da cuenta de que la hermana pequeña de su mejor amigo tiene la solución perfecta a su problema. Un matrimonio de conveniencia sacará a los parientes de Daisy de su espalda y cumplirá con los términos del testamento de su difunto abuelo. Si tan solo no le hubiera roto el tierno corazón adolescente hace nueve años ...', 'PlanCita.jpg'),
+(79, 'Enviado', 'Angie Hockman', 'Entre tomar clases nocturnas para su MBA y su exigente trabajo diario en una línea de cruceros, la gerente de marketing Henley Evans apenas tiene tiempo para sí misma, y mucho menos para su familia, amigos o citas. Pero cuando es preseleccionada para la promoción de sus sueños, todos sus sacrificios finalmente parecen valer la pena.\r\n\r\n¿El único problema? Graeme Crawford-Collins, el gerente remoto de redes sociales y la pesadilla de su existencia, también está listo para el puesto. Aunque nunca se han conocido en persona, sus épicas batallas por correo electrónico son cosa de leyenda de la oficina.\r\n\r\nSu jefe les encarga a cada uno de ellos la redacción de una propuesta sobre cómo aumentar las reservas en galápagos: la mejor propuesta gana la promoción. Solo hay una trampa: tienen que ir en un crucero de compañía a las Islas Galápagos... junto. Pero cuando los dos se encuentran en el barco, Henley se sorprende al descubrir que el verdadero Graeme no se parece en nada a lo que ella imaginaba. Mientras exploran las islas juntos, pronto encuentra la línea entre el odio y el gusto más delgada que una postal.\r\n\r\nCon sus sueños profesionales en la mira y una creciente atracción por la competencia, Henley comienza a cuestionar sus elecciones de vida. Porque, ¿de qué sirve trabajar todo el tiempo si nunca vives realmente?', 'Enviado.jpg'),
+(80, 'Cómo fallar en el coqueteo', 'Denise Williams', 'Una atrevida lista de tareas pendientes y un curso intensivo de coqueteo ponen patas arriba el mundo de un triunfador tipo A.\r\n\r\nCuando su departamento de agitación aterriza en el bloque de corte de la universidad, los amigos de la profesora Naya Turner la convencen de que se deshaga de su cárdigan fruncido para una noche en la ciudad. Por una noche, su enfoque se desviará de su exigente trabajo y abordará un nuevo tipo de lista de tareas pendientes. Cuando conoce a un encantador extraño en la ciudad por negocios, él presenta la oportunidad perfecta para marcar los artículos de su lista. Deja que el tipo le compre una bebida. Comprobar. Prueba algo nuevo. Comprobar. Una conexión sin ataduras. Comprobar... casi.\r\n\r\nJake la hace reír y desafía a Naya a reconstruir su confianza, que fue abandonada por su abusivo ex novio. Pronto está coqueteando con la posibilidad de una relación romántica más seria, excepto que nada puede ser tan fácil. Las complicadas cuerdas en torno a su noviazgo con Jake podrían destruir su carrera.\r\n\r\nNaya tiene dos opciones. Puede proteger su reputación profesional y volver a su antigua vida o puede coquetear con lo desconocido y quedarse con la persona que la hace sentir que finalmente está viviendo de nuevo.', 'Comofallarenelcoqueteo.jpg');
 
 -- --------------------------------------------------------
 
@@ -256,7 +264,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `categorialibro`
 --
 ALTER TABLE `categorialibro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `categoriausuario`
@@ -268,7 +276,7 @@ ALTER TABLE `categoriausuario`
 -- AUTO_INCREMENT de la tabla `libro`
 --
 ALTER TABLE `libro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
