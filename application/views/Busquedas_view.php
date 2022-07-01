@@ -148,11 +148,16 @@
    }
     else{
     echo '<div class="body">';
+    if(empty($resultado)){
+        echo "<div class='error'><div class='texto'><h2>No se encontraron resultados para su busqueda</h2></div>
+        <img src='".base_url("imgs/iconos/piffle-error-unscreen.gif")."'alt='Gift de error'></div>";
+    }
+    else{
     foreach($resultado as $row){
         echo ('<div class="tarjeta"><img src="'.base_url("imgs/libros/$row->img").'"><p>'. 
         $row->Titulo.'</p><p>'.$row->Autor.'</p></div>');
    }
-    echo '</div>';}
+    echo '</div>';}}
    ?>
    </main>
 
