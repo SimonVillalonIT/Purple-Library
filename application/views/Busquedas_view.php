@@ -105,13 +105,14 @@
             border: 1px solid white;
             background-color: rgba(111,29,185,0.3);
             text-align: center;
+            justify-content: space-between;
             transition: .3s;
         }
         .tarjeta:hover{
             border: 1px solid #6F1DB9;
             background-color: rgba(111,29,185,0.8);
-            cursor: pointer;
             transform: scale(1.05);
+            box-shadow: 0px 0px 50px #6F1DB9;
         }
         .tarjeta img{
             width: 150px;
@@ -121,13 +122,28 @@
             margin: 0;
             margin-bottom: 5px; 
         }
+        .tarjeta button{
+            background: rgba(254,63,255,0.3);
+            color: white;
+            cursor: pointer;
+            border: 1px solid #ED3BF5;
+            border-radius: 6px;
+            transition: .3s;
+        }
+        .tarjeta button:hover{
+            background: rgb(254,63,255)
+        }
+        .tarjeta button a{
+            text-decoration: none;
+            color: white;
+        }
 </style>
 </head>
 <body>
     <header>
         <div class="logo"><h1>Logo</h1></div>
 		<div class="buscador">
-            <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
+            <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas")?>">
                 <input id="provider-json" name="keyword">
                 <input id="buscar" type="image" src="<?php echo base_url("imgs/iconos/lupa.png");?>">
             </form>
@@ -154,21 +170,18 @@
     }
     else{
     foreach($resultado as $row){
-        echo ('<div class="tarjeta"><img src="'.base_url("imgs/libros/$row->img").'"><p>'. 
-        $row->Titulo.'</p><p>'.$row->Autor.'</p></div>');
+        echo ('<div class="tarjeta"><img src="'.base_url("imgs/libros/$row->img").'"><div class="info"><p>'. 
+        $row->Titulo.'</p><p>'.$row->Autor.'</p></div><button><a href="'.base_url("index.php/Libro_controller/cargarpagina/".$row->ID).'">Descubrir</a></button></div>');
+
    }
     echo '</div>';}}
    ?>
    </main>
-
-
-
-
 <script> 
 
 const btn_logOut = document.getElementById("LogOut");
 const btn_user = document.getElementById("User");
-const btn_home = document.getElementById("Home") 
+const btn_home = document.getElementById("Home");
 btn_home.addEventListener('click', ()=>{
         window.location.href = "<?php echo base_url('index.php/private_area');?>";
     });
@@ -215,18 +228,5 @@ list: {
 $("#provider-json").easyAutocomplete(options);
 
 </script>
-<script>
-window.addEventListener('load', function(){
-new Glider(document.querySelector('.glider'), {
-slidesToShow: 5,
-slidesToScroll: 5,
-draggable: true,
-dots: '.dots',
-arrows: {
-prev: '.glider-prev',
-next: '.glider-next'
-}
-});})
-</script> 
 </body>
 </html>

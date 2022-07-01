@@ -7,6 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Inicio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://kit.fontawesome.com/f33a357731.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Splash&display=swap" rel="stylesheet">
 	<style type="text/css">
 		body{
 			font-family: 'Century Gothic';
@@ -21,9 +24,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		.contenedor{
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
 		}
 		.contenedor h1{
-			margin-left: 40px;
+			color: #6F1DB9;
+			font-family: 'Pacifico', cursive;
+			margin: 0;
+			font-size: 50px;
+			margin-bottom: 2px;
+		}
+		.contenedor img{
+			width: 100px;
 		}
 		.registro{
 			margin: 10px 30px;
@@ -76,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		.item-slide img{
 			width: 1000px;
-			height: 562px;
+			height: 530px;
 		}
 		.item-slide .capa{
 			position: absolute;
@@ -374,7 +385,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 		<header>
 			<div class="contenedor">
-				<h1>Logo</h1>
+				<img src="<?php echo base_url("imgs/iconos/Logo.png") ?>" alt="" srcset="">
+				<h1>Purple</h1>
 				<div class="registro">
 						<img src="<?php echo base_url();?>imgs/iconos/LogIn.png" id="login">
 				</div>

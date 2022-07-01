@@ -21,40 +21,45 @@
             font-family: "Century Gothic";
             margin: 0;
         }
+        h1{
+            color: white;
+            margin: 0;
+            margin-left: 20px;
+        }
         header{
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #6F1DB9;;
         }
+        header a{
+            margin-right: 20px;
+        }
         header img{
             width: 20px;
             height: auto;
             transition: .2s;
-            cursor: pointer;
         }	
-		header img:hover{
-			filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
+		.buscador img:hover{
+            cursor: pointer;
+            filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
 		}
-        h1{
-            color: white;
-            margin: 0;
-            margin-left: 20px;
-        }
-        header div{
-            margin-bottom: 10px;
-        }
-        header a{
-            margin-right: 20px;
-            
+        .logo img{
+            width: 80px;
         }
         .links{
             list-style: none;
             display: flex;
             justify-content: space-around;
         }
+        .links img:hover{
+            cursor: pointer;
+            filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
+		}
         .links li{
-            margin: 10px;
+            margin: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         .links li a{
             margin: 0;
@@ -122,7 +127,7 @@
 <body>
 
     <header>
-        <div class="logo"><h1>Logo</h1></div>
+        <div class="logo"><img src="<?php echo base_url("imgs/iconos/Logo.png")?>"></div>
 		<div class="buscador">
             <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
                 <input id="provider-json" name="keyword">
