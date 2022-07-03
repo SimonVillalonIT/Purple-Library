@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" href="<?php echo base_url("imgs/iconos/Logo.png");?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,21 +123,6 @@
             margin: 0;
             margin-bottom: 5px; 
         }
-        .tarjeta button{
-            background: rgba(254,63,255,0.3);
-            color: white;
-            cursor: pointer;
-            border: 1px solid #ED3BF5;
-            border-radius: 6px;
-            transition: .3s;
-        }
-        .tarjeta button:hover{
-            background: rgb(254,63,255)
-        }
-        .tarjeta button a{
-            text-decoration: none;
-            color: white;
-        }
 </style>
 </head>
 <body>
@@ -170,8 +156,8 @@
     }
     else{
     foreach($resultado as $row){
-        echo ('<div class="tarjeta"><img src="'.base_url("imgs/libros/$row->img").'"><div class="info"><p>'. 
-        $row->Titulo.'</p><p>'.$row->Autor.'</p></div><button><a href="'.base_url("index.php/Libro_controller/cargarpagina/".$row->ID).'">Descubrir</a></button></div>');
+        echo ('<div class="tarjeta" onclick="redirigir('.$row->ID.')"><img src="'.base_url("imgs/libros/$row->img").'"><div class="info"><p>'. 
+        $row->Titulo.'</p><p>'.$row->Autor.'</p></div></div>');
 
    }
     echo '</div>';}}
@@ -191,6 +177,8 @@ window.location.href = "<?php echo base_url('index.php/private_area/logout');?>"
 btn_user.addEventListener('click', ()=>{
     window.location.href = "";
 });
+function redirigir(id){
+        window.location.href ="<?php echo base_url("index.php/Libro_controller/cargarpagina/");?>" + id};
 </script>
 
 <script>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="<?php echo base_url("imgs/iconos/Logo.png");?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,7 +153,7 @@
                 <div class="glider">
                 <?php foreach($recomendacion as $row){ 
                     echo (
-                    "<div class="."libro"."><img src=".base_url("imgs/libros/$row->img").">
+                    "<div onclick='redirigir($row->IDLibro)' class="."libro"."><img src=".base_url("imgs/libros/$row->img").">
                     <h3>$row->Titulo<h3></div>");
                      }
                 ?>
@@ -184,6 +185,9 @@
     btn_user.addEventListener('click', ()=>{
         window.location.href = "";
     });
+    function redirigir(id){
+        window.location.href ="<?php echo base_url("index.php/Libro_controller/cargarpagina/");?>" + id;
+    }
 </script>
 
 <script>
