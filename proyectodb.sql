@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2022 a las 02:14:23
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.7
+-- Tiempo de generación: 04-07-2022 a las 00:29:22
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -128,6 +128,30 @@ INSERT INTO `categoriausuario` (`ID`, `IDCategoria`, `IDUsuario`) VALUES
 (555, 3, '20'),
 (556, 7, '20'),
 (557, 3, '21');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `ID` int(11) NOT NULL,
+  `IDUsuario` int(11) NOT NULL,
+  `IDLibro` int(11) NOT NULL,
+  `Contenido` varchar(300) NOT NULL,
+  `Fecha` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`ID`, `IDUsuario`, `IDLibro`, `Contenido`, `Fecha`) VALUES
+(0, 1, 1, 'Hola', '2022/07/04'),
+(0, 1, 1, 'Prueba 2', '2022/07/04'),
+(0, 1, 1, 'Prueba 3', '2022/07/04'),
+(0, 1, 1, 'Prueba 4', '2022/07/04');
 
 -- --------------------------------------------------------
 
