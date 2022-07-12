@@ -210,27 +210,27 @@
   color: #333;
 }
 .easy-autocomplete.eac-purple {
-  color: #333;
+  color: rgb(101, 0, 148);
 }
 .easy-autocomplete.eac-purple input {
-  background-color: #d6d1e7;
-  border-color: #b8afd5;
+  background-color: #6213c9;
+  border-color: #6213c9;
   box-shadow: 0;
   color: #333;
 }
 .easy-autocomplete.eac-purple input:hover, .easy-autocomplete.eac-purple input:focus {
-  border-color: #333;
+  border-color: #6213c9;
   box-shadow: 0;
 }
 .easy-autocomplete.eac-purple ul {
-  border-color: #333;
+  border-color: #6213c9;
 }
 .easy-autocomplete.eac-purple ul li, .easy-autocomplete.eac-purple ul .eac-category {
-  background-color: #d6d1e7;
-  border-color: #333;
+  background-color: #6213c9;
+  border-color: #6213c9;
 }
 .easy-autocomplete.eac-purple ul li.selected, .easy-autocomplete.eac-purple ul .eac-category.selected {
-  background-color: #ebe8f3;
+  background-color: #6213c9;
   color: #333;
 }
 .easy-autocomplete.eac-bootstrap input {

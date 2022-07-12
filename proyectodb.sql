@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-07-2022 a las 00:29:22
+-- Tiempo de generación: 12-07-2022 a las 05:44:44
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -113,7 +113,7 @@ INSERT INTO `categorialibro` (`ID`, `IDCategoria`, `IDLibro`) VALUES
 CREATE TABLE `categoriausuario` (
   `ID` int(11) NOT NULL,
   `IDCategoria` int(11) NOT NULL,
-  `IDUsuario` varchar(20) NOT NULL
+  `IDUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -121,13 +121,15 @@ CREATE TABLE `categoriausuario` (
 --
 
 INSERT INTO `categoriausuario` (`ID`, `IDCategoria`, `IDUsuario`) VALUES
-(1, 2, '1'),
-(2, 1, '1'),
-(553, 6, '19'),
-(554, 8, '19'),
-(555, 3, '20'),
-(556, 7, '20'),
-(557, 3, '21');
+(2, 1, 1),
+(1, 2, 1),
+(558, 2, 22),
+(555, 3, 20),
+(557, 3, 21),
+(559, 3, 22),
+(553, 6, 19),
+(556, 7, 20),
+(554, 8, 19);
 
 -- --------------------------------------------------------
 
@@ -148,10 +150,15 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`ID`, `IDUsuario`, `IDLibro`, `Contenido`, `Fecha`) VALUES
-(0, 1, 1, 'Hola', '2022/07/04'),
-(0, 1, 1, 'Prueba 2', '2022/07/04'),
-(0, 1, 1, 'Prueba 3', '2022/07/04'),
-(0, 1, 1, 'Prueba 4', '2022/07/04');
+(1, 1, 1, 'Hola', '2022/07/04'),
+(2, 1, 1, 'Prueba 2', '2022/07/04'),
+(3, 1, 1, 'Prueba 3', '2022/07/04'),
+(4, 1, 1, 'Prueba 4', '2022/07/04'),
+(5, 1, 43, 'Buenas', '2022/07/05'),
+(6, 1, 43, '', '2022/07/05'),
+(7, 1, 43, 'Hola', '2022/07/05'),
+(8, 1, 43, 'EAAAAAA', '2022/07/05'),
+(9, 22, 1, 'Hola', '2022/07/05');
 
 -- --------------------------------------------------------
 
@@ -236,7 +243,33 @@ INSERT INTO `usuario` (`Email`, `Contraseña`, `verification_key`, `is_email_ver
 ('simonvillalon10@gmail.com', 'VgpWMlc5VGIDMAEgBzEEJQI+AzhZbFVhUGI=', 'ab44912fa0d30a26daa918a263028e46', 'yes', 'Saimon231', 1),
 ('hgjkghjkhgjkh@gmail.com', 'BzpSZVBjB2Y=', '96109e4b094c0cfd5b7d85516ac24532', 'no', '2123412342134qwerdsafdsfa', 19),
 ('aasdfsdfasd@gmail.com', 'ATwDNFFiUjM=', 'd16b6d773fe9fe3d227933e0e58baadb', 'no', '1324123413', 20),
-('dairaceballos2345@gmail.com', 'BGxUMAZvDilUZwEwWmwAMVVnB2JQOQJoDHgHZFNjBzcFOlcy', '4e749467ce872295107ba06fdeca2bdd', 'no', 'daiceballos', 21);
+('dairaceballos2345@gmail.com', 'BGxUMAZvDilUZwEwWmwAMVVnB2JQOQJoDHgHZFNjBzcFOlcy', '4e749467ce872295107ba06fdeca2bdd', 'no', 'daiceballos', 21),
+('dasdsa@gmail.com', 'Az4=', '9a7244857cb79629eb2be21063404148', 'yes', 'PADPASDPSA', 22);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `valoracion`
+--
+
+CREATE TABLE `valoracion` (
+  `ID` int(11) NOT NULL,
+  `IDLibro` int(11) NOT NULL,
+  `IDUsuario` int(11) NOT NULL,
+  `Valoracion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `valoracion`
+--
+
+INSERT INTO `valoracion` (`ID`, `IDLibro`, `IDUsuario`, `Valoracion`) VALUES
+(5, 1, 22, 3),
+(9, 2, 1, 4),
+(10, 1, 19, 5),
+(11, 1, 1, 5),
+(12, 43, 1, 4),
+(13, 43, 22, 3);
 
 --
 -- Índices para tablas volcadas
@@ -260,7 +293,17 @@ ALTER TABLE `categorialibro`
 -- Indices de la tabla `categoriausuario`
 --
 ALTER TABLE `categoriausuario`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDCategoria` (`IDCategoria`,`IDUsuario`),
+  ADD KEY `IDUsuario` (`IDUsuario`);
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDUsuario` (`IDUsuario`,`IDLibro`),
+  ADD KEY `IDLibro` (`IDLibro`);
 
 --
 -- Indices de la tabla `libro`
@@ -273,6 +316,14 @@ ALTER TABLE `libro`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `valoracion`
+--
+ALTER TABLE `valoracion`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDLibro` (`IDLibro`,`IDUsuario`),
+  ADD KEY `IDUsuario` (`IDUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -294,7 +345,13 @@ ALTER TABLE `categorialibro`
 -- AUTO_INCREMENT de la tabla `categoriausuario`
 --
 ALTER TABLE `categoriausuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=558;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=560;
+
+--
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `libro`
@@ -306,7 +363,13 @@ ALTER TABLE `libro`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `valoracion`
+--
+ALTER TABLE `valoracion`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
@@ -318,6 +381,27 @@ ALTER TABLE `usuario`
 ALTER TABLE `categorialibro`
   ADD CONSTRAINT `categorialibro_ibfk_1` FOREIGN KEY (`IDLibro`) REFERENCES `libro` (`ID`),
   ADD CONSTRAINT `categorialibro_ibfk_2` FOREIGN KEY (`IDCategoria`) REFERENCES `categoria` (`ID`);
+
+--
+-- Filtros para la tabla `categoriausuario`
+--
+ALTER TABLE `categoriausuario`
+  ADD CONSTRAINT `categoriausuario_ibfk_1` FOREIGN KEY (`IDCategoria`) REFERENCES `categoria` (`ID`),
+  ADD CONSTRAINT `categoriausuario_ibfk_2` FOREIGN KEY (`IDUsuario`) REFERENCES `usuario` (`ID`);
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`IDUsuario`) REFERENCES `usuario` (`ID`),
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`IDLibro`) REFERENCES `libro` (`ID`);
+
+--
+-- Filtros para la tabla `valoracion`
+--
+ALTER TABLE `valoracion`
+  ADD CONSTRAINT `valoracion_ibfk_1` FOREIGN KEY (`IDUsuario`) REFERENCES `usuario` (`ID`),
+  ADD CONSTRAINT `valoracion_ibfk_2` FOREIGN KEY (`IDLibro`) REFERENCES `libro` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

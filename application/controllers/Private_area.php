@@ -14,6 +14,8 @@ class Private_area extends CI_Controller {
 	{
         $id = $this->session->userdata('ID');
         $datos['recomendacion'] = $this->Mostrar_libros_model->mostrar($id);
+        $datos['valoracion'] = $this->Mostrar_libros_model->puntuacion();
+        $datos['mejores'] = $this->Mostrar_libros_model->mejoresvalorados();
         $this->load->view('Home_view',$datos);
 	}
 

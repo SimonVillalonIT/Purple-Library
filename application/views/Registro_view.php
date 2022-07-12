@@ -327,10 +327,7 @@
 			text-shadow: 1px 1px 2px #6F1DB9;
 		}
         .valorcategoria{
-            visibility: hidden;
-            height: 1px;
-            margin: 0;
-            width: 100%;
+            display: none;
         }
 
     </style>

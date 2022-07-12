@@ -10,8 +10,8 @@
     <script src=<?php echo base_url("scripts/Gliderjs_master/glider.js") ?>></script>
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js");?>"></script>
     <link rel="stylesheet" href="<?php echo base_url('scripts/Gliderjs_master/glider.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.min.css");?>">
-    <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.min.css");?>">
+    <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css");?>">
+    <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css");?>">
     <title>Document</title>
     
 
@@ -41,17 +41,13 @@
             height: auto;
             transition: .2s;
         }	
-		.buscador img:hover{
-            cursor: pointer;
-            filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
-		}
         .logo img{
             width: 80px;
         }
         .links{
             list-style: none;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
         }
         .links img:hover{
             cursor: pointer;
@@ -67,14 +63,13 @@
         }
         main{
             color: white;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
         }
         .recomendaciones{
             width: 82.5%;
             height: auto;
             margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .buscador form{
             display: flex;
@@ -101,10 +96,7 @@
         }
         .libro:hover > img{
             border: 2px solid #6F1DB9;
-        }
-        .libro:hover > h3{
-            color: #6F1DB9;
-                            }   
+        } 
         .glider-contain button:hover{
 			filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136,33,226,1));
         }
@@ -116,13 +108,42 @@
             border: 2px solid white;
             transition: .3s;
         }
-        .glider h3{
-            text-align: center;
-            transition: .3s;
-            height: 10px;
+        .Valoracion{
+            width: 82.5%;
+            height: auto;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 50px;
         }
-       
+        
+        .cartel{
+            display: none;
+            transition: 0.5s;
+        }
+        .cartel h3{
+            margin-top: 3rem;
+            font-size: 24px;
+        }
+        .cartel p{
+            font-size: 18px;
+        }
 
+        .libro:hover > .cartel{
+            width: 186px;
+            border-radius: 6px;
+            height: 303px;
+            top: 2;
+            background: rgba(0, 0, 0, 0.7);
+			-webkit-backdrop-filter:blur(3px);
+			backdrop-filter: blur(3px);
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
             </style>
 </head>
 <body>
@@ -152,10 +173,17 @@
                 <div class="glider-contain">
                 <div class="glider">
                 <?php foreach($recomendacion as $row){ 
+                    $libro = $row->IDLibro;
                     echo (
                     "<div onclick='redirigir($row->IDLibro)' class="."libro"."><img src=".base_url("imgs/libros/$row->img").">
-                    <h3>$row->Titulo<h3></div>");
-                     }
+                    <div class='cartel'><h3>$row->Titulo</h3><div class='abajo'><p>$row->Autor</p>");
+                    foreach($valoracion as $line){
+                        if($line->IDLibro == $libro){
+                            echo "<p>★".round($line->Puntaje,2)."</p>";
+                        }
+                    }
+                    echo "</div></div></div>";
+                    }
                 ?>
                 </div>
                 <button aria-label="Previous" class="glider-prev">«</button>
@@ -164,7 +192,20 @@
             </div>
         </div>
 
-        <div class="Leyendo">
+        <div class="Valoracion">
+            <h1>Mejores valorados</h1>
+            <div class="glider-contain">
+                <div class="gliders">
+                    <?php foreach($mejores as $row){ 
+                        echo (
+                            "<div onclick='redirigir($row->IDLibro)' class="."libro"."><img src=".base_url("imgs/libros/$row->img").">
+                            <div class='cartel'><h3>$row->Titulo</h3><div class='abajo'><p>$row->Autor</p>
+                            <p>★".round($row->Puntaje,2)."</p>
+                            </div></div></div>");
+                        }
+                    ?>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -175,9 +216,10 @@
 
     const btn_logOut = document.getElementById("LogOut");
     const btn_user = document.getElementById("User");
-    const btn_home = ducument.getElementById("Home")
+    const btn_home = document.getElementById("Home");
+    const tarjeta = document.querySelector(".libro");
     btn_logOut.addEventListener('click',()=>{
-    window.location.href = "<?php echo base_url('index.php/private_area/logout');?>"
+    window.location.href = "<?php echo base_url('index.php/private_area/logout');?>";
 })
     btn_home.addEventListener('click', ()=>{
         window.location.href = "<?php echo base_url('index.php/private_area');?>";
@@ -238,5 +280,18 @@ $("#provider-json").easyAutocomplete(options);
   }
 });})
 </script>
+<script>
+    new Glider(document.querySelector('.gliders'), {
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  draggable: true,
+  dots: '.dotss',
+  arrows: {
+    prev: '.glider-prevs',
+    next: '.glider-nexts'
+  }
+});
+</script>
+<script src="<?php echo base_url('scripts/mysql.js'); ?>"></script>
 </body>
 </html>
