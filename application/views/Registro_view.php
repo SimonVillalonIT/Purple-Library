@@ -3,6 +3,7 @@
 <head>
 <link rel="icon" href="<?php echo base_url("imgs/iconos/Logo.png");?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f33a357731.js" crossorigin="anonymous"></script>
     <title>Registro</title>
     <style>
         body{
@@ -178,6 +179,17 @@
 			transition: .3s ease all;
 			transform: scale(0.7);
 		}
+	.popup .btn-cerrar-popup{
+		font-size: 16px;
+		line-height: 16px;
+		display: block;
+		text-align: right;
+    		color: #bbbbbb;			transition: 0.7 ease;
+		}
+		.popup .btn-cerrar-popup:hover{
+			color: #000000;
+			cursor: pointer
+		} 
 		.popup.active{
 			opacity: 1;
 			transform: scale(1);
@@ -386,10 +398,11 @@
                         </div>
                     </div>
                     <div class="overlay" id="overlay">
-			            <div class="popup" id="popUp">
-				            <h3>Categorías</h3>
-				            <h4>Descubre libros estre nuestras categorías</h4>
-					        <div class="categorias">
+				    <div class="popup" id="popUp">
+					<i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
+					<h3>Categorías</h3>
+				        <h4>Descubre libros estre nuestras categorías</h4>
+					<div class="categorias">
                                 <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">

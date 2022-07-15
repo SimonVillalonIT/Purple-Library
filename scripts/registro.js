@@ -1,12 +1,16 @@
 let btnContinuar = document.getElementById("btn-continuar");
 let overlay = document.getElementById("overlay");
 let popUp = document.getElementById("popUp");
+let btnCerrarPopUp = document.getElementById("btn-cerrar-popup")
 
 btnContinuar.addEventListener("click",function(){
     overlay.classList.add("active");
         popUp.classList.add("active")
 })
-
+btnCerrarPopUp.addEventListener("click", function(){
+        overlay.classList.remove("active");
+        popUp.classList.add("active")
+    })
 
 //  Pop Up de las categorias
 

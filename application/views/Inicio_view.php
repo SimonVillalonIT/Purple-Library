@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>Inicio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://kit.fontawesome.com/f33a357731.js" crossorigin="anonymous"></script>
+    	<script src="https://kit.fontawesome.com/f33a357731.js" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Splash&display=swap" rel="stylesheet">
@@ -460,8 +460,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="overlay" id="overlay">
 			<div class="popup" id="popUp">
-				<i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
-				<h3>Inicio de sesión</h3>
+					<i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
+			<h3>Inicio de sesión</h3>
 				<h4>Descubre tu próxima lectura</h4>
 				<form action="<?php echo base_url('index.php/Login_controller/validacion')?>" method="POST">
 					<div class="contenedor-inputs">
