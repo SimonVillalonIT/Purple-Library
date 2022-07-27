@@ -18,17 +18,17 @@ let cienciaficcion= document.getElementById("cnc-fic");
 let fantasia = document.getElementById("fant");
 let romance = document.getElementById("rom");
 let comedia = document.getElementById("com");
-let policial = document.getElementById("poli");
+let nof = document.getElementById("nof");
 let horror = document.getElementById("hor");
-let musica = document.getElementById("mus");
+let arte = document.getElementById("arte");
 let misterio = document.getElementById("mist");
 let btn_cienciaficcion= document.getElementById("CNC-FIC");
 let btn_fantasia = document.getElementById("FANT");
 let btn_romance = document.getElementById("ROM");
 let btn_comedia = document.getElementById("COM");
-let btn_policial = document.getElementById("POLI");
+let btn_nof = document.getElementById("NOF");
 let btn_horror = document.getElementById("HOR");
-let btn_musica = document.getElementById("MUS");
+let btn_arte = document.getElementById("ARTE");
 let btn_misterio = document.getElementById("MIST");
 
 
@@ -61,12 +61,12 @@ comedia.addEventListener("click", ()=> {comedia.classList.toggle("seleccionado")
     else{
     btn_comedia.checked = true
 }});
-policial.addEventListener("click", ()=> {policial.classList.toggle("seleccionado");
-    if(btn_policial.checked == true){
-    btn_policial.checked = false;
+nof.addEventListener("click", ()=> {nof.classList.toggle("seleccionado");
+    if(btn_nof.checked == true){
+    btn_nof.checked = false;
 }
     else{
-    btn_policial.checked = true
+    btn_nof.checked = true
 }});
 horror.addEventListener("click", ()=> {horror.classList.toggle("seleccionado");
     if(btn_horror.checked == true){
@@ -75,12 +75,12 @@ horror.addEventListener("click", ()=> {horror.classList.toggle("seleccionado");
     else{
     btn_horror.checked = true
 }});
-musica.addEventListener("click", ()=> {musica.classList.toggle("seleccionado")
-    if(btn_musica.checked == true){
-    btn_musica.checked = false;
+arte.addEventListener("click", ()=> {arte.classList.toggle("seleccionado")
+    if(btn_arte.checked == true){
+    btn_arte.checked = false;
 }
     else{
-    btn_musica.checked = true
+    btn_arte.checked = true
 }});
 misterio.addEventListener("click", ()=> {misterio.classList.toggle("seleccionado")
     if(btn_misterio.checked == true){
