@@ -514,7 +514,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<div class="item-slide">
 					<img src="<?php echo base_url(); ?>imgs/slider/5.jpg">
 					<div class="capa">
-						<h1 id="id5">Policial</h1>
+						<h1 id="id5">No ficcion</h1>
 					</div>
 				</div>
 				<div class="item-slide">

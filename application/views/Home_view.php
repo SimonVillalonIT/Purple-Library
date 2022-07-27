@@ -264,15 +264,16 @@
         }
     </script>
 
-    <script>
+<script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
-            getValue: "Titulo",
+            getValue: function(element) {
+return element.Titulo + " |" + element.Autor;},
             theme: "light-blue",
             template: {
                 type: "custom",
                 method: function(value, item) {
-                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value + " | " + item.Autor;
+                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value;
                 }
             },
             list: {

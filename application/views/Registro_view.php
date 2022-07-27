@@ -407,9 +407,9 @@
                                 <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="5" id="POLI" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="5" id="NOF" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="7" id="MUS" class="valorcategoria">
+                                <input type="checkbox" name="checkbox[]" value="7" id="ARTE" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="8" id="MIST" class="valorcategoria">
                                 <div class="item-registro" id="cnc-fic">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/ciencia_ficcion.jpg">
@@ -427,17 +427,17 @@
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/humor.jpg">
                                     <div class="capa"><h1>Humor</h1></div>
                                 </div>
-                                <div class="item-registro" id="poli">
+                                <div class="item-registro" id="nof">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/policial.jpg">
-                                    <div class="capa"><h1>Policial</h1></div>
+                                    <div class="capa"><h1>No Ficción</h1></div>
                                 </div>
                                 <div class="item-registro" id="hor">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/horror.jpg">
                                     <div class="capa"><h1>Horror</h1></div>
                                 </div>
-                                <div class="item-registro" id="mus">
+                                <div class="item-registro" id="arte">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/musica.jpg">
-                                    <div class="capa"><h1>Musica</h1></div>
+                                    <div class="capa"><h1>Arte</h1></div>
                                 </div>
                                 <div class="item-registro" id="mist">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/misterio.jpg">

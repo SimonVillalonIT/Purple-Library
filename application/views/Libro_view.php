@@ -229,7 +229,8 @@
         }
         .val-grl{
             width: 100%;
-            margin-left: 120px;
+            margin-left: 110px;
+            margin-top: 20px;
         }
         .Estrellas{
             display: flex;
@@ -299,6 +300,7 @@
                     </div>');
                 } elseif ($row->Valoracion == 2) {
                     echo ('
+                    <div class="Valoracion">
                     <h3>Tu valoracion<h3>
                     <div class="Valoracion">
                         <h3 class="pintado">★<h3>
@@ -306,7 +308,9 @@
                         <h3>★</h3>
                         <h3>★</h3>
                         <h3>★</h3>
-                    </div>');
+                    </div>
+                    </div>')
+                    ;
                 } elseif ($row->Valoracion == 3) {
                     echo ('
                         <div class="Valoracion">
@@ -321,23 +325,27 @@
                     </div>');
                 } elseif ($row->Valoracion == 4) {
                     echo ('
-                    <h3>Tu valoracion<h3>
                     <div class="Valoracion">
+                    <h3>Tu valoracion<h3>
+                    <div class="Estrellas">
                         <h3 class="pintado">★<h3>
                         <h3 class="pintado">★</h3>
                         <h3 class="pintado">★</h3>
                         <h3 class="pintado">★</h3>
                         <h3>★</h3>
+                    </div>
                     </div>');
                 } elseif ($row->Valoracion == 5) {
                     echo ('
-                    <h3>Tu valoracion<h3>
                     <div class="Valoracion">
+                    <h3>Tu valoracion<h3>
+                    <div class="Estrellas">
                         <h3 class="pintado">★<h3>
                         <h3 class="pintado">★</h3>
                         <h3 class="pintado">★</h3>
                         <h3 class="pintado">★</h3>
                         <h3 class="pintado">★</h3>
+                    </div>
                     </div>');
                 } else {
                     echo ('
@@ -396,15 +404,16 @@
         }
     </script>
 
-    <script>
+<script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
-            getValue: "Titulo",
+            getValue: function(element) {
+return element.Titulo + " |" + element.Autor;},
             theme: "light-blue",
             template: {
                 type: "custom",
                 method: function(value, item) {
-                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value + " | " + item.Autor;
+                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value;
                 }
             },
             list: {
