@@ -11,7 +11,11 @@
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"); ?>"></script>
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"); ?>">
-    <title>Libro</title>
+    <title><?php 
+        foreach($resultado as $row){
+            echo $row->Titulo;
+        }
+    ?></title>
     <style>
         body {
             background-color: #171717;
