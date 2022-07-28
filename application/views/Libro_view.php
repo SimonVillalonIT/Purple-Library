@@ -407,13 +407,12 @@
 <script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
-            getValue: function(element) {
-return element.Titulo + " |" + element.Autor;},
+            getValue: "Titulo",
             theme: "light-blue",
             template: {
                 type: "custom",
                 method: function(value, item) {
-                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value;
+                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value + " | " + item.Autor;
                 }
             },
             list: {
@@ -438,6 +437,18 @@ return element.Titulo + " |" + element.Autor;},
         };
 
         $("#provider-json").easyAutocomplete(options);
+    </script>
+    <script>
+        new Glider(document.querySelector('.gliders'), {
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            draggable: true,
+            dots: '.dotss',
+            arrows: {
+                prev: '.glider-prevs',
+                next: '.glider-nexts'
+            }
+        });
     </script>
     <script>
         window.addEventListener('load', function() {

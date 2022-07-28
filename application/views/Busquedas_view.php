@@ -119,6 +119,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
         .body {
@@ -188,7 +189,7 @@
             echo '<div class="body">';
             if (empty($resultado)) {
                 echo "<div class='error'><div class='texto'><h2>No se encontraron resultados para su busqueda</h2></div>
-        <img src='" . base_url("imgs/iconos/piffle-error-unscreen.gif") . "'alt='Gift de error'></div>";
+    <img src='" . base_url("imgs/iconos/piffle-error-unscreen.gif") . "'alt='Gift de error'></div>";
             } else {
                 foreach ($resultado as $row) {
                     echo ('<div class="tarjeta" onclick="redirigir(' . $row->ID . ')"><img src="' . base_url("imgs/libros/$row->img") . '"><div class="info"><p>' .
@@ -218,16 +219,15 @@
         };
     </script>
 
-    <script>
+<script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
-            getValue: function(element) {
-return element.Titulo + " |" + element.Autor;},
+            getValue: "Titulo",
             theme: "light-blue",
             template: {
                 type: "custom",
                 method: function(value, item) {
-                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value;
+                    return "<img src='<?php echo base_url("imgs/libros/") ?>" + item.img + "' /> | " + value + " | " + item.Autor;
                 }
             },
             list: {
@@ -252,6 +252,18 @@ return element.Titulo + " |" + element.Autor;},
         };
 
         $("#provider-json").easyAutocomplete(options);
+    </script>
+    <script>
+        new Glider(document.querySelector('.gliders'), {
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            draggable: true,
+            dots: '.dotss',
+            arrows: {
+                prev: '.glider-prevs',
+                next: '.glider-nexts'
+            }
+        });
     </script>
 </body>
 
