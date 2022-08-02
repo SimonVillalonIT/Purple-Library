@@ -199,24 +199,29 @@
         }
 
         main .imagenLibro {
-            width: 70%;
+            width: 20%;
             height: 400px;
             margin-left: 75px;
+            margin-top: 125px;
             -webkit-box-shadow: 0px 0px 50px 9px #871F78; 
             border-radius: 6px;
             box-shadow: 0px 0px 50px 9px #871F78;
         }
 
-        main .imagenContenedor {
-            margin-top: 125px;
-        }
-
         main .textoLibro {
             margin-top: 125px;
             margin-left: 75px;
-            width: 40%;
+            width: 60%;
         }
-
+        .comentar{
+            margin-top: 30px;
+            width: 100%;
+            margin-left: 70px;
+        }
+        .comentar input{
+            width: 1000px;
+            height: 50px;
+        }
         .comentario p {
             margin: 10px;
         }
@@ -232,19 +237,36 @@
 
         .Valoracion {
             display: flex;
-            margin-left: 120px;
-            width: 100%;
             align-items: center;
+            position: absolute;
+            top: 550px;
+            left: 100px;
         }
         .val-grl{
-            width: 100%;
-            margin-left: 110px;
-            margin-top: 20px;
+            position: absolute;
+            height: fit-content;
+            top: 580px;
+            left: 100px;
         }
         .Estrellas{
             display: flex;
             margin-left: 10px;
             align-items: center;
+        }
+        #ComprarLibro{
+            background-color: rgba(136, 33, 226, 0.3);
+            width: 100px;
+            height: 50px;
+            border-radius: 6px;
+            color:white;
+            font-size: 18px;
+            border:3px solid #141414;
+            cursor: pointer;
+            transition: .3s;
+        }
+        #ComprarLibro:hover{
+            transform: scale(1.1);
+            border: 2px solid #7000F0;
         }
     </style>
 </head>
@@ -268,7 +290,7 @@
     <main>
         <?php
         foreach ($resultado as $row) {
-            echo ('<div class="imagenContenedor"><img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"></div><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p><button id="ComprarLibro">Comprar</button></div>');
+            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p><button id="ComprarLibro">Comprar</button></div>');
         } ?>
         <?php
         foreach ($puntuacion->result() as $row) {
