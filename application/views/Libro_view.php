@@ -55,6 +55,7 @@
         }
 
         .links {
+            width: fit-content;
             list-style: none;
             display: flex;
             align-items: center;
@@ -77,9 +78,9 @@
         }
 
         .logo {
-            width: 150px;
+            width: 15%;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
         }
 
         .recomendaciones {
@@ -90,6 +91,10 @@
             margin-right: auto;
         }
 
+        .buscador{
+            width: min-content;
+            height: min-content;
+        }
         .buscador form {
             display: flex;
             color: black;
@@ -103,7 +108,7 @@
         #buscar {
             position: absolute;
             top: 30px;
-            right: 410px;
+            right: 240px;
             width: 20px;
             height: 20px;
             transition: .2s;
@@ -194,7 +199,7 @@
         }
 
         main .imagenLibro {
-            width: 300px;
+            width: 70%;
             height: 400px;
             margin-left: 75px;
             -webkit-box-shadow: 0px 0px 50px 9px #871F78; 
@@ -209,7 +214,7 @@
         main .textoLibro {
             margin-top: 125px;
             margin-left: 75px;
-            width: 60%;
+            width: 40%;
         }
 
         .comentario p {
@@ -253,7 +258,6 @@
                 <input id="buscar" type="image" src="<?php echo base_url("imgs/iconos/lupa.png"); ?>">
             </form>
         </div>
-
         <div class="links">
             <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
             <li><a href="">Categorias</a></li>
