@@ -108,7 +108,7 @@
         #buscar {
             position: absolute;
             top: 30px;
-            right: 240px;
+            right: 410px;
             width: 20px;
             height: 20px;
             transition: .2s;
