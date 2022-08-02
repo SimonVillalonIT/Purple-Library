@@ -421,7 +421,7 @@
                                 </div>
                                 <div class="item-registro" id="rom">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/romance.jpg">
-                                    <div class="capa"><h1>Romance</h1></div>
+                                    <div class="capa"><h1>Romancea</h1></div>
                                 </div>
                                 <div class="item-registro" id="com">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/humor.jpg">
