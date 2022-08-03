@@ -193,7 +193,7 @@
 
         <div class="links">
             <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
-            <li><a href="">Categorias</a></li>
+            <li><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png");?>"></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
             <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
         </div>

@@ -55,15 +55,15 @@ class Registrar_controller extends CI_Controller{
                     'protocol' => 'smtp',
                     'smtp_host' => 'in-v3.mailjet.com',
                     'smtp_port' => 587,
-                    'smtp_user' => '5a99d66889a0b7a0f626abddd23722b3',
-                    'smtp_pass' => 'af6a9a6baf144197bfe8e654c053866f',
+                    'smtp_user' => '23c07c7545b52c863b9909624b15b5ac',
+                    'smtp_pass' => 'fbb879126fbf9cd46ad33d3725b9c1cd',
                     'mailtype' => 'html',
                     'charset' => 'iso-8859-1',
                     'wordwrap' => TRUE
                 );
                 $this->load->library('email', $config);
                 $this->email->set_newline("\r\n");
-                $this->email->from('simonvillalon9@gmail.com');
+                $this->email->from('purpleasociados@gmail.com');
                 $this->email->to($this->input->post('Email'));
                 $this->email->subject($asunto);
                 $this->email->message($mensaje);
