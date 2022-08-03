@@ -175,6 +175,7 @@
         .clasificacion {
             direction: rtl;
             unicode-bidi: bidi-override;
+            font-size: 20px;
         }
 
         label:hover,
@@ -214,7 +215,7 @@
             width: 60%;
         }
         .comentar{
-            margin-top: 30px;
+            margin-top: 20px;
             width: 100%;
             margin-left: 70px;
         }
@@ -234,26 +235,26 @@
         .pintado {
             color: RGB(118, 19, 183);
         }
-
         .Valoracion {
             display: flex;
             align-items: center;
-            position: absolute;
-            top: 550px;
-            left: 100px;
+            margin-left: 160px;
+        }
+        .Valoracion p{
+            margin: 0;
+            padding: 0;
         }
         .val-grl{
-            position: absolute;
+            margin-left: 110px;
+            margin-top: 20px;
             height: fit-content;
-            top: 580px;
-            left: 100px;
         }
         .Estrellas{
             display: flex;
             margin-left: 10px;
             align-items: center;
         }
-        #ComprarLibro{
+        .ComprarLibro{
             background-color: rgba(136, 33, 226, 0.3);
             width: 100px;
             height: 50px;
@@ -264,7 +265,7 @@
             cursor: pointer;
             transition: .3s;
         }
-        #ComprarLibro:hover{
+        .ComprarLibro:hover{
             transform: scale(1.1);
             border: 2px solid #7000F0;
         }
@@ -290,8 +291,9 @@
     <main>
         <?php
         foreach ($resultado as $row) {
-            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p><button id="ComprarLibro">Comprar</button></div>');
+            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p><button class="ComprarLibro">Comprar</button></div>');
         } ?>
+        <div class="valoraciones">
         <?php
         foreach ($puntuacion->result() as $row) {
             echo '<div class="val-grl"><h3>Valoracion general: ★' . round($row->Valoracion, 2) . '</h3></div>';
@@ -299,6 +301,7 @@
         if (empty($valoracion)) {
             foreach($resultado as $row){
             echo ('
+            <div class="Valoracion">
         <form method="POST" action="' . base_url("index.php/Libro_controller/valorar/".$row->ID) . '" id="#form">
             <p class="clasificacion">
             <input id="radio1" type="radio" name="estrellas" value="5">
@@ -312,8 +315,8 @@
             <input id="radio5" type="radio" name="estrellas" value="1">
             <label for="radio5">★</label>
         </p>
-        <button type="submit">Calificar</button>
-</form>');}
+        <button class="ComprarLibro" type="submit">Calificar</button>
+</form></div>');}
         } else {
             foreach ($valoracion as $row) {
                 if ($row->Valoracion == 1) {
@@ -390,7 +393,10 @@
                 }
             }
         }
-
+        ?>
+        </div>
+        <div class="comentacion">
+        <?php
         foreach ($resultado as $row) {
             echo (
         '<div class="comentar">
@@ -407,12 +413,13 @@
             echo '<p>' . $row->Contenido . '</p>';
             echo '<p>' . $row->Fecha . '</p></div>';
         } ?>
+        </div>
     </main>
     <script>
         const btn_logOut = document.getElementById("LogOut");
         const btn_user = document.getElementById("User");
         const btn_home = document.getElementById("Home");
-        const comprar = document.getElementById("ComprarLibro");
+        const comprar = document.querySelector(".ComprarLibro");
         const tarjeta = document.querySelector(".libro");
         btn_logOut.addEventListener('click', () => {
             window.location.href = "<?php echo base_url('index.php/private_area/logout'); ?>";

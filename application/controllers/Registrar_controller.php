@@ -49,7 +49,7 @@ class Registrar_controller extends CI_Controller{
                 <p>Hola ".$this->input->post('Nombre'). "</p>
                 <p>Este es un email de verificación desde Purple. Para completar el registro y iniciar sesion en la pagina. Verifica clickeando en el siguiente <a href='".base_url()."index.php/Registrar_controller/verificar_email/".$verification_key."'>link</a>.</p>
                 <p>Una vez que clickees este link tu email será verificado y podrás ingresar al sistema.</p>
-                <p>Gracias,</p>
+                <p>Gracias</p>
                 ";
                 $config = array(
                     'protocol' => 'smtp',
