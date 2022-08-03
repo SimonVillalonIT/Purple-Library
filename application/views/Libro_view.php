@@ -272,6 +272,10 @@
             margin: 0;
             padding:0;
         }
+        .Valoracion{
+            display: flex;
+            flex-direction: column;
+        }
         .ComprarLibro{
             background-color: rgba(136, 33, 226, 0.3);
             width: 100px;
@@ -339,40 +343,39 @@
             foreach ($valoracion as $row) {
                 if ($row->Valoracion == 1) {
                     echo ('
-                        <div class="Valoracion">
-                        <h3>Tu valoracion<h3>
-                        <div class="Estrellas">
+                    <div class="Valoracion">
+                    <h3>Tu valoracion<h3>
+                    <div class="Estrellas">
                         <h3 class="pintado">★<h3>
                         <h3>★</h3>
                         <h3>★</h3>
                         <h3>★</h3>
                         <h3>★</h3>
-                        </div>
+                    </div>
                     </div>');
                 } elseif ($row->Valoracion == 2) {
                     echo ('
                     <div class="Valoracion">
                     <h3>Tu valoracion<h3>
-                    <div class="Valoracion">
+                    <div class="Estrellas">
                         <h3 class="pintado">★<h3>
                         <h3 class="pintado">★</h3>
                         <h3>★</h3>
                         <h3>★</h3>
                         <h3>★</h3>
                     </div>
-                    </div>')
-                    ;
+                    </div>');
                 } elseif ($row->Valoracion == 3) {
                     echo ('
-                        <div class="Valoracion">
-                        <h3>Tu valoracion:<h3>
-                        <div class="Estrellas">
+                    <div class="Valoracion">
+                    <h3>Tu valoracion<h3>
+                    <div class="Estrellas">
                         <h3 class="pintado">★<h3>
                         <h3 class="pintado">★</h3>
                         <h3 class="pintado">★</h3>
                         <h3>★</h3>
                         <h3>★</h3>
-                        </div>
+                    </div>
                     </div>');
                 } elseif ($row->Valoracion == 4) {
                     echo ('
@@ -397,16 +400,6 @@
                         <h3 class="pintado">★</h3>
                         <h3 class="pintado">★</h3>
                     </div>
-                    </div>');
-                } else {
-                    echo ('
-                    <h3>Tu valoracion<h3>
-                    <div class="Valoracion">
-                        <h3>★<h3>
-                        <h3>★</h3>
-                        <h3>★</h3>
-                        <h3>★</h3>
-                        <h3>★</h3>
                     </div>');
                 }
             }
