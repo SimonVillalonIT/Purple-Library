@@ -209,11 +209,14 @@
             box-shadow: 0px 0px 50px 9px #871F78;
         }
 
-        main .textoLibro {
+        main .info {
             margin-top: 100px;
             margin-left: 75px;
             width: 60%;
-           height: 455px;
+            height: 455px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .comentar{
             margin-top: 20px;
@@ -313,7 +316,7 @@
     <main>
         <?php
         foreach ($resultado as $row) {
-            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p><button class="ComprarLibro">Comprar</button></div>');
+            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="info"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p></div><button class="ComprarLibro">Comprar</button></div>');
         } ?>
         <div class="valoraciones">
         <?php
