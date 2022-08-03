@@ -210,9 +210,10 @@
         }
 
         main .textoLibro {
-            margin-top: 125px;
+            margin-top: 100px;
             margin-left: 75px;
             width: 60%;
+           height: 455px;
         }
         .comentar{
             margin-top: 20px;
@@ -231,28 +232,45 @@
             width: 50px;
             height: auto;
         }
-
+        .valoraciones{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 100px;
+        }
+        .valoraciones label{
+            font-size: 1.17em;
+        }
         .pintado {
             color: RGB(118, 19, 183);
         }
-        .Valoracion {
-            display: flex;
-            align-items: center;
-            margin-left: 160px;
-        }
-        .Valoracion p{
+        .valorar p{
             margin: 0;
             padding: 0;
         }
+        .valorar{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .valorar form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
         .val-grl{
-            margin-left: 110px;
-            margin-top: 20px;
             height: fit-content;
         }
         .Estrellas{
             display: flex;
-            margin-left: 10px;
+            margin: 0;
+            margin-left:15px;
             align-items: center;
+        }
+        .Estrellas h3{
+            margin: 0;
+            padding:0;
         }
         .ComprarLibro{
             background-color: rgba(136, 33, 226, 0.3);
@@ -301,7 +319,7 @@
         if (empty($valoracion)) {
             foreach($resultado as $row){
             echo ('
-            <div class="Valoracion">
+            <div class="valorar">
         <form method="POST" action="' . base_url("index.php/Libro_controller/valorar/".$row->ID) . '" id="#form">
             <p class="clasificacion">
             <input id="radio1" type="radio" name="estrellas" value="5">
