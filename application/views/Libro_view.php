@@ -281,7 +281,7 @@
         }
         .ComprarLibro{
             background-color: rgba(136, 33, 226, 0.3);
-            width: 100px;
+            width: 120px;
             height: 50px;
             border-radius: 6px;
             color:white;
@@ -298,7 +298,7 @@
 </head>
 
 <body>
-    <header>
+<header>
         <div class="logo"><img src="<?php echo base_url("imgs/iconos/Logo.png") ?>"></div>
         <div class="buscador">
             <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
@@ -306,17 +306,18 @@
                 <input id="buscar" type="image" src="<?php echo base_url("imgs/iconos/lupa.png"); ?>">
             </form>
         </div>
+
         <div class="links">
-            <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
-            <li><a href="">Categorias</a></li>
+            <li><a href="<?php echo base_url('index.php/private_area'); ?>"><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></a></li>
+            <li><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png");?>"></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
-            <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
+            <li><a href="<?php echo base_url('index.php/private_area/logout'); ?>"><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></a></li>
         </div>
     </header>
     <main>
         <?php
         foreach ($resultado as $row) {
-            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="info"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p></div><button class="ComprarLibro">Comprar</button></div>');
+            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="info"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p></div><button class="ComprarLibro"><a href="'.base_url('index.php/products/addToCart/'.$row->ID).'" class="btn btn-primary">Add to Cart</a></button></div>');
         } ?>
         <div class="valoraciones">
         <?php
@@ -430,26 +431,8 @@
         </div>
     </main>
     <script>
-        const btn_logOut = document.getElementById("LogOut");
-        const btn_user = document.getElementById("User");
-        const btn_home = document.getElementById("Home");
         const comprar = document.querySelector(".ComprarLibro");
         const tarjeta = document.querySelector(".libro");
-        btn_logOut.addEventListener('click', () => {
-            window.location.href = "<?php echo base_url('index.php/private_area/logout'); ?>";
-        })
-        btn_home.addEventListener('click', () => {
-            window.location.href = "<?php echo base_url('index.php/private_area'); ?>";
-        });
-        btn_user.addEventListener('click', () => {
-            window.location.href = "";
-        });
-        comprar.addEventListener('click', () => {
-            window.location.href = "<?php foreach ($resultado as $row) {
-                                        echo $row->Link;
-                                    } ?>";
-        });
-
         function redirigir(id) {
             window.location.href = "<?php echo base_url("index.php/Libro_controller/cargarpagina/"); ?>" + id;
         }
