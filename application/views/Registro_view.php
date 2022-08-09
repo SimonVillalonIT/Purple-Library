@@ -421,14 +421,14 @@
                                 </div>
                                 <div class="item-registro" id="rom">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/romance.jpg">
-                                    <div class="capa"><h1>Romancea</h1></div>
+                                    <div class="capa"><h1>Romance</h1></div>
                                 </div>
                                 <div class="item-registro" id="com">
                                     <img class="opcion" src="<?php echo base_url();?>imgs/categorias/humor.jpg">
                                     <div class="capa"><h1>Humor</h1></div>
                                 </div>
                                 <div class="item-registro" id="nof">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/policial.jpg">
+                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/no_ficcion.jpg">
                                     <div class="capa"><h1>No Ficción</h1></div>
                                 </div>
                                 <div class="item-registro" id="hor">
