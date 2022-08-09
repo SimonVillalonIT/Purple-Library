@@ -512,7 +512,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					</div>
 				</div>
 				<div class="item-slide">
-					<img src="<?php echo base_url(); ?>imgs/slider/5.jpg">
+					<img src="<?php echo base_url(); ?>imgs/slider/Noficcion.jpg">
 					<div class="capa">
 						<h1 id="id5">No ficcion</h1>
 					</div>
@@ -539,7 +539,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<img src="<?php echo base_url(); ?>imgs/slider/4.jpg">
 				</label>
 				<label for="5" class="pagination-item">
-					<img src="<?php echo base_url(); ?>imgs/slider/5.jpg">
+					<img src="<?php echo base_url(); ?>imgs/slider/Noficcion.jpg">
 				</label>
 				<label for="6" class="pagination-item">
 					<img src="<?php echo base_url(); ?>imgs/slider/6.jpg">
