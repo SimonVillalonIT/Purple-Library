@@ -309,7 +309,7 @@
 
         <div class="links">
             <li><a href="<?php echo base_url('index.php/private_area'); ?>"><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></a></li>
-            <li><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png");?>"></li>
+            <li><a href="<?php echo base_url("index.php/cart")?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png");?>"></a></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
             <li><a href="<?php echo base_url('index.php/private_area/logout'); ?>"><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></a></li>
         </div>
