@@ -36,11 +36,6 @@
             align-items: center;
             border-bottom: 2px solid #6F1DB9;
         }
-
-        header a {
-            margin-right: 20px;
-        }
-
         header img {
             width: 20px;
             height: auto;
