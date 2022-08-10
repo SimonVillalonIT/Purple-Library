@@ -204,7 +204,7 @@
             <th>Product</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th class="text-right">Subtotal</th>
+            <th>Subtotal</th>
             <th></th>
             </tr>
             <?php if ($this->cart->total_items() > 0) {
@@ -227,7 +227,7 @@
                     <td></td>
                     <td></td>
                     <td><strong>Cart Total</strong></td>
-                    <td class="text-right"><strong><?php echo '$' . $this->cart->total() . ' USD'; ?></strong></td>
+                    <td><strong><?php echo '$' . $this->cart->total() . ' USD'; ?></strong></td>
                     <td></td>
                 </tr>
             <?php } ?>
