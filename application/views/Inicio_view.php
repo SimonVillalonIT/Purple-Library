@@ -25,6 +25,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			border-bottom: 1px solid #fff;
 			background: #171717
 		}
+		header a {
+            margin-right: 20px;
+        }
 
 		.contenedor {
 			display: flex;
