@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js">
+        s
+    </script>
     <script src=<?php echo base_url("scripts/Gliderjs_master/glider.js") ?>></script>
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"); ?>"></script>
     <link rel="stylesheet" href="<?php echo base_url('scripts/Gliderjs_master/glider.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"); ?>">
     <title>Principal</title>
-
-
     <style type="text/css">
         body {
             background-color: #171717;
@@ -30,12 +30,18 @@
         }
 
         /*                 HEADER                  */
+
         header {
+            z-index: 99;
+            background-color: #171717;
+            position: fixed;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #6F1DB9;
         }
+
         header img {
             width: 20px;
             height: auto;
@@ -69,6 +75,7 @@
         }
 
         main {
+            padding-top:40px;
             color: white;
         }
 
@@ -98,7 +105,7 @@
         #buscar {
             position: absolute;
             top: 30px;
-            right: 410px;
+            right: 370px;
             width: 20px;
             height: 20px;
             transition: .2s;
@@ -188,7 +195,7 @@
 
         <div class="links">
             <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
-            <li><a href="<?php echo base_url("index.php/cart")?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png");?>"></a></li>
+            <li><a href="<?php echo base_url("index.php/cart") ?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png"); ?>"></a></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
             <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
         </div>
@@ -259,7 +266,7 @@
         }
     </script>
 
-<script>
+    <script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
             getValue: "Titulo",
@@ -319,7 +326,6 @@
             }
         });
     </script>
-    <script src="<?php echo base_url('scripts/mysql.js'); ?>"></script>
 </body>
 
 </html>
