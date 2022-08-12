@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-08-2022 a las 21:48:55
+-- Tiempo de generación: 13-08-2022 a las 00:25:48
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.7
 
@@ -202,18 +202,26 @@ CREATE TABLE `categoriausuario` (
 
 INSERT INTO `categoriausuario` (`ID`, `IDCategoria`, `IDUsuario`) VALUES
 (2, 1, 1),
+(564, 1, 25),
 (1, 2, 1),
 (558, 2, 22),
 (560, 2, 23),
 (561, 2, 24),
+(565, 2, 25),
 (555, 3, 20),
 (557, 3, 21),
 (559, 3, 22),
+(566, 3, 25),
 (562, 4, 24),
+(567, 4, 25),
+(568, 5, 25),
 (553, 6, 19),
 (563, 6, 24),
+(569, 6, 25),
 (556, 7, 20),
-(554, 8, 19);
+(570, 7, 25),
+(554, 8, 19),
+(571, 8, 25);
 
 -- --------------------------------------------------------
 
@@ -244,7 +252,8 @@ INSERT INTO `comentario` (`ID`, `IDUsuario`, `IDLibro`, `Contenido`, `Fecha`) VA
 (8, 1, 43, 'EAAAAAA', '2022/07/05'),
 (9, 22, 1, 'Hola', '2022/07/05'),
 (10, 1, 139, 'HERMOSO LIBRO', '2022/08/02'),
-(11, 1, 1, 'HOLAAAAA', '2022/08/03');
+(11, 1, 1, 'HOLAAAAA', '2022/08/03'),
+(12, 1, 48, 'DSADASD', '2022/08/11');
 
 -- --------------------------------------------------------
 
@@ -444,7 +453,8 @@ INSERT INTO `usuario` (`Email`, `Contraseña`, `verification_key`, `is_email_ver
 ('dairaceballos2345@gmail.com', 'BGxUMAZvDilUZwEwWmwAMVVnB2JQOQJoDHgHZFNjBzcFOlcy', '4e749467ce872295107ba06fdeca2bdd', 'no', 'daiceballos', 21),
 ('dasdsa@gmail.com', 'Az4=', '9a7244857cb79629eb2be21063404148', 'yes', 'PADPASDPSA', 22),
 ('simonvillalon2@gmail.com', 'BDk=', '8de0f6e3bbb987922f2cb5e63b36a7e3', 'no', 'ssa', 23),
-('simonvillalon9@gmail.com', 'DVFVMQJsDjgOPVNyATcBIAY6Vm5XZw==', '3a47304aa482c11aea206eef407eebcc', 'yes', 'Simonsin', 24);
+('simonvillalon9@gmail.com', 'DVFVMQJsDjgOPVNyATcBIAY6Vm5XZw==', '3a47304aa482c11aea206eef407eebcc', 'yes', 'Simonsin', 24),
+('fakondelgado@gmail.com', 'VgoEYAdpUGYBMlZ3VmBbegA8UmpZaQ==', '00cc028257b70250f68491a3ddb73358', 'yes', 'Enzo Delgado', 25);
 
 -- --------------------------------------------------------
 
@@ -472,7 +482,8 @@ INSERT INTO `valoracion` (`ID`, `IDLibro`, `IDUsuario`, `Valoracion`) VALUES
 (13, 43, 22, 3),
 (14, 139, 1, 5),
 (15, 122, 1, 4),
-(16, 44, 1, 2);
+(16, 44, 1, 2),
+(17, 48, 1, 4);
 
 --
 -- Índices para tablas volcadas
@@ -562,13 +573,13 @@ ALTER TABLE `categorialibro`
 -- AUTO_INCREMENT de la tabla `categoriausuario`
 --
 ALTER TABLE `categoriausuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=564;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=572;
 
 --
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `libro`
@@ -592,13 +603,13 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `valoracion`
 --
 ALTER TABLE `valoracion`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas
