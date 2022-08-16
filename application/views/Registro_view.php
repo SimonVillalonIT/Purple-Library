@@ -401,7 +401,7 @@
 				    <div class="popup" id="popUp">
 					<i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
 					<h3>Categorías</h3>
-				        <h4>Descubre libros estre nuestras categorías</h4>
+				        <h4>Descubre libros entre nuestras categorías</h4>
 					<div class="categorias">
                                 <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
                                 <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
