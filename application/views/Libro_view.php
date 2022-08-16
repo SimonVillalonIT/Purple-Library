@@ -11,12 +11,17 @@
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"); ?>"></script>
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"); ?>">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title><?php 
         foreach($resultado as $row){
             echo $row->Titulo;
         }
     ?></title>
     <style>
+        footer{
+            margin-top: 50px;
+        }
         body {
             background-color: #171717;
             font-family: "Century Gothic";
@@ -108,7 +113,7 @@
         #buscar {
             position: absolute;
             top: 30px;
-            right: 410px;
+            right: 350px;
             width: 20px;
             height: 20px;
             transition: .2s;
@@ -294,6 +299,10 @@
             transform: scale(1.1);
             border: 2px solid #7000F0;
         }
+        a{
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 
@@ -322,8 +331,14 @@
         <div class="valoraciones">
         <?php
         foreach ($puntuacion->result() as $row) {
+            if($row->Valoracion == null){
+                echo '<div class="val-grl"><h3>Valoraciones Insuficientes</h3></div>';
+            }
+            else{
             echo '<div class="val-grl"><h3>Valoracion general: ★' . round($row->Valoracion, 2) . '</h3></div>';
-        }        
+        }
+            }
+
         if (empty($valoracion)) {
             foreach($resultado as $row){
             echo ('
@@ -410,7 +425,7 @@
         }
         ?>
         </div>
-        <div class="comentacion">
+        <div class="comentacion" data-aos="fade-up">
         <?php
         foreach ($resultado as $row) {
             echo (
@@ -430,6 +445,11 @@
         } ?>
         </div>
     </main>
+    <footer>
+        <div>
+            <h1>Purple</h1>
+        </div>
+    </footer>
     <script>
         const comprar = document.querySelector(".ComprarLibro");
         const tarjeta = document.querySelector(".libro");
@@ -498,6 +518,9 @@
             });
         })
     </script>
+    <script>
+  AOS.init();
+</script>
 </body>
 
 </html>
