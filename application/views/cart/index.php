@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="<?php echo base_url('scripts/Gliderjs_master/glider.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Principal</title>
     <style type="text/css">
         body {
@@ -135,11 +138,39 @@
             width: 100px;
             margin-left: 50px;
         }
+        thead{
+            border-color: #6F1DB9;
+        }
+        .table thead th{
+            border-color: #6F1DB9;
+        }
+        .table th{
+            border-color: #6F1DB9;
+        }
+
+        .table td{
+            border-color: #6F1DB9;
+        }
+        .btn-danger{
+            background-color: #6F1DB9;
+            border-color: #6F1DB9;
+        }
     </style>
 </head>
 
 <body>
-
+<script>
+// Update item quantity
+function updateCartItem(obj, rowid){
+    $.get("<?php echo base_url('index.php/cart/updateItemQty/'); ?>", {rowid:rowid, qty:obj.value}, function(resp){
+        if(resp == 'ok'){
+            location.reload();
+        }else{
+            alert('Cart update failed, please try again.');
+        }
+    });
+}
+</script>
     <header>
         <div class="logo"><img src="<?php echo base_url("imgs/iconos/Logo.png") ?>"></div>
         <div class="buscador">
@@ -158,40 +189,49 @@
     </header>
 
     <main>
-        <div class="container">
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-            <th></th>
-            </tr>
-            <?php if ($this->cart->total_items() > 0) {
-                foreach ($cartItems as $item) {
-                    echo ('
-                <div class="item">
-                    <img src="' . base_url('imgs/libros/' . $item["image"]) . '"><h1>' . $item["name"] . '</h1>
-                </div>
-                ');
-                }
-            } else { ?>
-                <tr>
-                    <td colspan="6">
-                        <p>Your cart is empty.....</p>
-                    </td>
-                <?php } ?>
-                <?php if ($this->cart->total_items() > 0) { ?>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><strong>Cart Total</strong></td>
-                    <td><strong><?php echo '$' . $this->cart->total() . ' USD'; ?></strong></td>
-                    <td></td>
-                </tr>
-            <?php } ?>
-        </div>
+    <?php if($this->cart->total_items() > 0){?>
+    <table class="table table-striped">
+<thead>
+    <tr>
+        <th width="10%"></th>
+        <th width="30%">Producto</th>
+        <th width="15%">Precio</th>
+        <th width="13%">Cantidad</th>
+        <th width="20%" class="text-right">Subtotal</th>
+        <th width="12%"></th>
+    </tr>
+</thead>
+        <?php }?>
+<tbody>
+    <?php if($this->cart->total_items() > 0){ foreach($cartItems as $item){    ?>
+    <tr>
+        <td>
+            <?php $imageURL = !empty($item["image"])?base_url('imgs/libros/'.$item["image"]):base_url('assets/images/pro-demo-img.jpeg'); ?>
+            <img src="<?php echo $imageURL; ?>" width="50"/>
+        </td>
+        <td><?php echo $item["name"]; ?></td>
+        <td><?php echo '$'.$item["price"].' USD'; ?></td>
+        <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item['rowid']; ?>')"></td>
+        <td class="text-right"><?php echo '$'.$item["subtotal"].' USD'; ?></td>
+        <td class="text-right"><button class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro que quiere borrar este libro?')?window.location.href='<?php echo base_url('index.php/cart/removeItem/'.$item['rowid']); ?>':false;">Borrar</button> </td>
+    </tr>
+    <?php } }else{ ?>
+    <tr><td colspan="6"><p>Tu carrito esta vacío.....</p></td>
+    <?php } ?>
+    <?php if($this->cart->total_items() > 0){ ?>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><strong>Cart Total</strong></td>
+        <td class="text-right"><strong><?php echo '$'.$this->cart->total().' USD'; ?></strong></td>
+        <td></td>
+    </tr>
+    <?php } ?>
+</tbody>
+</table>
     </main>
-
+    <button><a href="<?php echo base_url("index.php/Checkout")?>">Checkout</a></button>
     <footer>
 
     </footer>
@@ -248,32 +288,6 @@
         };
 
         $("#provider-json").easyAutocomplete(options);
-    </script>
-    <script>
-        window.addEventListener('load', function() {
-            new Glider(document.querySelector('.glider'), {
-                slidesToShow: 5,
-                slidesToScroll: 5,
-                draggable: true,
-                dots: '.dots',
-                arrows: {
-                    prev: '.glider-prev',
-                    next: '.glider-next'
-                }
-            });
-        })
-    </script>
-    <script>
-        new Glider(document.querySelector('.gliders'), {
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            draggable: true,
-            dots: '.dotss',
-            arrows: {
-                prev: '.glider-prevs',
-                next: '.glider-nexts'
-            }
-        });
     </script>
 </body>
 

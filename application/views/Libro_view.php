@@ -22,13 +22,12 @@
         footer{
             margin-top: 50px;
         }
-        body {
+        body{
             background-color: #171717;
             font-family: "Century Gothic";
             margin: 0;
             color: white;
         }
-
         h1 {
             color: white;
             margin: 0;
@@ -181,8 +180,11 @@
             direction: rtl;
             unicode-bidi: bidi-override;
             font-size: 20px;
+            transition: .3s;    
         }
-
+        .clasificacion:hover{
+            transform: scale(1.2);    
+        }
         label:hover,
         label:hover~label {
             color: RGB(118, 19, 183);
@@ -228,7 +230,7 @@
             width: 100%;
             margin-left: 70px;
         }
-        .comentar input{
+        #caja {
             width: 1000px;
             height: 50px;
         }
@@ -299,9 +301,27 @@
             transform: scale(1.1);
             border: 2px solid #7000F0;
         }
+        .boton{
+            background-color: rgba(136, 33, 226, 0.3);
+            width: 120px;
+            height: 50px;
+            border-radius: 6px;
+            color:white;
+            font-size: 18px;
+            border:3px solid #141414;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .boton:hover{
+            transform: scale(1.1);
+            border: 2px solid #7000F0;
+        }
         a{
             text-decoration: none;
             color: white;
+        }
+        #comentar{
+            margin-left: 20px;
         }
     </style>
 </head>
@@ -326,7 +346,7 @@
     <main>
         <?php
         foreach ($resultado as $row) {
-            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="info"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p></div><button class="ComprarLibro"><a href="'.base_url('index.php/products/addToCart/'.$row->ID).'" class="btn btn-primary">Add to Cart</a></button></div>');
+            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="info"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p></div><button class="ComprarLibro"><a href="'.base_url('index.php/products/addToCart/'.$row->ID).'" class="btn btn-primary">Agregar al carrito</a></button></div>');
         } ?>
         <div class="valoraciones">
         <?php
@@ -431,8 +451,8 @@
             echo (
         '<div class="comentar">
             <form method="POST" action="' . base_url("index.php/Libro_controller/comentar/" . $row->ID) . '">
-                <input type="text" name="comentario">
-                <button type="submit">Comentar</button>
+                <input type="text" name="comentario" id="caja">
+                <button class="boton" id="comentar" type="submit">Comentar</button>
             </form>
         </div>');
         }
@@ -446,9 +466,6 @@
         </div>
     </main>
     <footer>
-        <div>
-            <h1>Purple</h1>
-        </div>
     </footer>
     <script>
         const comprar = document.querySelector(".ComprarLibro");
