@@ -171,9 +171,9 @@
             transform: scale(1.1);
             border: 2px solid #7000F0;
         }
-        a{
-            text-decoration: none;
-            color: white;
+        #comprar{
+            position: absolute;
+            right: 20px;
         }
     </style>
 </head>
@@ -251,7 +251,7 @@ function updateCartItem(obj, rowid){
 </tbody>
 </table>
     </main>
-    <button class="boton"><a href="<?php echo base_url("index.php/Compra/buy")?>">Verificar</a></button>
+    <a href="<?php echo base_url("index.php/Compra/buy")?>"><button class="boton" id="comprar">Comprar</button></a>
     <footer>
 
     </footer>
