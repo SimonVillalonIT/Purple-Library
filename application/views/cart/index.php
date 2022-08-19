@@ -155,6 +155,26 @@
             background-color: #6F1DB9;
             border-color: #6F1DB9;
         }
+        .boton {
+            background-color: rgba(136, 33, 226, 0.3);
+            width: 120px;
+            height: 50px;
+            border-radius: 6px;
+            color: white;
+            font-size: 18px;
+            border: 3px solid #141414;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .boton:hover {
+            transform: scale(1.1);
+            border: 2px solid #7000F0;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 
@@ -231,7 +251,7 @@ function updateCartItem(obj, rowid){
 </tbody>
 </table>
     </main>
-    <button><a href="<?php echo base_url("index.php/Compra/buy")?>">Checkout</a></button>
+    <button class="boton"><a href="<?php echo base_url("index.php/Compra/buy")?>">Checkout</a></button>
     <footer>
 
     </footer>
