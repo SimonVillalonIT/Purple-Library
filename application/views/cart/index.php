@@ -251,7 +251,7 @@ function updateCartItem(obj, rowid){
 </tbody>
 </table>
     </main>
-    <button class="boton"><a href="<?php echo base_url("index.php/Compra/buy")?>">Checkout</a></button>
+    <button class="boton"><a href="<?php echo base_url("index.php/Compra/buy")?>">Verificar</a></button>
     <footer>
 
     </footer>
