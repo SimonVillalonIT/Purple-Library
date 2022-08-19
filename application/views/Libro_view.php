@@ -13,21 +13,23 @@
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"); ?>">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title><?php 
-        foreach($resultado as $row){
-            echo $row->Titulo;
-        }
-    ?></title>
+    <title><?php
+            foreach ($resultado as $row) {
+                echo $row->Titulo;
+            }
+            ?></title>
     <style>
-        footer{
+        footer {
             margin-top: 50px;
         }
-        body{
+
+        body {
             background-color: #171717;
             font-family: "Century Gothic";
             margin: 0;
             color: white;
         }
+
         h1 {
             color: white;
             margin: 0;
@@ -95,10 +97,11 @@
             margin-right: auto;
         }
 
-        .buscador{
+        .buscador {
             width: min-content;
             height: min-content;
         }
+
         .buscador form {
             display: flex;
             color: black;
@@ -112,7 +115,7 @@
         #buscar {
             position: absolute;
             top: 30px;
-            right: 350px;
+            right: 330px;
             width: 20px;
             height: 20px;
             transition: .2s;
@@ -180,11 +183,13 @@
             direction: rtl;
             unicode-bidi: bidi-override;
             font-size: 20px;
-            transition: .3s;    
+            transition: .3s;
         }
-        .clasificacion:hover{
-            transform: scale(1.2);    
+
+        .clasificacion:hover {
+            transform: scale(1.2);
         }
+
         label:hover,
         label:hover~label {
             color: RGB(118, 19, 183);
@@ -211,7 +216,7 @@
             height: 400px;
             margin-left: 75px;
             margin-top: 125px;
-            -webkit-box-shadow: 0px 0px 50px 9px #871F78; 
+            -webkit-box-shadow: 0px 0px 50px 9px #871F78;
             border-radius: 6px;
             box-shadow: 0px 0px 50px 9px #871F78;
         }
@@ -225,15 +230,18 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        .comentar{
+
+        .comentar {
             margin-top: 20px;
             width: 100%;
             margin-left: 70px;
         }
+
         #caja {
             width: 1000px;
             height: 50px;
         }
+
         .comentario p {
             margin: 10px;
         }
@@ -242,92 +250,108 @@
             width: 50px;
             height: auto;
         }
-        .valoraciones{
+
+        .valoraciones {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-left: 100px;
         }
-        .valoraciones label{
+
+        .valoraciones label {
             font-size: 1.17em;
         }
+
         .pintado {
             color: RGB(118, 19, 183);
         }
-        .valorar p{
+
+        .valorar p {
             margin: 0;
             padding: 0;
         }
-        .valorar{
+
+        .valorar {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .valorar form{
+
+        .valorar form {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
         }
-        .val-grl{
+
+        .val-grl {
             height: fit-content;
         }
-        .Estrellas{
+
+        .Estrellas {
             display: flex;
             margin: 0;
-            margin-left:15px;
+            margin-left: 15px;
             align-items: center;
         }
-        .Estrellas h3{
+
+        .Estrellas h3 {
             margin: 0;
-            padding:0;
+            padding: 0;
         }
-        .Valoracion{
+
+        .Valoracion {
             display: flex;
             flex-direction: column;
         }
-        .ComprarLibro{
+
+        .ComprarLibro {
             background-color: rgba(136, 33, 226, 0.3);
             width: 120px;
             height: 50px;
             border-radius: 6px;
-            color:white;
+            color: white;
             font-size: 18px;
-            border:3px solid #141414;
+            border: 3px solid #141414;
             cursor: pointer;
             transition: .3s;
         }
-        .ComprarLibro:hover{
+
+        .ComprarLibro:hover {
             transform: scale(1.1);
             border: 2px solid #7000F0;
         }
-        .boton{
+
+        .boton {
             background-color: rgba(136, 33, 226, 0.3);
             width: 120px;
             height: 50px;
             border-radius: 6px;
-            color:white;
+            color: white;
             font-size: 18px;
-            border:3px solid #141414;
+            border: 3px solid #141414;
             cursor: pointer;
             transition: .3s;
         }
-        .boton:hover{
+
+        .boton:hover {
             transform: scale(1.1);
             border: 2px solid #7000F0;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: white;
         }
-        #comentar{
+
+        #comentar {
             margin-left: 20px;
         }
     </style>
 </head>
 
 <body>
-<header>
+    <header>
         <div class="logo"><img src="<?php echo base_url("imgs/iconos/Logo.png") ?>"></div>
         <div class="buscador">
             <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
@@ -338,7 +362,7 @@
 
         <div class="links">
             <li><a href="<?php echo base_url('index.php/private_area'); ?>"><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></a></li>
-            <li><a href="<?php echo base_url("index.php/cart")?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png");?>"></a></li>
+            <li><a href="<?php echo base_url("index.php/cart") ?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png"); ?>"></a></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
             <li><a href="<?php echo base_url('index.php/private_area/logout'); ?>"><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></a></li>
         </div>
@@ -346,24 +370,23 @@
     <main>
         <?php
         foreach ($resultado as $row) {
-            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="info"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p></div><button class="ComprarLibro"><a href="'.base_url('index.php/products/addToCart/'.$row->ID).'" class="btn btn-primary">Agregar al carrito</a></button></div>');
+            echo ('<img class="imagenLibro" src="' . base_url("imgs/libros/" . $row->img) . '"><div class="info"><div class="textoLibro"><h2>' . $row->Titulo . '</h2><h3>' . $row->Autor . '</h3><p>' . $row->Descripcion . '</p></div><button class="ComprarLibro"><a href="' . base_url('index.php/products/addToCart/' . $row->ID) . '" class="btn btn-primary">Agregar al carrito</a></button></div>');
         } ?>
         <div class="valoraciones">
-        <?php
-        foreach ($puntuacion->result() as $row) {
-            if($row->Valoracion == null){
-                echo '<div class="val-grl"><h3>Valoraciones Insuficientes</h3></div>';
-            }
-            else{
-            echo '<div class="val-grl"><h3>Valoracion general: ★' . round($row->Valoracion, 2) . '</h3></div>';
-        }
+            <?php
+            foreach ($puntuacion->result() as $row) {
+                if ($row->Valoracion == null) {
+                    echo '<div class="val-grl"><h3>Valoraciones Insuficientes</h3></div>';
+                } else {
+                    echo '<div class="val-grl"><h3>Valoracion general: ★' . round($row->Valoracion, 2) . '</h3></div>';
+                }
             }
 
-        if (empty($valoracion)) {
-            foreach($resultado as $row){
-            echo ('
+            if (empty($valoracion)) {
+                foreach ($resultado as $row) {
+                    echo ('
             <div class="valorar">
-        <form method="POST" action="' . base_url("index.php/Libro_controller/valorar/".$row->ID) . '" id="#form">
+        <form method="POST" action="' . base_url("index.php/Libro_controller/valorar/" . $row->ID) . '" id="#form">
             <p class="clasificacion">
             <input id="radio1" type="radio" name="estrellas" value="5">
             <label for="radio1">★</label>
@@ -377,11 +400,12 @@
             <label for="radio5">★</label>
         </p>
         <button class="ComprarLibro" type="submit">Calificar</button>
-</form></div>');}
-        } else {
-            foreach ($valoracion as $row) {
-                if ($row->Valoracion == 1) {
-                    echo ('
+</form></div>');
+                }
+            } else {
+                foreach ($valoracion as $row) {
+                    if ($row->Valoracion == 1) {
+                        echo ('
                     <div class="Valoracion">
                     <h3>Tu valoracion<h3>
                     <div class="Estrellas">
@@ -392,8 +416,8 @@
                         <h3>★</h3>
                     </div>
                     </div>');
-                } elseif ($row->Valoracion == 2) {
-                    echo ('
+                    } elseif ($row->Valoracion == 2) {
+                        echo ('
                     <div class="Valoracion">
                     <h3>Tu valoracion<h3>
                     <div class="Estrellas">
@@ -404,8 +428,8 @@
                         <h3>★</h3>
                     </div>
                     </div>');
-                } elseif ($row->Valoracion == 3) {
-                    echo ('
+                    } elseif ($row->Valoracion == 3) {
+                        echo ('
                     <div class="Valoracion">
                     <h3>Tu valoracion<h3>
                     <div class="Estrellas">
@@ -416,8 +440,8 @@
                         <h3>★</h3>
                     </div>
                     </div>');
-                } elseif ($row->Valoracion == 4) {
-                    echo ('
+                    } elseif ($row->Valoracion == 4) {
+                        echo ('
                     <div class="Valoracion">
                     <h3>Tu valoracion<h3>
                     <div class="Estrellas">
@@ -428,8 +452,8 @@
                         <h3>★</h3>
                     </div>
                     </div>');
-                } elseif ($row->Valoracion == 5) {
-                    echo ('
+                    } elseif ($row->Valoracion == 5) {
+                        echo ('
                     <div class="Valoracion">
                     <h3>Tu valoracion<h3>
                     <div class="Estrellas">
@@ -440,29 +464,28 @@
                         <h3 class="pintado">★</h3>
                     </div>
                     </div>');
+                    }
                 }
             }
-        }
-        ?>
+            ?>
         </div>
         <div class="comentacion" data-aos="fade-up">
-        <?php
-        foreach ($resultado as $row) {
-            echo (
-        '<div class="comentar">
+            <?php
+            foreach ($resultado as $row) {
+                echo ('<div class="comentar">
             <form method="POST" action="' . base_url("index.php/Libro_controller/comentar/" . $row->ID) . '">
                 <input type="text" name="comentario" id="caja">
                 <button class="boton" id="comentar" type="submit">Comentar</button>
             </form>
         </div>');
-        }
-        ?>
-        <?php foreach ($comentarios as $row) {
-            echo '<div class="comentario"><img src="' . base_url("imgs/iconos/avatar.svg") . '">';
-            echo '<p>' . $row->Nombre . '</p>';
-            echo '<p>' . $row->Contenido . '</p>';
-            echo '<p>' . $row->Fecha . '</p></div>';
-        } ?>
+            }
+            ?>
+            <?php foreach ($comentarios as $row) {
+                echo '<div class="comentario"><img src="' . base_url("imgs/iconos/avatar.svg") . '">';
+                echo '<p>' . $row->Nombre . '</p>';
+                echo '<p>' . $row->Contenido . '</p>';
+                echo '<p>' . $row->Fecha . '</p></div>';
+            } ?>
         </div>
     </main>
     <footer>
@@ -470,12 +493,13 @@
     <script>
         const comprar = document.querySelector(".ComprarLibro");
         const tarjeta = document.querySelector(".libro");
+
         function redirigir(id) {
             window.location.href = "<?php echo base_url("index.php/Libro_controller/cargarpagina/"); ?>" + id;
         }
     </script>
 
-<script>
+    <script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
             getValue: "Titulo",
@@ -536,8 +560,8 @@
         })
     </script>
     <script>
-  AOS.init();
-</script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

@@ -103,7 +103,7 @@
         #buscar {
             position: absolute;
             top: 30px;
-            right: 375px;
+            right: 395px;
             width: 20px;
             height: 20px;
             transition: .2s;
@@ -231,7 +231,7 @@ function updateCartItem(obj, rowid){
 </tbody>
 </table>
     </main>
-    <button><a href="<?php echo base_url("index.php/Checkout")?>">Checkout</a></button>
+    <button><a href="<?php echo base_url("index.php/Compra/buy")?>">Checkout</a></button>
     <footer>
 
     </footer>
