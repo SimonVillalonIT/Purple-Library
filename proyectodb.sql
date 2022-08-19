@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-08-2022 a las 00:02:28
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.7
+-- Tiempo de generación: 19-08-2022 a las 19:18:07
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -315,9 +315,9 @@ CREATE TABLE `libro` (
 --
 
 INSERT INTO `libro` (`ID`, `Titulo`, `Autor`, `Descripcion`, `img`, `Precio`) VALUES
-(1, 'El Imperio Final', 'Brandon Sanderson', 'Durante mil años la ceniza cayó y no floreció ninguna flor. Durante mil años los Skaa se esclavizaron en la miseria y vivieron con miedo. Durante mil años, el Lord Legislador, la \"Astilla del Infinito\", reinó con poder absoluto y terror definitivo, divinamente invencible. Entonces, cuando la esperanza estaba tan perdida que ni siquiera quedaba su recuerdo, un medio Skaa terriblemente marcado y con el corazón roto la redescubrió en las profundidades de la prisión más infernal del Señor Gobernante. Kelsier \"rompió\" y encontró en sí mismo los poderes de un Mistborn. Ladrón brillante y líder natural, volcó su talento en la última travesura, con el propio Lord Gobernante como objetivo.', 'Elimperiofinal.jpg', 0),
-(2, 'El Nombre Del Viento', 'Patrick Rothfuss', 'Contada con la propia voz de Kvothe, esta es la historia del joven con dotes mágicas que se convierte en el mago más famoso que su mundo haya visto jamás.\r\nLa narración íntima de su infancia en una compañía de jugadores ambulantes, los años que pasó como huérfano casi salvaje en una ciudad plagada de delincuencia, su atrevido y exitoso intento de entrar en una legendaria escuela de magia y su vida como fugitivo tras el asesinato de un rey forman una apasionante historia de madurez sin parangón en la literatura reciente.', 'Elnombredelviento.jpg', 0),
-(43, 'Harry Potter y la Piedra Filosofal', ' J.K. Rowling', 'La vida de Harry Potter es miserable. Sus padres han muerto y está atrapado con sus despiadados parientes, que le obligan a vivir en un pequeño armario bajo la escalera. Pero su suerte cambia cuando recibe una carta que le dice la verdad sobre sí mismo: es un mago. Un misterioso visitante lo rescata de sus parientes y lo lleva a su nuevo hogar, el Colegio Hogwarts de Magia y Hechicería.\r\nDespués de toda una vida reprimiendo sus poderes mágicos, Harry por fin se siente un niño normal. Pero incluso dentro de la comunidad de magos, él es especial. Es el niño que vivió: la única persona que ha sobrevivido a una maldición asesina infligida por el malvado Lord Voldemort, que lanzó una brutal toma ', 'HarryPotterylaPiedraFilosofal.jpg', 0),
+(1, 'El Imperio Final', 'Brandon Sanderson', 'Durante mil años la ceniza cayó y no floreció ninguna flor. Durante mil años los Skaa se esclavizaron en la miseria y vivieron con miedo. Durante mil años, el Lord Legislador, la \"Astilla del Infinito\", reinó con poder absoluto y terror definitivo, divinamente invencible. Entonces, cuando la esperanza estaba tan perdida que ni siquiera quedaba su recuerdo, un medio Skaa terriblemente marcado y con el corazón roto la redescubrió en las profundidades de la prisión más infernal del Señor Gobernante. Kelsier \"rompió\" y encontró en sí mismo los poderes de un Mistborn. Ladrón brillante y líder natural, volcó su talento en la última travesura, con el propio Lord Gobernante como objetivo.', 'Elimperiofinal.jpg', 5),
+(2, 'El Nombre Del Viento', 'Patrick Rothfuss', 'Contada con la propia voz de Kvothe, esta es la historia del joven con dotes mágicas que se convierte en el mago más famoso que su mundo haya visto jamás.\r\nLa narración íntima de su infancia en una compañía de jugadores ambulantes, los años que pasó como huérfano casi salvaje en una ciudad plagada de delincuencia, su atrevido y exitoso intento de entrar en una legendaria escuela de magia y su vida como fugitivo tras el asesinato de un rey forman una apasionante historia de madurez sin parangón en la literatura reciente.', 'Elnombredelviento.jpg', 3),
+(43, 'Harry Potter y la Piedra Filosofal', ' J.K. Rowling', 'La vida de Harry Potter es miserable. Sus padres han muerto y está atrapado con sus despiadados parientes, que le obligan a vivir en un pequeño armario bajo la escalera. Pero su suerte cambia cuando recibe una carta que le dice la verdad sobre sí mismo: es un mago. Un misterioso visitante lo rescata de sus parientes y lo lleva a su nuevo hogar, el Colegio Hogwarts de Magia y Hechicería.\r\nDespués de toda una vida reprimiendo sus poderes mágicos, Harry por fin se siente un niño normal. Pero incluso dentro de la comunidad de magos, él es especial. Es el niño que vivió: la única persona que ha sobrevivido a una maldición asesina infligida por el malvado Lord Voldemort, que lanzó una brutal toma ', 'HarryPotterylaPiedraFilosofal.jpg', 10),
 (44, 'El Camino de los Reyes', 'Brandon Sanderson', 'Roshar es un mundo de piedra y tormentas. Las tormentas de increíble poder barren el terreno rocoso con tanta frecuencia que han moldeado la ecología y la civilización por igual. Los animales se esconden en caparazones, los árboles se retraen en las ramas y la hierba se retrae en el suelo sin tierra. Las ciudades se construyen sólo donde la topografía ofrece refugio.\r\n\r\nHan pasado siglos desde la caída de las diez órdenes consagradas conocidas como los Caballeros Radiantes, pero sus Esquirlas permanecen: espadas místicas y trajes de armadura que transforman a los hombres ordinarios en guerreros casi invencibles. Los hombres cambian reinos por Esquirlas. Las guerras se libraron por ellos y se', 'ElCaminodelosReyes.jpg', 0),
 (45, 'La Brújula Dorada', 'Philip Pullman', 'Lyra se precipita al frío y lejano Norte, donde gobiernan los clanes de brujas y los osos acorazados. El Norte, donde los Devoradores se llevan a los niños que roban, incluido su amigo Roger. El Norte, donde su temible tío Asriel está intentando construir un puente hacia un mundo paralelo.\r\n¿Puede una pequeña niña marcar la diferencia en tan grandes y terribles esfuerzos? Ella es Lyra: una salvaje, una intrigante, una mentirosa, y una campeona tan feroz y verdadera como Roger o Asriel podrían desear pero lo que Lyra no sabe es que ayudar a uno de ellos será traicionar al otro.', 'LaBrujulaDorada.jpg', 0),
 (46, 'El Ojo Del Mundo', 'Robert Jordan', 'La Rueda del Tiempo gira y las Edades van y vienen, dejando recuerdos que se convierten en leyenda. La leyenda se desvanece y se convierte en mito, e incluso el mito se olvida hace tiempo cuando la Era que lo originó regresa de nuevo. En la Tercera Edad, la Edad de la Profecía, el mundo y el propio tiempo penden de un hilo. Lo que fue, lo que será y lo que es, aún puede caer bajo la Sombra.\r\nCuando Los Dos Ríos es atacado por los Trollocs una tribu salvaje de mitad hombres, mitad bestias cinco aldeanos huyen esa noche a un mundo que apenas imaginaban, con nuevos peligros esperando en las sombras y en la luz.', 'ElOjoDelMundo.jpg', 0),
@@ -482,31 +482,20 @@ INSERT INTO `libro` (`ID`, `Titulo`, `Autor`, `Descripcion`, `img`, `Precio`) VA
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `orders`
+-- Estructura de tabla para la tabla `payments`
 --
 
-CREATE TABLE `orders` (
+CREATE TABLE `payments` (
   `id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `grand_total` float(10,2) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `status` enum('1','0') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '1' COMMENT '1=Active | 0=Inactive'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `order_items`
---
-
-CREATE TABLE `order_items` (
-  `id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `quantity` int(5) NOT NULL,
-  `sub_total` float(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_id` int(11) DEFAULT NULL,
+  `txn_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `payment_gross` float(10,2) NOT NULL,
+  `currency_code` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `payer_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `payer_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -607,18 +596,10 @@ ALTER TABLE `libro`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `orders`
+-- Indices de la tabla `payments`
 --
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `customer_id` (`customer_id`);
-
---
--- Indices de la tabla `order_items`
---
-ALTER TABLE `order_items`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `order_id` (`order_id`);
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuario`
@@ -669,15 +650,9 @@ ALTER TABLE `libro`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
--- AUTO_INCREMENT de la tabla `orders`
+-- AUTO_INCREMENT de la tabla `payments`
 --
-ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `order_items`
---
-ALTER TABLE `order_items`
+ALTER TABLE `payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -716,18 +691,6 @@ ALTER TABLE `categoriausuario`
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`IDUsuario`) REFERENCES `usuario` (`ID`),
   ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`IDLibro`) REFERENCES `libro` (`ID`);
-
---
--- Filtros para la tabla `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `usuario` (`ID`);
-
---
--- Filtros para la tabla `order_items`
---
-ALTER TABLE `order_items`
-  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 --
 -- Filtros para la tabla `valoracion`
