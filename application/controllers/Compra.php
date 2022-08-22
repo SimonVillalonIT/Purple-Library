@@ -44,6 +44,7 @@ class Compra extends CI_Controller{
         $this->paypal_lib->add_field('custom', $userID); 
         //$this->paypal_lib->add_field('item_number',  $product['ID']); 
         $this->paypal_lib->add_field('amount',  $this->cart->total()); 
+        $this->paypal_lib->image(base_url("imgs/iconos/Logo.png"));
          
         // Render paypal form 
         $this->paypal_lib->paypal_auto_form(); 

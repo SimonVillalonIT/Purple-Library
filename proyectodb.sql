@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2022 a las 19:18:07
+-- Tiempo de generación: 22-08-2022 a las 16:42:02
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -482,24 +482,6 @@ INSERT INTO `libro` (`ID`, `Titulo`, `Autor`, `Descripcion`, `img`, `Precio`) VA
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `payments`
---
-
-CREATE TABLE `payments` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `txn_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `payment_gross` float(10,2) NOT NULL,
-  `currency_code` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
-  `payer_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `payer_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `status` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -596,12 +578,6 @@ ALTER TABLE `libro`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `payments`
---
-ALTER TABLE `payments`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -648,12 +624,6 @@ ALTER TABLE `comentario`
 --
 ALTER TABLE `libro`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
-
---
--- AUTO_INCREMENT de la tabla `payments`
---
-ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
