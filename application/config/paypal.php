@@ -17,7 +17,7 @@
  
 $config['sandbox'] = TRUE; // FALSE for live environment 
  
-$config['business'] = 'purpleasociados@gmail.com'; // 
+$config['business'] = 'sb-nz7g020396464@business.example.com'; // 
  
 $config['paypal_lib_currency_code'] = 'USD'; 
  
