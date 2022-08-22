@@ -44,6 +44,7 @@
             align-items: center;
             border-bottom: 2px solid #6F1DB9;
             width: 100%;
+            z-index: 99;
         }
 
         header a {
@@ -201,9 +202,12 @@
         }
 
         .comentario {
-            display: flex;
             padding: 10px;
             align-items: center;
+            margin-left: 60px;
+            margin-top: 20px;
+            border:3px solid rgba(136, 33, 226, 0.3);
+            border-radius:10px;
         }
 
         main {
@@ -242,13 +246,8 @@
             height: 50px;
         }
 
-        .comentario p {
-            margin: 10px;
-        }
-
         .comentario img {
-            width: 50px;
-            height: auto;
+            width: 30px;
         }
 
         .valoraciones {
@@ -346,6 +345,38 @@
 
         #comentar {
             margin-left: 20px;
+        }
+
+        #caja {
+            background-color: rgba(136, 33, 226, 0.1);
+            border: none;
+            border-radius: 6px;
+            padding-left: 20px;
+            color: white;
+            transition: .3s;
+        }
+
+        #caja:focus {
+            border-color: rgb(136, 33, 226);
+            box-shadow: 0 1px 1px rgba(136, 33, 226, 0.075)inset, 0 0 8px rgba(136, 33, 226, 0.6);
+            outline: 0 none;
+            transform: scale(1.05);
+            margin:0 20px;
+        }
+
+        #caja:focus ~ #comentar{
+            margin-left: 10px;
+        }
+        .referencia{
+            display: flex;
+            font-size: 12px;
+            
+        }
+        .referencia p{
+            margin: 10px;
+        }
+        .content{
+            margin-left: 40px;
         }
     </style>
 </head>
@@ -474,17 +505,17 @@
             foreach ($resultado as $row) {
                 echo ('<div class="comentar">
             <form method="POST" action="' . base_url("index.php/Libro_controller/comentar/" . $row->ID) . '">
-                <input type="text" name="comentario" id="caja">
+                <input type="text" name="comentario" placeholder="Escribe tu comentario aquí" id="caja">
                 <button class="boton" id="comentar" type="submit">Comentar</button>
             </form>
         </div>');
             }
             ?>
             <?php foreach ($comentarios as $row) {
-                echo '<div class="comentario"><img src="' . base_url("imgs/iconos/avatar.svg") . '">';
+                echo '<div class="comentario"><div class="referencia"><img src="' . base_url("imgs/iconos/avatar.svg") . '">';
                 echo '<p>' . $row->Nombre . '</p>';
-                echo '<p>' . $row->Contenido . '</p>';
                 echo '<p>' . $row->Fecha . '</p></div>';
+                echo '<p class="content">' . $row->Contenido . '</p></div>';
             } ?>
         </div>
     </main>
