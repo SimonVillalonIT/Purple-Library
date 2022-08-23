@@ -2,17 +2,15 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="<?php echo base_url("imgs/iconos/Logo.png"); ?>">
+    <title><?php echo $user[0]->Nombre; ?></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="<?php echo base_url("scripts/Gliderjs_master/glider.js") ?>"></script>
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"); ?>"></script>
-    <link rel="stylesheet" href="<?php echo base_url('scripts/Gliderjs_master/glider.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css"); ?>">
-
-    <title></title>
     <style type="text/css">
         body {
             background-color: #171717;
@@ -151,7 +149,6 @@
             window.location.href = "<?php echo base_url("index.php/Libro_controller/cargarpagina/"); ?>" + id;
         }
     </script>
-
     <script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
