@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?php echo base_url('scripts/Gliderjs_master/glider.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Principal</title>
     <style type="text/css">
         body {
@@ -48,6 +49,24 @@
             transition: .2s;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #barra {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 30px;
+            cursor: pointer;
+        }
+
+        #barra:hover {
+            filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
+        }
+
         .logo img {
             width: 80px;
         }
@@ -75,10 +94,40 @@
         }
 
         main {
-            padding-top:40px;
+            padding-top: 40px;
             color: white;
         }
 
+        nav {
+            display: none;
+        }
+
+        .verse {
+            display: flex;
+            flex-direction: column;
+            margin-top: 75px;
+            z-index: 99;
+            background-color: rgba(23, 23, 23,0.9);
+            position: fixed;
+            height: 100vh;
+            width: 15%;
+            color:white;
+        }
+        .verse li{
+            text-decoration: none;
+            list-style: none;
+            margin-top: 20px;
+            transition: .5s;
+            cursor:pointer;
+            border-bottom: 2px solid rgba(23, 23, 23,0.9);
+            width: fit-content;
+        }
+        .verse li:hover{
+            border-bottom: 2px solid #6F1DB9;
+        }
+        .verse h3{
+            margin-left: 40px;
+        }
         .logo {
             width: 150px;
             display: flex;
@@ -103,14 +152,15 @@
         }
 
         #buscar {
-            position: absolute;
-            top: 30px;
-            right: 370px;
+            top: 15px;
+            right: 30px;
+            position: relative;
             width: 20px;
             height: 20px;
             transition: .2s;
             filter: invert(84%) sepia(11%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%);
         }
+
 
         #buscar:hover {
             filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
@@ -185,7 +235,10 @@
 <body>
 
     <header>
-        <div class="logo"><img src="<?php echo base_url("imgs/iconos/Logo.png") ?>"></div>
+        <div class="logo">
+            <img id="barra" src="<?php echo base_url("imgs/iconos/barra.png") ?>">
+            <img src="<?php echo base_url("imgs/iconos/Logo.png") ?>">
+        </div>
         <div class="buscador">
             <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
                 <input id="provider-json" name="keyword">
@@ -200,8 +253,21 @@
             <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
         </div>
     </header>
-
+    <nav class="animate__animated" id="nav">
+        <h3>Categorias</h3>
+        <ul>
+            <li><a>Romance</a></li>
+            <li><a>Fantasia</a></li>
+            <li><a>Ciencia Ficcion</a></li>
+            <li><a>No Ficcion</a></li>
+            <li><a>Misterio</a></li>
+            <li><a>Humor</a></li>
+            <li><a>Arte</a></li>
+            <li><a>Horror</a></li>
+        </ul>
+    </nav>
     <main>
+
         <div class="recomendaciones">
             <h1>
                 Recomendaciones
@@ -258,7 +324,7 @@
             window.location.href = "<?php echo base_url('index.php/private_area'); ?>";
         });
         btn_user.addEventListener('click', () => {
-            window.location.href = "<?php echo base_url('index.php/Usuario')?>";
+            window.location.href = "<?php echo base_url('index.php/Usuario') ?>";
         });
 
         function redirigir(id) {
@@ -325,6 +391,15 @@
                 next: '.glider-nexts'
             }
         });
+    </script>
+    <script>
+        const barra = document.getElementById("barra");
+        const nav = document.getElementById("nav");
+
+        barra.addEventListener("click", () => {
+            nav.classList.toggle("verse");
+            nav.classList.toggle("animate__fadeInLeft")
+        })
     </script>
 </body>
 

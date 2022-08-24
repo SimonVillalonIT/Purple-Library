@@ -98,9 +98,9 @@
         }
 
         #buscar {
-            position: absolute;
-            top: 30px;
-            right: 370px;
+            top: 15px;
+            right: 30px;
+            position: relative;
             width: 20px;
             height: 20px;
             transition: .2s;

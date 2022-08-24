@@ -20,7 +20,11 @@ class Buscador_controller extends CI_Controller {
         $datos['resultado'] = $this->Buscador_model->mostrarbusqueda($palabra);
         $this->load->view('Busquedas_view',$datos);
         }}
+        public function buscar_categoria($id){
+            $this->db->query("SELECT * FROM libro Where categoria =".$id);
+        }
     }
+    
     
 
 ?>

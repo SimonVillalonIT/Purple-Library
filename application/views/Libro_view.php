@@ -114,14 +114,15 @@
         }
 
         #buscar {
-            position: absolute;
-            top: 30px;
-            right: 330px;
+            top: 15px;
+            right: 30px;
+            position: relative;
             width: 20px;
             height: 20px;
             transition: .2s;
             filter: invert(84%) sepia(11%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%);
         }
+
 
         #buscar:hover {
             filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
