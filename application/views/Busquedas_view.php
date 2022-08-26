@@ -12,6 +12,7 @@
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"); ?>"></script>
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.min.css"); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style type="text/css">
         body {
             background-color: #171717;
@@ -19,21 +20,47 @@
             margin: 0;
         }
 
+        h1 {
+            color: white;
+            margin: 0;
+            margin-left: 20px;
+        }
+
+        /*                 HEADER                  */
+
         header {
+            z-index: 99;
+            background-color: #171717;
+            position: fixed;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #6F1DB9;
         }
 
-        header a {
-            margin-right: 20px;
-        }
-
         header img {
             width: 20px;
             height: auto;
             transition: .2s;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #barra {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 30px;
+            cursor: pointer;
+        }
+
+        #barra:hover {
+            filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
         }
 
         .logo img {
@@ -63,6 +90,46 @@
         }
 
         main {
+            padding-top: 80px;
+            color: white;
+        }
+
+        nav {
+            display: none;
+        }
+
+        .verse {
+            display: flex;
+            flex-direction: column;
+            margin-top: 75px;
+            z-index: 99;
+            background-color: rgba(23, 23, 23, 0.9);
+            position: fixed;
+            height: 100vh;
+            width: 15%;
+            color: white;
+        }
+
+        .verse li {
+            text-decoration: none;
+            list-style: none;
+            margin-top: 20px;
+            transition: .5s;
+            cursor: pointer;
+            border-bottom: 2px solid rgba(23, 23, 23, 0.9);
+            width: fit-content;
+        }
+
+        .verse li:hover {
+            border-bottom: 2px solid #6F1DB9;
+        }
+
+        .verse h3 {
+            margin-left: 40px;
+        }
+
+        .verse a {
+            text-decoration: none;
             color: white;
         }
 
@@ -103,6 +170,7 @@
         #buscar:hover {
             filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
         }
+
 
         .error .texto {
             width: 97.5%;
@@ -165,8 +233,11 @@
 </head>
 
 <body>
-<header>
-        <div class="logo"><img src="<?php echo base_url("imgs/iconos/Logo.png") ?>"></div>
+    <header>
+        <div class="logo">
+            <img id="barra" src="<?php echo base_url("imgs/iconos/barra.png") ?>">
+            <img src="<?php echo base_url("imgs/iconos/Logo.png") ?>">
+        </div>
         <div class="buscador">
             <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
                 <input id="provider-json" name="keyword">
@@ -176,11 +247,24 @@
 
         <div class="links">
             <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
-            <li><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png");?>"></li>
+            <li><a href="<?php echo base_url("index.php/cart") ?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png"); ?>"></a></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
             <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
         </div>
     </header>
+    <nav class="animate__animated" id="nav">
+        <h3>Categorias</h3>
+        <ul>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/3") ?>">Romance</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/2") ?>">Fantasia</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/1") ?>">Ciencia Ficcion</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/5") ?>">No Ficcion</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/8") ?>">Misterio</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/4") ?>">Humor</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/7") ?>">Arte</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/6") ?>">Horror</a></li>
+        </ul>
+    </nav>
     <main>
         <?php
         if ($resultado == "error") {
@@ -220,7 +304,7 @@
         };
     </script>
 
-<script>
+    <script>
         var options = {
             url: "<?php echo base_url('index.php/Buscador_controller/buscar') ?>",
             getValue: "Titulo",
@@ -265,6 +349,15 @@
                 next: '.glider-nexts'
             }
         });
+    </script>
+    <script>
+        const barra = document.getElementById("barra");
+        const nav = document.getElementById("nav");
+
+        barra.addEventListener("click", () => {
+            nav.classList.toggle("verse");
+            nav.classList.toggle("animate__fadeInLeft")
+        })
     </script>
 </body>
 

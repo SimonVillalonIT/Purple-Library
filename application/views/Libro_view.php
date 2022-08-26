@@ -13,21 +13,17 @@
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"); ?>">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title><?php
             foreach ($resultado as $row) {
                 echo $row->Titulo;
             }
             ?></title>
     <style>
-        footer {
-            margin-top: 50px;
-        }
-
         body {
             background-color: #171717;
             font-family: "Century Gothic";
             margin: 0;
-            color: white;
         }
 
         h1 {
@@ -36,19 +32,17 @@
             margin-left: 20px;
         }
 
+        /*                 HEADER                  */
+
         header {
+            z-index: 99;
             background-color: #171717;
             position: fixed;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #6F1DB9;
-            width: 100%;
-            z-index: 99;
-        }
-
-        header a {
-            margin-right: 20px;
         }
 
         header img {
@@ -57,12 +51,29 @@
             transition: .2s;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #barra {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 30px;
+            cursor: pointer;
+        }
+
+        #barra:hover {
+            filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
+        }
+
         .logo img {
             width: 80px;
         }
 
         .links {
-            width: fit-content;
             list-style: none;
             display: flex;
             align-items: center;
@@ -84,10 +95,54 @@
             margin: 0;
         }
 
-        .logo {
-            width: 15%;
+        main {
+            padding-top: 40px;
+            color: white;
+        }
+
+        nav {
+            display: none;
+        }
+
+        .verse {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            margin-top: 75px;
+            z-index: 99;
+            background-color: rgba(23, 23, 23, 0.9);
+            position: fixed;
+            height: 100vh;
+            width: 15%;
+            color: white;
+        }
+
+        .verse li {
+            text-decoration: none;
+            list-style: none;
+            margin-top: 20px;
+            transition: .5s;
+            cursor: pointer;
+            border-bottom: 2px solid rgba(23, 23, 23, 0.9);
+            width: fit-content;
+        }
+
+        .verse li:hover {
+            border-bottom: 2px solid #6F1DB9;
+        }
+
+        .verse h3 {
+            margin-left: 40px;
+        }
+
+        .verse a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo {
+            width: 150px;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .recomendaciones {
@@ -98,14 +153,8 @@
             margin-right: auto;
         }
 
-        .buscador {
-            width: min-content;
-            height: min-content;
-        }
-
         .buscador form {
             display: flex;
-            color: black;
         }
 
         #provider-json {
@@ -207,11 +256,13 @@
             align-items: center;
             margin-left: 60px;
             margin-top: 20px;
-            border:3px solid rgba(136, 33, 226, 0.3);
-            border-radius:10px;
+            border: 3px solid rgba(136, 33, 226, 0.3);
+            border-radius: 10px;
         }
 
         main {
+            padding: 0;
+            margin: 0;
             display: flex;
             flex-wrap: wrap;
         }
@@ -362,29 +413,38 @@
             box-shadow: 0 1px 1px rgba(136, 33, 226, 0.075)inset, 0 0 8px rgba(136, 33, 226, 0.6);
             outline: 0 none;
             transform: scale(1.05);
-            margin:0 20px;
+            margin: 0 20px;
         }
 
-        #caja:focus ~ #comentar{
+        #caja:focus~#comentar {
             margin-left: 10px;
         }
-        .referencia{
+
+        .referencia {
             display: flex;
             font-size: 12px;
-            
+
         }
-        .referencia p{
+
+        .referencia p {
             margin: 10px;
         }
-        .content{
+
+        .content {
             margin-left: 40px;
+        }
+        footer{
+            height: 150px;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="logo"><img src="<?php echo base_url("imgs/iconos/Logo.png") ?>"></div>
+        <div class="logo">
+            <img id="barra" src="<?php echo base_url("imgs/iconos/barra.png") ?>">
+            <img src="<?php echo base_url("imgs/iconos/Logo.png") ?>">
+        </div>
         <div class="buscador">
             <form method="POST" action="<?php echo base_url("index.php/Buscador_controller/paginabusquedas") ?>">
                 <input id="provider-json" name="keyword">
@@ -393,12 +453,25 @@
         </div>
 
         <div class="links">
-            <li><a href="<?php echo base_url('index.php/private_area'); ?>"><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></a></li>
+            <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
             <li><a href="<?php echo base_url("index.php/cart") ?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png"); ?>"></a></li>
             <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
-            <li><a href="<?php echo base_url('index.php/private_area/logout'); ?>"><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></a></li>
+            <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
         </div>
     </header>
+    <nav class="animate__animated" id="nav">
+        <h3>Categorias</h3>
+        <ul>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/3") ?>">Romance</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/2") ?>">Fantasia</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/1") ?>">Ciencia Ficcion</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/5") ?>">No Ficcion</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/8") ?>">Misterio</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/4") ?>">Humor</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/7") ?>">Arte</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/6") ?>">Horror</a></li>
+        </ul>
+    </nav>
     <main>
         <?php
         foreach ($resultado as $row) {
@@ -593,6 +666,15 @@
     </script>
     <script>
         AOS.init();
+    </script>
+    <script>
+        const barra = document.getElementById("barra");
+        const nav = document.getElementById("nav");
+
+        barra.addEventListener("click", () => {
+            nav.classList.toggle("verse");
+            nav.classList.toggle("animate__fadeInLeft")
+        })
     </script>
 </body>
 

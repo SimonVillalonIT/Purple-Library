@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.2.min.js">
-        s
     </script>
     <script src=<?php echo base_url("scripts/Gliderjs_master/glider.js") ?>></script>
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"); ?>"></script>
@@ -107,27 +106,36 @@
             flex-direction: column;
             margin-top: 75px;
             z-index: 99;
-            background-color: rgba(23, 23, 23,0.9);
+            background-color: rgba(23, 23, 23, 0.9);
             position: fixed;
             height: 100vh;
             width: 15%;
-            color:white;
+            color: white;
         }
-        .verse li{
+
+        .verse li {
             text-decoration: none;
             list-style: none;
             margin-top: 20px;
             transition: .5s;
-            cursor:pointer;
-            border-bottom: 2px solid rgba(23, 23, 23,0.9);
+            cursor: pointer;
+            border-bottom: 2px solid rgba(23, 23, 23, 0.9);
             width: fit-content;
         }
-        .verse li:hover{
+
+        .verse li:hover {
             border-bottom: 2px solid #6F1DB9;
         }
-        .verse h3{
+
+        .verse h3 {
             margin-left: 40px;
         }
+
+        .verse a {
+            text-decoration: none;
+            color: white;
+        }
+
         .logo {
             width: 150px;
             display: flex;
@@ -256,14 +264,14 @@
     <nav class="animate__animated" id="nav">
         <h3>Categorias</h3>
         <ul>
-            <li><a>Romance</a></li>
-            <li><a>Fantasia</a></li>
-            <li><a>Ciencia Ficcion</a></li>
-            <li><a>No Ficcion</a></li>
-            <li><a>Misterio</a></li>
-            <li><a>Humor</a></li>
-            <li><a>Arte</a></li>
-            <li><a>Horror</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/3") ?>">Romance</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/2") ?>">Fantasia</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/1") ?>">Ciencia Ficcion</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/5") ?>">No Ficcion</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/8") ?>">Misterio</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/4") ?>">Humor</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/7") ?>">Arte</a></li>
+            <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/6") ?>">Horror</a></li>
         </ul>
     </nav>
     <main>
