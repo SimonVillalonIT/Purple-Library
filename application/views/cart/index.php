@@ -247,11 +247,12 @@ function updateCartItem(obj, rowid){
         <td class="text-right"><strong><?php echo '$'.$this->cart->total().' USD'; ?></strong></td>
         <td></td>
     </tr>
-    <?php } ?>
+    
 </tbody>
 </table>
     </main>
     <a href="<?php echo base_url("index.php/Compra/buy")?>"><button class="boton" id="comprar">Comprar</button></a>
+    <?php } ?>
     <footer>
 
     </footer>
