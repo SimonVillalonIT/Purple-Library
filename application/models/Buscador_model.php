@@ -20,7 +20,7 @@
       }
       public function buscar_categoria($id)
     {
-      $sql = "SELECT cl.IDLibro,cl.IDCategoria,l.ID,l.Titulo,l.Autor,l.img FROM categorialibro cl, libro l  WHERE cl.IDCategoria = 3 AND l.ID = cl.IDLibro;";
+      $sql = "SELECT cl.IDLibro,cl.IDCategoria,l.ID,l.Titulo,l.Autor,l.img FROM categorialibro cl, libro l  WHERE cl.IDCategoria = $id AND l.ID = cl.IDLibro;";
       $query = $this->db->query($sql);
       return $query->result();
     }
