@@ -178,8 +178,13 @@
             transition: .2s;
             filter: invert(84%) sepia(11%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%);
         }
+
         #buscar:hover {
             filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
+        }
+
+        main {
+            padding-top: 100px;
         }
     </style>
 </head>
@@ -217,6 +222,18 @@
             <li><a href="<?php echo base_url("index.php/Buscador_controller/buscar_categoria/6") ?>">Horror</a></li>
         </ul>
     </nav>
+    <main>
+        <form action="<?php echo base_url("index.php/Usuario/upload") ?>" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input name="image" accept="image/*" type="file">
+            <input type="submit" name="submit" value="UPLOAD" />
+
+            <?php
+        ?>
+        <img src="<?php echo base_url("index.php/Usuario/mostrarImagen/")?>">
+
+                </form>
+    </main>
     <script>
         const btn_logOut = document.getElementById("LogOut");
         const btn_user = document.getElementById("User");
