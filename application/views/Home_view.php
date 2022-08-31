@@ -138,7 +138,6 @@
 
         .logo {
             width: 150px;
-            display: flex;
             justify-content: flex-end;
         }
 
