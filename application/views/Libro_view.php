@@ -299,7 +299,9 @@
         }
 
         .comentario img {
-            width: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
         }
 
         .valoraciones {
@@ -422,8 +424,7 @@
 
         .referencia {
             display: flex;
-            font-size: 12px;
-
+            font-size: 15px;
         }
 
         .referencia p {
@@ -431,7 +432,7 @@
         }
 
         .content {
-            margin-left: 40px;
+            margin-left: 10px;
         }
         footer{
             height: 150px;
@@ -586,7 +587,7 @@
             }
             ?>
             <?php foreach ($comentarios as $row) {
-                echo '<div class="comentario"><div class="referencia"><img src="' . base_url("imgs/iconos/avatar.svg") . '">';
+                echo '<div class="comentario"><div class="referencia"><img src="' . base_url("index.php/Usuario/mostrarImagen") . '">';
                 echo '<p>' . $row->Nombre . '</p>';
                 echo '<p>' . $row->Fecha . '</p></div>';
                 echo '<p class="content">' . $row->Contenido . '</p></div>';

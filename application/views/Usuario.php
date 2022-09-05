@@ -186,6 +186,56 @@
         main {
             padding-top: 100px;
         }
+
+        .perfil {
+            margin-left: 40px;
+            margin-top: 20px;
+        }
+
+        .Avatar {
+            border-radius: 100%;
+            width: 150px;
+            height: 150px;
+            position: relative;
+        }
+
+        .file-select {
+            position: relative;
+            display: inline-block;
+        }
+
+        .file-select::before {
+            background-color: #6F1DB9;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            content: 'Cambiar avatar';
+            /* testo por defecto */
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .file-select input[type="file"] {
+            opacity: 0;
+            width: 200px;
+            height: 32px;
+            display: inline-block;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        #submit {
+            display: none;
+        }
+
+        #file:hover{
+            transform: scale(1.3);
+        }
     </style>
 </head>
 
@@ -223,16 +273,17 @@
         </ul>
     </nav>
     <main>
-        <form action="<?php echo base_url("index.php/Usuario/upload") ?>" method="post" enctype="multipart/form-data">
-            Select image to upload:
-            <input name="image" accept="image/*" type="file">
-            <input type="submit" name="submit" value="UPLOAD" />
 
-            <?php
-        ?>
-        <img src="<?php echo base_url("index.php/Usuario/mostrarImagen/")?>">
+        <div class="perfil">
+            <img id="avatar" class="Avatar" src="<?php echo base_url("index.php/Usuario/mostrarImagen/") ?>">
 
-                </form>
+            <form action="<?php echo base_url("index.php/Usuario/upload") ?>" method="post" enctype="multipart/form-data">
+                <div class="file-select" id="src-file1"><input id="file" name="image" accept="image/*" type="file" aria-label="Avatar"></div>
+                <input id="submit" type="submit" name="submit" value="UPLOAD" />
+            </form>
+
+        </div>
+
     </main>
     <script>
         const btn_logOut = document.getElementById("LogOut");
@@ -252,6 +303,10 @@
         function redirigir(id) {
             window.location.href = "<?php echo base_url("index.php/Libro_controller/cargarpagina/"); ?>" + id;
         }
+
+        document.getElementById("file").onchange = function() {
+            document.getElementById("submit").click();
+        };
     </script>
     <script>
         var options = {
