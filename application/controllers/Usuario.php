@@ -30,12 +30,21 @@
             
     }}}
 
-    public function mostrarImagen(){
-        $id = $this->session->userdata("ID");
+    public function mostrarImagen($id){
         $img = $this->Usuario_model->download($id);
+
+        if(empty($img[0]->Avatar)){
         header("Content-type: image/jpg"); 
-        echo $img[0]->Avatar; 
+        readfile(base_url("imgs/iconos/user.png"));} 
+        else{
+        header("Content-type: image/jpg"); 
+        echo $img[0]->Avatar;} 
+    }
+
+    public function cambiarNombreUsuario(){
+        $id = $this->session->userdata("ID");
+        $nombre = $this->input->post("Nombre");
+        $this->Usuario_model->cambiarNombre($id,$nombre);     
+        redirect("Usuario");   
     }
 }
-
-?>

@@ -183,13 +183,16 @@
             filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
         }
 
-        main {
-            padding-top: 100px;
-        }
-
         .perfil {
-            margin-left: 40px;
-            margin-top: 20px;
+            padding-top: 50px;
+            width: 30%;
+            height: 86.5vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
+
         }
 
         .Avatar {
@@ -202,6 +205,7 @@
         .file-select {
             position: relative;
             display: inline-block;
+            transition: .3s;
         }
 
         .file-select::before {
@@ -218,23 +222,53 @@
             right: 0;
             top: 0;
             bottom: 0;
+            border-radius: 12px;
         }
-
+        h1{
+            margin: 0;
+        }
         .file-select input[type="file"] {
             opacity: 0;
             width: 200px;
             height: 32px;
             display: inline-block;
             cursor: pointer;
-            transition: .5s;
         }
 
         #submit {
             display: none;
         }
 
-        #file:hover{
-            transform: scale(1.3);
+        .file-select:hover {
+            transform: scale(1.1);
+        }
+        #Nombre{
+            background: transparent;
+            outline: transparent;
+            border: none;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            width: m;
+        }
+        #pen{
+            width: 20px;
+            height: auto;
+            cursor: pointer;
+            transition: .3s;
+        }
+        #pen:hover{
+            transform: scale(1.2);
+        }
+        #name-form{
+            display: flex;
+            align-items: center;
+        }
+        main{
+            display: flex;
+        }
+        .derecha{
+            
         }
     </style>
 </head>
@@ -255,7 +289,7 @@
         <div class="links">
             <li><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
             <li><a href="<?php echo base_url("index.php/cart") ?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png"); ?>"></a></li>
-            <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
+            <li><a href="<?php echo base_url('index.php/Usuario') ?>"><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></a></li>
             <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
         </div>
     </header>
@@ -275,14 +309,17 @@
     <main>
 
         <div class="perfil">
-            <img id="avatar" class="Avatar" src="<?php echo base_url("index.php/Usuario/mostrarImagen/") ?>">
-
+            <img id="avatar" class="Avatar" src="<?php echo base_url("index.php/Usuario/mostrarImagen/" . $user[0]->ID) ?>">
+            <form id="name-form" action="<?php echo base_url("index.php/Usuario/cambiarNombreUsuario") ?>" method="post"><input id="Nombre" value="<?php echo $user[0]->Nombre ?>" name="Nombre"><img id="pen" src="<?php echo base_url("imgs/iconos/load.png") ?>" alt="" srcset=""></form>
             <form action="<?php echo base_url("index.php/Usuario/upload") ?>" method="post" enctype="multipart/form-data">
                 <div class="file-select" id="src-file1"><input id="file" name="image" accept="image/*" type="file" aria-label="Avatar"></div>
                 <input id="submit" type="submit" name="submit" value="UPLOAD" />
             </form>
+        </div>
+        <div class="derecha">
 
         </div>
+
 
     </main>
     <script>
@@ -306,6 +343,10 @@
 
         document.getElementById("file").onchange = function() {
             document.getElementById("submit").click();
+        };
+
+        document.getElementById("pen").onclick = function() {
+            document.getElementById("name-form").submit();
         };
     </script>
     <script>

@@ -456,7 +456,7 @@
         <div class="links">
             <li><a href="<?php echo base_url("index.php/Private_area") ?>"><img id="Home" src="<?php echo base_url("imgs/iconos/Home.png"); ?>"></li>
             <li><a href="<?php echo base_url("index.php/cart") ?>"><img id="Cart" src="<?php echo base_url("imgs/iconos/Cart.png"); ?>"></a></li>
-            <li><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></li>
+            <li><a href="<?php echo base_url('index.php/Usuario') ?>"><img id="User" src="<?php echo base_url("imgs/iconos/user.png"); ?>"></a></li>
             <li><img id="LogOut" src="<?php echo base_url("imgs/iconos/LogOut.png"); ?>"></li>
         </div>
     </header>
@@ -587,7 +587,7 @@
             }
             ?>
             <?php foreach ($comentarios as $row) {
-                echo '<div class="comentario"><div class="referencia"><img src="' . base_url("index.php/Usuario/mostrarImagen") . '">';
+                echo '<div class="comentario"><div class="referencia"><img src="' . base_url("index.php/Usuario/mostrarImagen/".$row->IDUsuario) . '">';
                 echo '<p>' . $row->Nombre . '</p>';
                 echo '<p>' . $row->Fecha . '</p></div>';
                 echo '<p class="content">' . $row->Contenido . '</p></div>';
