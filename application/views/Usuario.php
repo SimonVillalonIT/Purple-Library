@@ -4,6 +4,7 @@
 <head>
     <link rel="icon" href="<?php echo base_url("imgs/iconos/Logo.png"); ?>">
     <title><?php echo $user[0]->Nombre; ?></title>
+    <script src="https://kit.fontawesome.com/f33a357731.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -190,8 +191,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41); 
-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
+            -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.41);
+            box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.41);
 
         }
 
@@ -224,9 +225,11 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
             bottom: 0;
             border-radius: 12px;
         }
-        h1{
+
+        h1 {
             margin: 0;
         }
+
         .file-select input[type="file"] {
             opacity: 0;
             width: 200px;
@@ -242,7 +245,8 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
         .file-select:hover {
             transform: scale(1.1);
         }
-        #Nombre{
+
+        #Nombre {
             background: transparent;
             outline: transparent;
             border: none;
@@ -251,25 +255,342 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
             text-align: center;
             width: m;
         }
-        #pen{
+
+        #pen {
             width: 20px;
             height: auto;
             cursor: pointer;
             transition: .3s;
         }
-        #pen:hover{
+
+        #pen:hover {
             transform: scale(1.2);
         }
-        #name-form{
+
+        #name-form {
             display: flex;
             align-items: center;
         }
-        main{
+
+        main {
             display: flex;
         }
-        .derecha{
-            
+
+        /* FORMULARIO DE CATEGORIAS */
+        .btn-neon {
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            color: #fff;
+            letter-spacing: 4px;
+            font-size: 24px;
+            text-decoration: none;
+            overflow: hidden;
+            transition: 0.2;
         }
+
+        .btn-neon:hover {
+            background: #6F1DB9;
+            cursor: pointer;
+            box-shadow: 0 0 10px #6F1DB9, 0 0 40px #6F1DB9, 0 0 80px #6F1DB9;
+            transition-delay: 1s;
+            transition: 5s;
+        }
+
+        .btn-neon span {
+            position: absolute;
+            display: block;
+        }
+
+        #span1 {
+            top: 0%;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6F1DB9);
+        }
+
+        .btn-neon:hover #span1 {
+            left: 100%;
+            transition: 1s;
+        }
+
+        #span3 {
+            bottom: 0%;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #6F1DB9);
+        }
+
+        .btn-neon:hover #span3 {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+        }
+
+        #span2 {
+            top: -100%;
+            right: -0%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #6F1DB9);
+        }
+
+        .btn-neon:hover #span2 {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+        }
+
+        #span4 {
+            bottom: -100%;
+            left: -0%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #6F1DB9);
+        }
+
+        .btn-neon:hover #span4 {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.3);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+        }
+
+        .overlay h3 {
+            text-shadow: 4px 2px #6f1db9;
+        }
+
+        .overlay.active {
+            visibility: visible;
+        }
+
+        .popup {
+            background: rgba(20, 20, 20, 0.5);
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            width: 900px;
+            opacity: 0;
+            transition: .3s ease all;
+            transform: scale(0.7);
+        }
+
+        .popup .btn-cerrar-popup {
+            font-size: 16px;
+            line-height: 16px;
+            display: block;
+            text-align: right;
+            color: #bbbbbb;
+            transition: 0.7 ease;
+        }
+
+        .popup .btn-cerrar-popup:hover {
+            color: #000000;
+            cursor: pointer
+        }
+
+        .popup.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .popup a {
+            color: #6F1DB9;
+        }
+
+        .popup h3 {
+            margin: 12px;
+            font-size: 40px;
+            opacity: 0;
+        }
+
+        .popup h4 {
+            color: #C4C4C4;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 20px;
+            margin: 12px;
+            opacity: 0;
+            border-bottom: 1px solid #6f1db9;
+            width: max-content;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .popup.active h3 {
+            animation: entradaTitulo .7s ease .3s forwards;
+        }
+
+        .popup.active h4 {
+            animation: entradaSubtitulo .7s ease .3s forwards;
+        }
+
+        .popup.active .categorias {
+            animation: entradaInputs 1s ease 1s forwards;
+        }
+
+        .popup.active .btn-submit {
+            opacity: 0;
+            animation: entradaSubtitulo 1.5s ease 1.5s forwards;
+        }
+
+        @keyframes entradaTitulo {
+            from {
+                transform: translateY(-25px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes entradaSubtitulo {
+            from {
+                transform: translateY(25px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes entradaCategorias {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .categorias {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .item-registro {
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            flex-grow: 0;
+            max-width: 100%;
+            margin: 10px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid white;
+            transition: 0.5s;
+
+        }
+
+        .item-registro:hover {
+            border: 2px solid #6F1DB9;
+        }
+
+        .seleccionado {
+            border: 2px solid #6f1db9;
+            transform: scale(1.05);
+        }
+
+        .seleccionado .capa {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .capa {
+            display: none;
+            transition: 1.0s;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.7),
+                    rgba(0, 0, 0, 0.7))
+        }
+
+        .capa h1 {
+            text-shadow: 4px 2px #6f1db9;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .formcontainer span {
+            margin: 0;
+            height: 30px;
+        }
+
+        span p {
+            margin: 0;
+            color: red;
+        }
+
+        .item-registro:hover>.capa {
+            transition: 0.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-submit {
+            margin-top: 12px;
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            letter-spacing: 4px;
+            font-size: 24px;
+            background-color: transparent;
+            color: white;
+            text-decoration: none;
+            overflow: hidden;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            height: 60px;
+
+        }
+
+        .btn-submit:hover {
+            background: #6F1DB9;
+            box-shadow: 0 0 10px #6F1DB9, 0 0 40px #6F1DB9, 0 0 80px #6F1DB9;
+        }
+
+        .popup.active a:hover {
+            text-shadow: 1px 1px 2px #6F1DB9;
+        }
+
+        .valorcategoria {
+            display: none;
+        }
+     
     </style>
 </head>
 
@@ -315,6 +636,85 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
                 <div class="file-select" id="src-file1"><input id="file" name="image" accept="image/*" type="file" aria-label="Avatar"></div>
                 <input id="submit" type="submit" name="submit" value="UPLOAD" />
             </form>
+            <form method="post" action="<?php echo base_url("index.php/Usuario/modificarCategorias/".$user[0]->ID) ?>">
+                <div id="btn-continuar" class="item">
+                    <a href="#" class="btn-neon">
+                        <span id="span1"></span>
+                        <span id="span2"></span>
+                        <span id="span3"></span>
+                        <span id="span4"></span>
+                        CONTINUAR
+                    </a>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div class="popup" id="popUp">
+                        <i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
+                        <h3>Categorías</h3>
+                        <h4>Descubre libros entre nuestras categorías</h4>
+                        <div class="categorias">
+                            <?php if(in_array("1", $os))?>
+                            <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="5" id="NOF" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="7" id="ARTE" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="8" id="MIST" class="valorcategoria">
+                            <div class="item-registro" id="cnc-fic">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/ciencia_ficcion.jpg">
+                                <div class="capa">
+                                    <h1>Ciencia Ficción</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="fant">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/fantasia.jpg">
+                                <div class="capa">
+                                    <h1>Fantasia</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="rom">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/romance.jpg">
+                                <div class="capa">
+                                    <h1>Romance</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="com">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/humor.jpg">
+                                <div class="capa">
+                                    <h1>Humor</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="nof">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/no_ficcion.jpg">
+                                <div class="capa">
+                                    <h1>No Ficción</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="hor">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/horror.jpg">
+                                <div class="capa">
+                                    <h1>Horror</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="arte">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/musica.jpg">
+                                <div class="capa">
+                                    <h1>ARTE</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="mist">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/misterio.jpg">
+                                <div class="capa">
+                                    <h1>Misterio</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="derecha">
 
@@ -322,6 +722,7 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
 
 
     </main>
+    <script src="<?php echo base_url("scripts/registro.js") ?>"></script>
     <script>
         const btn_logOut = document.getElementById("LogOut");
         const btn_user = document.getElementById("User");

@@ -1,85 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<link rel="icon" href="<?php echo base_url("imgs/iconos/Logo.png");?>">
+    <link rel="icon" href="<?php echo base_url("imgs/iconos/Logo.png"); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f33a357731.js" crossorigin="anonymous"></script>
     <title>Registro</title>
     <style>
-        body{
+        body {
             font-family: 'Century Gothic';
-			color: white;
-			margin: 0;
+            color: white;
+            margin: 0;
             background-color: #171717;
         }
-        #particles-js{
+
+        #particles-js {
             height: 100vh;
             width: 100%;
             position: fixed;
             z-index: -1;
         }
-        #Verificar{
+
+        #Verificar {
             display: flex;
             width: 100%;
-            background: rgba(20,20,20,0.5);
+            background: rgba(20, 20, 20, 0.5);
             font-size: 22px;
             color: #6F1DB9;
             justify-content: center;
             border-radius: 12px;
 
         }
-        .main-container{
+
+        .main-container {
             position: relative;
             z-index: 99;
             display: flex;
             align-items: center;
             flex-direction: column;
         }
-        .main-container h1{
-         margin-left: auto;
-         margin-right: auto;   
+
+        .main-container h1 {
+            margin-left: auto;
+            margin-right: auto;
         }
-        .formcontainer{
+
+        .formcontainer {
             margin-top: 50px;
             display: flex;
             flex-direction: column;
             width: max-content;
         }
-        .parrafo{
+
+        .parrafo {
             align-items: center;
             display: flex;
             flex-wrap: nowrap;
             margin-bottom: 40px;
         }
-        .par-item{
+
+        .par-item {
             align-items: flex-start;
             display: flex;
             flex-direction: column;
             margin-right: 30px;
         }
-        input{
+
+        input {
             border: none;
-			border-bottom: 1px solid #6F1DB9;
-			font-size: 16px;
+            border-bottom: 1px solid #6F1DB9;
+            font-size: 16px;
             width: 335px;
-			height: 40px;
-			background: #171717;
-			outline: none;
-			color: white;
+            height: 40px;
+            background: #171717;
+            outline: none;
+            color: white;
             border-radius: 12px;
         }
-        .abajo{
+
+        .abajo {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: max-content;
         }
-        .abajo input{
+
+        .abajo input {
             width: 710px;
         }
 
-        .btn-neon{
+        .btn-neon {
             position: relative;
             display: inline-block;
             padding: 15px 30px;
@@ -90,174 +101,216 @@
             overflow: hidden;
             transition: 0.2;
         }
-        .btn-neon:hover{
+
+        .btn-neon:hover {
             background: #6F1DB9;
             cursor: pointer;
             box-shadow: 0 0 10px #6F1DB9, 0 0 40px #6F1DB9, 0 0 80px #6F1DB9;
             transition-delay: 1s;
             transition: 5s;
         }
-        .btn-neon span{
+
+        .btn-neon span {
             position: absolute;
             display: block;
         }
-        #span1{
+
+        #span1 {
             top: 0%;
             left: -100%;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg,transparent,#6F1DB9);
+            background: linear-gradient(90deg, transparent, #6F1DB9);
         }
-        .btn-neon:hover #span1{
-            left:100%;
+
+        .btn-neon:hover #span1 {
+            left: 100%;
             transition: 1s;
         }
-        #span3{
+
+        #span3 {
             bottom: 0%;
             right: -100%;
             width: 100%;
             height: 2px;
-            background: linear-gradient(270deg,transparent,#6F1DB9);
+            background: linear-gradient(270deg, transparent, #6F1DB9);
         }
-        .btn-neon:hover #span3{
+
+        .btn-neon:hover #span3 {
             right: 100%;
             transition: 1s;
             transition-delay: 0.5s;
         }
-        #span2{
+
+        #span2 {
             top: -100%;
             right: -0%;
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,transparent,#6F1DB9);
+            background: linear-gradient(180deg, transparent, #6F1DB9);
         }
-        .btn-neon:hover #span2{
+
+        .btn-neon:hover #span2 {
             top: 100%;
             transition: 1s;
             transition-delay: 0.25s;
         }
-        #span4{
+
+        #span4 {
             bottom: -100%;
             left: -0%;
             width: 2px;
             height: 100%;
-            background: linear-gradient(360deg,transparent,#6F1DB9);
+            background: linear-gradient(360deg, transparent, #6F1DB9);
         }
-        .btn-neon:hover #span4{
+
+        .btn-neon:hover #span4 {
             bottom: 100%;
             transition: 1s;
             transition-delay: 0.75s;
         }
-        .overlay{
-			background: rgba(0, 0, 0, 0.3);
-			-webkit-backdrop-filter:blur(15px);
-			backdrop-filter: blur(15px);
-			position: fixed;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			visibility: hidden;
-		}
-        .overlay h3{
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.3);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+        }
+
+        .overlay h3 {
             text-shadow: 4px 2px #6f1db9;
         }
-		.overlay.active{
-			visibility: visible;
-		}
-		.popup{
-			background: rgba(20,20,20,0.5);
-			box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-			border-radius: 6px;
-			padding: 20px;
-			text-align: center;
-			width: 900px;
-			opacity: 0;
-			transition: .3s ease all;
-			transform: scale(0.7);
-		}
-	.popup .btn-cerrar-popup{
-		font-size: 16px;
-		line-height: 16px;
-		display: block;
-		text-align: right;
-    		color: #bbbbbb;			transition: 0.7 ease;
-		}
-		.popup .btn-cerrar-popup:hover{
-			color: #000000;
-			cursor: pointer
-		} 
-		.popup.active{
-			opacity: 1;
-			transform: scale(1);
-		}
-		.popup a{
-			color: #6F1DB9;
-		}
-		.popup h3{
-			margin: 12px;
-			font-size: 40px;
-			opacity: 0;
-		}
-		.popup h4{
-			color: #C4C4C4;
-			text-decoration: none;
-			margin-top: 20px;
-			font-size: 20px;
-			margin: 12px;
-			opacity: 0;
-			border-bottom: 1px solid #6f1db9;
-			width: max-content;
-    		margin-right: auto;
-   			margin-left: auto;
-		}
-		.popup.active h3{animation: entradaTitulo .7s ease .3s forwards;}
-		.popup.active h4{animation: entradaSubtitulo .7s ease .3s forwards;}
-		.popup.active .categorias{animation: entradaInputs 1s ease 1s forwards;}
-		.popup.active .btn-submit{opacity: 0; animation: entradaSubtitulo 1.5s ease 1.5s forwards;}
-		@keyframes entradaTitulo{
-			from{
-				transform: translateY(-25px);
-				opacity: 0;
-			}
-			to{
-				transform: translateY(0);
-				opacity: 1;
-			}
-		}
-		@keyframes entradaSubtitulo{
-			from{
-				transform: translateY(25px);
-				opacity: 0;
-			}
-			to{
-				transform: translateY(0);
-				opacity: 1;
-			}
-		}
-		@keyframes entradaCategorias{
-			from{
-				opacity: 0;
-			}
-			to{
-				opacity: 1;
-			}
-		}
-        .categorias{
+
+        .overlay.active {
+            visibility: visible;
+        }
+
+        .popup {
+            background: rgba(20, 20, 20, 0.5);
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            width: 900px;
+            opacity: 0;
+            transition: .3s ease all;
+            transform: scale(0.7);
+        }
+
+        .popup .btn-cerrar-popup {
+            font-size: 16px;
+            line-height: 16px;
+            display: block;
+            text-align: right;
+            color: #bbbbbb;
+            transition: 0.7 ease;
+        }
+
+        .popup .btn-cerrar-popup:hover {
+            color: #000000;
+            cursor: pointer
+        }
+
+        .popup.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .popup a {
+            color: #6F1DB9;
+        }
+
+        .popup h3 {
+            margin: 12px;
+            font-size: 40px;
+            opacity: 0;
+        }
+
+        .popup h4 {
+            color: #C4C4C4;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 20px;
+            margin: 12px;
+            opacity: 0;
+            border-bottom: 1px solid #6f1db9;
+            width: max-content;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .popup.active h3 {
+            animation: entradaTitulo .7s ease .3s forwards;
+        }
+
+        .popup.active h4 {
+            animation: entradaSubtitulo .7s ease .3s forwards;
+        }
+
+        .popup.active .categorias {
+            animation: entradaInputs 1s ease 1s forwards;
+        }
+
+        .popup.active .btn-submit {
+            opacity: 0;
+            animation: entradaSubtitulo 1.5s ease 1.5s forwards;
+        }
+
+        @keyframes entradaTitulo {
+            from {
+                transform: translateY(-25px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes entradaSubtitulo {
+            from {
+                transform: translateY(25px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes entradaCategorias {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .categorias {
             display: flex;
             flex-wrap: wrap;
         }
-        .item-registro{
+
+        .item-registro {
             cursor: pointer;
             position: relative;
             display: flex;
-			flex-direction: column;
-			flex-shrink: 0;
-			flex-grow: 0;
-			max-width: 100%;
+            flex-direction: column;
+            flex-shrink: 0;
+            flex-grow: 0;
+            max-width: 100%;
             margin: 10px;
             width: 200px;
             height: 200px;
@@ -265,200 +318,227 @@
             transition: 0.5s;
 
         }
-        .item-registro:hover{
+
+        .item-registro:hover {
             border: 2px solid #6F1DB9;
         }
-        .seleccionado{
-            border:2px solid #6f1db9;
+
+        .seleccionado {
+            border: 2px solid #6f1db9;
             transform: scale(1.05);
         }
-        .seleccionado .capa{
+
+        .seleccionado .capa {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .capa{
+
+        .capa {
             display: none;
             transition: 1.0s;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(
-				0deg,
-				rgba(0,0,0,0.7),
-				rgba(0,0,0,0.7)
-			)
-		}
-        .capa h1{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.7),
+                    rgba(0, 0, 0, 0.7))
+        }
+
+        .capa h1 {
             text-shadow: 4px 2px #6f1db9;
         }
-        .item{
+
+        .item {
             display: flex;
             flex-direction: column;
             margin-bottom: 20px;
         }
-        .formcontainer span{
+
+        .formcontainer span {
             margin: 0;
             height: 30px;
-        } 
+        }
 
-        span p{
+        span p {
             margin: 0;
             color: red;
         }
-        .item-registro:hover > .capa{
+
+        .item-registro:hover>.capa {
             transition: 0.5;
             display: flex;
             justify-content: center;
             align-items: center;
-		}
-		.btn-submit{
-			margin-top: 12px;
-			position:relative;
-			display: inline-block;
-			padding: 15px 30px;
-			letter-spacing: 4px;
-			font-size: 24px;
-			background-color: transparent;
-			color: white;
-			text-decoration: none;
-			overflow: hidden;
-			transition: 0.2s;
-			border: none;
-			cursor: pointer;
-			border-radius: 6px;
-            height: 60px;
-			
-		}
-		.btn-submit:hover{
-			background: #6F1DB9;
-			box-shadow: 0 0 10px #6F1DB9, 0 0 40px #6F1DB9, 0 0 80px #6F1DB9;
-		}
-
-		.popup.active a:hover{
-			text-shadow: 1px 1px 2px #6F1DB9;
-		}
-        .valorcategoria{
-            display: none;
         }
 
+        .btn-submit {
+            margin-top: 12px;
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            letter-spacing: 4px;
+            font-size: 24px;
+            background-color: transparent;
+            color: white;
+            text-decoration: none;
+            overflow: hidden;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            height: 60px;
+
+        }
+
+        .btn-submit:hover {
+            background: #6F1DB9;
+            box-shadow: 0 0 10px #6F1DB9, 0 0 40px #6F1DB9, 0 0 80px #6F1DB9;
+        }
+
+        .popup.active a:hover {
+            text-shadow: 1px 1px 2px #6F1DB9;
+        }
+
+        .valorcategoria {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
-        <div id="particles-js">
-        </div>
-        <div class="main-container">
-            <h1>Registro de usuario</h1>
-            <?php if ($this->session->flashdata('message')){
-                echo '
+    <div id="particles-js">
+    </div>
+    <div class="main-container">
+        <h1>Registro de usuario</h1>
+        <?php if ($this->session->flashdata('message')) {
+            echo '
                     <div>
-                        '.$this->session->flashdata('message').'
+                        ' . $this->session->flashdata('message') . '
                     <div>
                 ';
-            } ?>
-            <form action="<?php echo base_url('index.php/Registrar_controller/validacion')?>" method="post">
-                <div class="formcontainer">
-                    <div class="abajo">
-                        <div class="abajo-item">
-                            <div class="item">
-                                <label for="Nombre">Nombre de usuario</label>
-                                <input type="text" name="Nombre" id="Nombre" placeholder="Nombre de Usuario" value="<?php echo set_value('Nombre'); ?>" >
-                                <span><?php echo form_error('Nombre'); ?></span>
-                            </div>
-                        </div>    
-
-                        <div class="abajo-item">
-                            <div class="item">
-                                <label for="Email">Correo Electrónico</label>
-                                <input type="text" name="Email" id="Email" placeholder="Correo Electronico" value="<?php echo set_value('Email'); ?>" >
-                                <span><?php echo form_error('Email'); ?></span>
-                            </div>
-                        </div>    
-                        <div class="abajo-item">
-                            <div class="item">
-                                <label for="Contraseña">Contraseña</label>
-                                <input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña" value="<?php echo set_value('Contraseña'); ?>">
-                            </div>
-                            <div class="item">
-                                <label for="Re-contraseña">Confirme su contraseña</label>
-                                <input type="password" name="Re-contraseña" id="Re-contraseña" placeholder="Reingrese la contraseña" value="<?php echo set_value('Re-contraseña'); ?>">
-                                <span><?php echo form_error('Re-contraseña'); ?></span>
-                            </div>
-                        </div>   
-                        <div class="abajo-item">
-                            <div id="btn-continuar" class="item">
-                                <a href="#" class="btn-neon">
-                                    <span id="span1"></span>
-                                    <span id="span2"></span>
-                                    <span id="span3"></span>
-                                    <span id="span4"></span>
-                                    CONTINUAR
-                                </a>
-                            </div>
+        } ?>
+        <form action="<?php echo base_url('index.php/Registrar_controller/validacion') ?>" method="post">
+            <div class="formcontainer">
+                <div class="abajo">
+                    <div class="abajo-item">
+                        <div class="item">
+                            <label for="Nombre">Nombre de usuario</label>
+                            <input type="text" name="Nombre" id="Nombre" placeholder="Nombre de Usuario" value="<?php echo set_value('Nombre'); ?>">
+                            <span><?php echo form_error('Nombre'); ?></span>
                         </div>
                     </div>
-                    <div class="overlay" id="overlay">
-				    <div class="popup" id="popUp">
-					<i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
-					<h3>Categorías</h3>
-				        <h4>Descubre libros entre nuestras categorías</h4>
-					<div class="categorias">
-                                <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="5" id="NOF" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="7" id="MUS" class="valorcategoria">
-                                <input type="checkbox" name="checkbox[]" value="8" id="MIST" class="valorcategoria">
-                                <div class="item-registro" id="cnc-fic">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/ciencia_ficcion.jpg">
-                                    <div class="capa"><h1>Ciencia Ficción</h1></div>
-                                </div>
-                                <div class="item-registro" id="fant">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/fantasia.jpg">
-                                    <div class="capa"><h1>Fantasia</h1></div>
-                                </div>
-                                <div class="item-registro" id="rom">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/romance.jpg">
-                                    <div class="capa"><h1>Romance</h1></div>
-                                </div>
-                                <div class="item-registro" id="com">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/humor.jpg">
-                                    <div class="capa"><h1>Humor</h1></div>
-                                </div>
-                                <div class="item-registro" id="nof">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/no_ficcion.jpg">
-                                    <div class="capa"><h1>No Ficción</h1></div>
-                                </div>
-                                <div class="item-registro" id="hor">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/horror.jpg">
-                                    <div class="capa"><h1>Horror</h1></div>
-                                </div>
-                                <div class="item-registro" id="mus">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/musica.jpg">
-                                    <div class="capa"><h1>Música</h1></div>
-                                </div>
-                                <div class="item-registro" id="mist">
-                                    <img class="opcion" src="<?php echo base_url();?>imgs/categorias/misterio.jpg">
-                                    <div class="capa"><h1>Misterio</h1></div>  
-                                </div>
-                            </div>
 
-                            <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
-                            </div>
-		                </div>
-            
-
+                    <div class="abajo-item">
+                        <div class="item">
+                            <label for="Email">Correo Electrónico</label>
+                            <input type="text" name="Email" id="Email" placeholder="Correo Electronico" value="<?php echo set_value('Email'); ?>">
+                            <span><?php echo form_error('Email'); ?></span>
                         </div>
-            </form>
-        </div> 
+                    </div>
+                    <div class="abajo-item">
+                        <div class="item">
+                            <label for="Contraseña">Contraseña</label>
+                            <input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña" value="<?php echo set_value('Contraseña'); ?>">
+                        </div>
+                        <div class="item">
+                            <label for="Re-contraseña">Confirme su contraseña</label>
+                            <input type="password" name="Re-contraseña" id="Re-contraseña" placeholder="Reingrese la contraseña" value="<?php echo set_value('Re-contraseña'); ?>">
+                            <span><?php echo form_error('Re-contraseña'); ?></span>
+                        </div>
+                    </div>
+                    <div class="abajo-item">
+                        <div id="btn-continuar" class="item">
+                            <a href="#" class="btn-neon">
+                                <span id="span1"></span>
+                                <span id="span2"></span>
+                                <span id="span3"></span>
+                                <span id="span4"></span>
+                                CONTINUAR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div class="popup" id="popUp">
+                        <i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
+                        <h3>Categorías</h3>
+                        <h4>Descubre libros entre nuestras categorías</h4>
+                        /*BOLUDON tenes que usar un in_array para despues filtrar si lo selecciono o no */ 
+                        <div class="categorias">
+                            <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="5" id="NOF" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="7" id="ARTE" class="valorcategoria">
+                            <input type="checkbox" name="checkbox[]" value="8" id="MIST" class="valorcategoria">
+                            <div class="item-registro" id="cnc-fic">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/ciencia_ficcion.jpg">
+                                <div class="capa">
+                                    <h1>Ciencia Ficción</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="fant">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/fantasia.jpg">
+                                <div class="capa">
+                                    <h1>Fantasia</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="rom">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/romance.jpg">
+                                <div class="capa">
+                                    <h1>Romance</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="com">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/humor.jpg">
+                                <div class="capa">
+                                    <h1>Humor</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="nof">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/no_ficcion.jpg">
+                                <div class="capa">
+                                    <h1>No Ficción</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="hor">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/horror.jpg">
+                                <div class="capa">
+                                    <h1>Horror</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="arte">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/musica.jpg">
+                                <div class="capa">
+                                    <h1>Música</h1>
+                                </div>
+                            </div>
+                            <div class="item-registro" id="mist">
+                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/misterio.jpg">
+                                <div class="capa">
+                                    <h1>Misterio</h1>
+                                </div>
+                            </div>
+                        </div>
 
-                        
-                        
-                   
-        <script src="<?php echo base_url("scripts/particles.min.js") ?>"></script>
-        <script src="<?php echo base_url("scripts/particles-config.js") ?>"></script>
-        <script src="<?php echo base_url("scripts/registro.js") ?>"></script>
+                        <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <script src="<?php echo base_url("scripts/particles.min.js") ?>"></script>
+    <script src="<?php echo base_url("scripts/particles-config.js") ?>"></script>
+    <script src="<?php echo base_url("scripts/registro.js") ?>"></script>
 </body>
+
 </html>

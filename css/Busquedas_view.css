@@ -1,0 +1,215 @@
+body {
+    background-color: #171717;
+    font-family: "Century Gothic";
+    margin: 0;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+    margin-left: 20px;
+}
+
+/*                 HEADER                  */
+
+header {
+    z-index: 99;
+    background-color: #171717;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #6F1DB9;
+}
+
+header img {
+    width: 20px;
+    height: auto;
+    transition: .2s;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#barra {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 30px;
+    cursor: pointer;
+}
+
+#barra:hover {
+    filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
+}
+
+.logo img {
+    width: 80px;
+}
+
+.links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links img:hover {
+    cursor: pointer;
+    filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
+}
+
+.links li {
+    margin: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.links li a {
+    margin: 0;
+}
+
+main {
+    padding-top: 80px;
+    color: white;
+}
+
+nav {
+    display: none;
+}
+
+.verse {
+    display: flex;
+    flex-direction: column;
+    margin-top: 75px;
+    z-index: 99;
+    background-color: rgba(23, 23, 23, 0.9);
+    position: fixed;
+    height: 100vh;
+    width: 15%;
+    color: white;
+}
+
+.verse li {
+    text-decoration: none;
+    list-style: none;
+    margin-top: 20px;
+    transition: .5s;
+    cursor: pointer;
+    border-bottom: 2px solid rgba(23, 23, 23, 0.9);
+    width: fit-content;
+}
+
+.verse li:hover {
+    border-bottom: 2px solid #6F1DB9;
+}
+
+.verse h3 {
+    margin-left: 40px;
+}
+
+.verse a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo {
+    width: 150px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.recomendaciones {
+    width: 82.5%;
+    height: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buscador form {
+    display: flex;
+}
+
+#provider-json {
+    margin-top: 10px;
+    width: 600px;
+}
+
+#buscar {
+    top: 15px;
+    right: 30px;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transition: .2s;
+    filter: invert(84%) sepia(11%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%);
+}
+
+
+#buscar:hover {
+    filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
+}
+
+
+.error .texto {
+    width: 97.5%;
+    background-color: red;
+    margin: 0;
+    padding: 15px;
+}
+
+.error h2 {
+    margin: 0;
+}
+
+.error {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+}
+
+.tarjeta {
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+    margin: 0;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 10px;
+    border: 1px solid white;
+    background-color: rgba(111, 29, 185, 0.3);
+    text-align: center;
+    justify-content: space-between;
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    border: 1px solid #6F1DB9;
+    background-color: rgba(111, 29, 185, 0.8);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 50px #6F1DB9;
+}
+
+.tarjeta img {
+    width: 150px;
+    height: 226px;
+}
+
+.tarjeta p {
+    margin: 0;
+    margin-bottom: 5px;
+}

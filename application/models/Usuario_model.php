@@ -20,5 +20,9 @@
             WHERE ID = $id  ";
             $this->db->query($sql);
         }
-    
+        
+        public function borrarCategorias($id){
+            $sql = "DELETE FROM categoriausuario WHERE IDUsuario = $id";
+            $this->db->query($sql);
+        }
     }
