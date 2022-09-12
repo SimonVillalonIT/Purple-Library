@@ -18,7 +18,11 @@ class Usuario extends CI_controller
     {
         $id = $this->session->userdata("ID");
         $datos["user"] = $this->Usuario_model->index($id);
-
+        $categorias = $this->Usuario_model->obtenerCategorias($id);
+        $datos["categorias"] = array();
+        foreach($categorias as $row){
+            array_push($datos["categorias"],$row->IDCategoria);
+        }
         $this->load->view('Usuario', $datos);
     }
 

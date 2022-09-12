@@ -14,6 +14,12 @@
             return $img->result();
         }
 
+        public function obtenerCategorias($id){
+            $sql = "SELECT * FROM categoriausuario WHERE IDUsuario = $id";
+            $query = $this->db->query($sql);
+            return $query->result();
+        }
+
         public function cambiarNombre($id,$nombre){
             $sql= "UPDATE usuario
             SET Nombre = '$nombre'

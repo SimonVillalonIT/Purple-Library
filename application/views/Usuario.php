@@ -590,7 +590,6 @@
         .valorcategoria {
             display: none;
         }
-     
     </style>
 </head>
 
@@ -636,7 +635,7 @@
                 <div class="file-select" id="src-file1"><input id="file" name="image" accept="image/*" type="file" aria-label="Avatar"></div>
                 <input id="submit" type="submit" name="submit" value="UPLOAD" />
             </form>
-            <form method="post" action="<?php echo base_url("index.php/Usuario/modificarCategorias/".$user[0]->ID) ?>">
+            <form method="post" action="<?php echo base_url("index.php/Usuario/modificarCategorias/" . $user[0]->ID) ?>">
                 <div id="btn-continuar" class="item">
                     <a href="#" class="btn-neon">
                         <span id="span1"></span>
@@ -652,66 +651,173 @@
                         <h3>Categorías</h3>
                         <h4>Descubre libros entre nuestras categorías</h4>
                         <div class="categorias">
-                            <?php if(in_array("1", $os))?>
-                            <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
-                            <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">
-                            <input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">
-                            <input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">
-                            <input type="checkbox" name="checkbox[]" value="5" id="NOF" class="valorcategoria">
-                            <input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria">
-                            <input type="checkbox" name="checkbox[]" value="7" id="ARTE" class="valorcategoria">
+                            <?php 
+                            if (in_array(1, $categorias)){
+                                echo('<input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria" checked>');}
+                            else {
+                                echo('<input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">');}?>
+                            <?php 
+                            if (in_array(2, $categorias)){
+                                echo('<input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria" checked>');}
+                            else {
+                                echo('<input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">');}?>
+                            <?php 
+                            if (in_array(3, $categorias)){
+                                echo('<input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria" checked>');}
+                            else {
+                                echo('<input type="checkbox" name="checkbox[]" value="3" id="ROM" class="valorcategoria">');}?>
+                            <?php 
+                            if (in_array(4, $categorias)){
+                                echo('<input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria" checked>');}
+                            else {
+                                echo('<input type="checkbox" name="checkbox[]" value="4" id="COM" class="valorcategoria">');}?>
+                            <?php 
+                            if (in_array(5, $categorias)){
+                                echo('<input type="checkbox" name="checkbox[]" value="5" id="NOF" class="valorcategoria" checked>');}
+                            else {
+                                echo('<input type="checkbox" name="checkbox[]" value="5" id="NOF" class="valorcategoria">');}?>
+                            <?php 
+                            if (in_array(6, $categorias)){
+                                echo('<input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria" checked>');}
+                            else {
+                                echo('<input type="checkbox" name="checkbox[]" value="6" id="HOR" class="valorcategoria">');}?>
+                            <?php
+                            if (in_array(7, $categorias)){
+                                echo('<input type="checkbox" name="checkbox[]" value="7" id="ARTE" class="valorcategoria" checked>');}
+                            else {
+                                echo('<input type="checkbox" name="checkbox[]" value="7" id="ARTE" class="valorcategoria">');}?>
                             <input type="checkbox" name="checkbox[]" value="8" id="MIST" class="valorcategoria">
-                            <div class="item-registro" id="cnc-fic">
-                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/ciencia_ficcion.jpg">
+                            
+                            <?php if (in_array(1, $categorias)) {
+                                echo ('
+                                <div class="item-registro seleccionado" id="cnc-fic">
+                                <img class="opcion" src="'.base_url("imgs/categorias/ciencia_ficcion.jpg").'">
                                 <div class="capa">
                                     <h1>Ciencia Ficción</h1>
                                 </div>
-                            </div>
-                            <div class="item-registro" id="fant">
-                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/fantasia.jpg">
+                                </div>');
+                            } else {
+                                echo ('
+                                <div class="item-registro" id="cnc-fic">
+                                <img class="opcion" src="'.base_url("imgs/categorias/ciencia_ficcion.jpg").'">
+                                <div class="capa">
+                                    <h1>Ciencia Ficción</h1>
+                                </div>
+                                </div>');
+                            }?>
+                            <?php if (in_array(2, $categorias)) {
+                                echo ('
+                                <div class="item-registro seleccionado" id="fant">
+                                <img class="opcion" src="'.base_url("imgs/categorias/fantasia.jpg").'">
                                 <div class="capa">
                                     <h1>Fantasia</h1>
                                 </div>
-                            </div>
-                            <div class="item-registro" id="rom">
-                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/romance.jpg">
+                                </div>');
+                            } else {
+                                echo ('
+                                <div class="item-registro" id="fant">
+                                <img class="opcion" src="'.base_url("imgs/categorias/fantasia.jpg").'">
+                                <div class="capa">
+                                    <h1>Fantasia</h1>
+                                </div>
+                                </div>');
+                            }?>
+                            <?php if (in_array(3, $categorias)) {
+                                echo ('
+                                <div class="item-registro seleccionado" id="rom">
+                                <img class="opcion" src="'.base_url("imgs/categorias/romance.jpg").'">
                                 <div class="capa">
                                     <h1>Romance</h1>
                                 </div>
-                            </div>
-                            <div class="item-registro" id="com">
-                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/humor.jpg">
+                                </div>');
+                            } else {
+                                echo ('
+                                <div class="item-registro" id="rom">
+                                <img class="opcion" src="'.base_url("imgs/categorias/romance.jpg").'">
+                                <div class="capa">
+                                    <h1>Romance</h1>
+                                </div>
+                                </div>');
+                            }?>
+                            <?php if (in_array(4, $categorias)) {
+                                echo ('
+                                <div class="item-registro seleccionado" id="com">
+                                <img class="opcion" src="'.base_url("imgs/categorias/humor.jpg").'">
                                 <div class="capa">
                                     <h1>Humor</h1>
                                 </div>
-                            </div>
-                            <div class="item-registro" id="nof">
-                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/no_ficcion.jpg">
+                                </div>');
+                            } else {
+                                echo ('
+                                <div class="item-registro" id="com">
+                                <img class="opcion" src="'.base_url("imgs/categorias/humor.jpg").'">
+                                <div class="capa">
+                                    <h1>Humor</h1>
+                                </div>
+                                </div>');
+                            }?>
+                            <?php if (in_array(5, $categorias)) {
+                                echo ('
+                                <div class="item-registro seleccionado" id="nof">
+                                <img class="opcion" src="'.base_url("imgs/categorias/no_ficcion.jpg").'">
                                 <div class="capa">
                                     <h1>No Ficción</h1>
                                 </div>
-                            </div>
-                            <div class="item-registro" id="hor">
-                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/horror.jpg">
+                                </div>');
+                            } else {
+                                echo ('
+                                <div class="item-registro" id="nof">
+                                <img class="opcion" src="'.base_url("imgs/categorias/no_ficcion.jpg").'">
+                                <div class="capa">
+                                    <h1>No Ficción</h1>
+                                </div>
+                                </div>');
+                            }?>
+                             <?php if (in_array(6, $categorias)) {
+                                echo ('
+                                <div class="item-registro seleccionado" id="hor">
+                                <img class="opcion" src="'.base_url("imgs/categorias/horror.jpg").'">
                                 <div class="capa">
                                     <h1>Horror</h1>
                                 </div>
-                            </div>
-                            <div class="item-registro" id="arte">
-                                <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/musica.jpg">
+                                </div>');
+                            } else {
+                                echo ('
+                                <div class="item-registro" id="hor">
+                                <img class="opcion" src="'.base_url("imgs/categorias/horror.jpg").'">
                                 <div class="capa">
-                                    <h1>ARTE</h1>
+                                    <h1>Horror</h1>
                                 </div>
-                            </div>
+                                </div>');
+                            }?>
+                            <?php if (in_array(7, $categorias)) {
+                                echo ('
+                                <div class="item-registro seleccionado" id="arte">
+                                <img class="opcion" src="'.base_url("imgs/categorias/musica.jpg").'">
+                                <div class="capa">
+                                    <h1>Arte</h1>
+                                </div>
+                                </div>');
+                            } else {
+                                echo ('
+                                <div class="item-registro" id="arte">
+                                <img class="opcion" src="'.base_url("imgs/categorias/musica.jpg").'">
+                                <div class="capa">
+                                    <h1>Arte</h1>
+                                </div>
+                                </div>');
+                            }?>
                             <div class="item-registro" id="mist">
                                 <img class="opcion" src="<?php echo base_url(); ?>imgs/categorias/misterio.jpg">
                                 <div class="capa">
                                     <h1>Misterio</h1>
                                 </div>
                             </div>
+                            
                         </div>
 
                         <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
+                       
                     </div>
                 </div>
             </form>
