@@ -13,13 +13,15 @@ class Usuario extends CI_controller
 
         $this->load->model("Registro_model");
     }
-
+    
     public function index()
     {
         $id = $this->session->userdata("ID");
         $datos["user"] = $this->Usuario_model->index($id);
         $categorias = $this->Usuario_model->obtenerCategorias($id);
         $datos["categorias"] = array();
+        $datos['comentario'] = $this->Usuario_model->comentarioPersona($id);
+        $datos['valoracion'] = $this->Usuario_model->puntuacion();
         foreach($categorias as $row){
             array_push($datos["categorias"],$row->IDCategoria);
         }

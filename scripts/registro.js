@@ -5,7 +5,7 @@ let btnCerrarPopUp = document.getElementById("btn-cerrar-popup")
 
 btnContinuar.addEventListener("click", function() {
     overlay.classList.add("active");
-    popUp.classList.add("active")
+    popUp.classList.add("active");
 })
 btnCerrarPopUp.addEventListener("click", function() {
     overlay.classList.remove("active");

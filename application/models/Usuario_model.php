@@ -31,4 +31,17 @@
             $sql = "DELETE FROM categoriausuario WHERE IDUsuario = $id";
             $this->db->query($sql);
         }
+        public function puntuacion(){
+            $sql = "SELECT v.IDLibro, AVG(v.Valoracion) AS Puntaje
+            FROM valoracion v
+            GROUP BY v.IDLibro;";
+
+            $consulta = $this->db->query($sql);
+            return $consulta->result();
+        }
+        public function comentarioPersona($id){
+            $sql = "SELECT DISTINCT l.Titulo, l.Autor,l.img,l.Descripcion,l.ID FROM comentario c, libro l WHERE c.IDUsuario = $id AND c.IDLibro = l.ID";
+            $query = $this->db->query($sql);
+            return $query->result();
+        }
     }
