@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"); ?>"></script>
-    <script src=<?php echo base_url("scripts/Gliderjs_master/glider.js") ?>></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="<?php echo base_url("scripts/EasyAutocomplete-1.3.5/easy-autocomplete.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url('scripts/Gliderjs_master/glider.css') ?>">
@@ -187,18 +186,17 @@
         }
 
         .perfil {
-            padding-top: 50px;
             width: 30%;
-            height: 86.5vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.41);
             box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.41);
-
         }
 
         .Avatar {
+            padding-top: 60px;
             border-radius: 100%;
             width: 150px;
             height: 150px;
@@ -284,8 +282,9 @@
             color: white;
             border: none;
             border-radius: 12px;
-            padding: 15px 30px;
+            padding: 8px 20px;
             text-decoration: none;
+            margin-top: 20px;
         }
 
         .btn-neon:hover {
@@ -293,6 +292,7 @@
         }
 
         .overlay {
+            z-index: 99;
             background: rgba(0, 0, 0, 0.3);
             -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
@@ -557,10 +557,12 @@
         .libro:hover>img {
             border: 2px solid #6F1DB9;
         }
-        .glider-contain{
+
+        .glider-contain {
             margin-top: 10px;
             width: 90%;
         }
+
         .glider-contain button:hover {
             filter: invert(24%) sepia(91%) saturate(2378%) hue-rotate(261deg) brightness(70%) contrast(112%) drop-shadow(0 0 5px rgba(136, 33, 226, 1));
         }
@@ -612,6 +614,39 @@
             justify-content: space-between;
             text-align: center;
         }
+
+        .botonCategorias {
+            transition: .3s;
+        }
+
+        .botonCategorias:hover {
+            transform: scale(1.1);
+        }
+
+        #cambiarEmail {
+            margin-top: 35px;
+        }
+        .contenido{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;   
+        }
+        .contenido input{
+            margin-top: 20px;
+            border: none;
+            border-bottom: 1px solid #6F1DB9;
+            font-size: 16px;
+            width: 335px;
+            height: 40px;
+            background:rgba(23, 23, 23, .6);
+            outline: none;
+            color: white;
+            border-radius: 12px;
+
+        }
     </style>
 </head>
 
@@ -649,7 +684,6 @@
         </ul>
     </nav>
     <main>
-
         <div class="perfil">
             <img id="avatar" class="Avatar" src="<?php echo base_url("index.php/Usuario/mostrarImagen/" . $user[0]->ID) ?>">
             <form id="name-form" action="<?php echo base_url("index.php/Usuario/cambiarNombreUsuario") ?>" method="post"><input id="Nombre" value="<?php echo $user[0]->Nombre ?>" name="Nombre"><img id="pen" src="<?php echo base_url("imgs/iconos/load.png") ?>" alt="" srcset=""></form>
@@ -658,7 +692,7 @@
                 <input id="submit" type="submit" name="submit" value="UPLOAD" />
             </form>
             <form method="post" action="<?php echo base_url("index.php/Usuario/modificarCategorias/" . $user[0]->ID) ?>">
-                <a href="#" id="btn-continuar" class="btn-neon">Cambiar categorías</a>
+                <div class="botonCategorias"><a href="#" id="btn-continuar" class="btn-neon">Cambiar categorías</a></div>
 
                 <div class="overlay" id="overlay">
                     <div class="popup" id="popUp">
@@ -860,9 +894,24 @@
                     </div>
                 </div>
             </form>
+            <form id="cambiarEmail" method="post" action="<?php echo base_url("index.php/Usuario/cambiarEmail/" . $user[0]->ID) ?>">
+                <div class="botonCategorias"><a href="#" id="continuarEmail" class="btn-neon">Cambiar email</a></div>
+                <div class="overlay" id="overlayEmail">
+                    <div class="popup" id="popUpEmail">
+                        <i id="btn-cerrar-popupEmail" class="btn-cerrar-popup fas fa-times"></i>
+                        <h3>Cambiar Email</h3>
+                        <div class="contenido">
+                            <input type="email" name="" id="" placeholder="Anterior correo electrónico">
+                            <input type="email" name="" id="" placeholder="Nuevo correo electrónico">
+                        </div>
+                        <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
+
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="derecha">
-            <h1>Libros comentados</h1>
+            <h1>Libros Comentados</h1>
             <div class="glider-contain">
                 <div class="glider">
                     <?php foreach ($comentario as $row) {
@@ -882,16 +931,36 @@
                 <button aria-label="Next" class="glider-next">»</button>
                 <div role="tablist" class="dots"></div>
             </div>
+            <h1>Libros Valorados</h1>
+            <div class="glider-contain">
+                <div class="glider" id="glider">
+                    <?php foreach ($valoraciones as $row) {
+                        $libro = $row->ID;
+                        echo ("<div onclick='redirigir($row->ID)' class=" . "libro" . "><img src=" . base_url("imgs/libros/$row->img") . ">
+                    <div class='cartel'><h3>$row->Titulo</h3><div class='abajo'><p>$row->Autor</p>");
+                        foreach ($valoracion as $line) {
+                            if ($line->IDLibro == $libro) {
+                                echo "<p>★" . round($line->Puntaje, 2) . "</p>";
+                            }
+                        }
+                        echo "</div></div></div>";
+                    }
+                    ?>
+                </div>
+                <button aria-label="Previous" class="glider-prev" id="glider-prev">«</button>
+                <button aria-label="Next" class="glider-next" id="glider-next">»</button>
+                <div role="tablist" class="dots" id="dots"></div>
+            </div>
         </div>
 
 
     </main>
+
     <script src="<?php echo base_url("scripts/registro.js") ?>"></script>
     <script>
         const btn_logOut = document.getElementById("LogOut");
         const btn_user = document.getElementById("User");
         const btn_home = document.getElementById("Home");
-        const tarjeta = document.querySelector(".libro");
         btn_logOut.addEventListener('click', () => {
             window.location.href = "<?php echo base_url('index.php/private_area/logout'); ?>";
         })
@@ -957,6 +1026,7 @@
             nav.classList.toggle("animate__fadeInLeft")
         })
     </script>
+    <script src=<?php echo base_url("scripts/Gliderjs_master/glider.js") ?>></script>
     <script>
         window.addEventListener('load', function() {
             new Glider(document.querySelector('.glider'), {
@@ -969,6 +1039,35 @@
                     next: '.glider-next'
                 }
             });
+        })
+    </script>
+    <script>
+        window.addEventListener('load', function() {
+            new Glider(document.querySelector('#glider'), {
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                draggable: true,
+                dots: '#dots',
+                arrows: {
+                    prev: '#glider-prev',
+                    next: '#glider-next'
+                }
+            });
+        })
+    </script>
+    <script>
+        let btnContinuarEmail = document.getElementById("continuarEmail");
+        let overlayEmail = document.getElementById("overlayEmail");
+        let popUpEmail = document.getElementById("popUpEmail");
+        let btnCerrarPopUpEmail = document.getElementById("btn-cerrar-popupEmail")
+
+        btnContinuarEmail.addEventListener("click", function() {
+            overlayEmail.classList.add("active");
+            popUpEmail.classList.add("active");
+        })
+        btnCerrarPopUpEmail.addEventListener("click", function() {
+            overlayEmail.classList.remove("active");
+            popUpEmail.classList.add("active")
         })
     </script>
 </body>

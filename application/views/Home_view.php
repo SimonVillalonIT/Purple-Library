@@ -83,7 +83,7 @@
         <div class="Valoracion">
             <h1>Mejores valorados</h1>
             <div class="glider-contain">
-                <div class="gliders">
+                <div class="glider" id="glider">
                     <?php foreach ($mejores as $row) {
                         echo ("<div onclick='redirigir($row->IDLibro)' class=" . "libro" . "><img src=" . base_url("imgs/libros/$row->img") . ">
                             <div class='cartel'><h3>$row->Titulo</h3><div class='abajo'><p>$row->Autor</p>
@@ -92,6 +92,9 @@
                     }
                     ?>
                 </div>
+                <button aria-label="Previous" class="glider-prev" id="prev">«</button>
+                <button aria-label="Next" class="glider-next" id="next">»</button>
+                <div role="tablist" class="dots" id="dots"></div>
             </div>
         </div>
     </main>
@@ -103,7 +106,6 @@
         const btn_logOut = document.getElementById("LogOut");
         const btn_user = document.getElementById("User");
         const btn_home = document.getElementById("Home");
-        const tarjeta = document.querySelector(".libro");
         btn_logOut.addEventListener('click', () => {
             window.location.href = "<?php echo base_url('index.php/private_area/logout'); ?>";
         })
@@ -168,14 +170,14 @@
         })
     </script>
     <script>
-        new Glider(document.querySelector('.gliders'), {
+        new Glider(document.querySelector('#glider'), {
             slidesToShow: 5,
             slidesToScroll: 1,
             draggable: true,
-            dots: '.dotss',
+            dots: '#dots',
             arrows: {
-                prev: '.glider-prevs',
-                next: '.glider-nexts'
+                prev: '#prev',
+                next: '#next'
             }
         });
     </script>

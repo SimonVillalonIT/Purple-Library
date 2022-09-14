@@ -22,9 +22,11 @@ class Usuario extends CI_controller
         $datos["categorias"] = array();
         $datos['comentario'] = $this->Usuario_model->comentarioPersona($id);
         $datos['valoracion'] = $this->Usuario_model->puntuacion();
+        $datos['valoraciones'] = $this->Usuario_model->mostrarValoracionesUsuario($id);
         foreach($categorias as $row){
             array_push($datos["categorias"],$row->IDCategoria);
         }
+
         $this->load->view('Usuario', $datos);
     }
 
@@ -73,6 +75,11 @@ class Usuario extends CI_controller
         foreach ($categorias as $valor) {
             $this->Registro_model->insertarcategoria($id, $valor);
         }
+        redirect("Usuario");
+    }
+    public function cambiarEmail($id){
+
+
         redirect("Usuario");
     }
 }

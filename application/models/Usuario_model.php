@@ -44,4 +44,9 @@
             $query = $this->db->query($sql);
             return $query->result();
         }
+        public function mostrarValoracionesUsuario($id){
+            $sql = "SELECT DISTINCT l.Titulo, l.Autor,l.img,l.Descripcion,l.ID FROM valoracion v, libro l WHERE v.IDUsuario = $id AND v.IDLibro = l.ID";
+            $query = $this->db->query($sql);
+            return $query->result();
+        }
     }
