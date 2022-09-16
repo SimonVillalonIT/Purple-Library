@@ -7,6 +7,9 @@
         }
         
         public function cargarpagina($id){
+            if(empty($this->session->userdata("ID"))){
+                redirect("Inicio_controller");
+            }
             $datos['resultado'] = $this->Libro_model->mostrarlibros($id);
             $datos['comentarios'] = $this->Libro_model->mostrarcomentarios($id);
             $datos['valoracion'] = $this->Libro_model->mostrarvaloracion($this->session->userdata('ID'),$id);

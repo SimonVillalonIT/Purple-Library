@@ -11,7 +11,10 @@ class Private_area extends CI_Controller {
         }
     }
 	public function index()
-	{
+	{   
+        if(empty($this->session->userdata("ID"))){
+            redirect("Inicio_controller");
+        }
         $id = $this->session->userdata('ID');
         $datos['recomendacion'] = $this->Mostrar_libros_model->mostrar($id);
         $datos['valoracion'] = $this->Mostrar_libros_model->puntuacion();
@@ -20,6 +23,9 @@ class Private_area extends CI_Controller {
 	}
 
     function logout(){
+        if(empty($this->session->userdata("ID"))){
+            redirect("Inicio_controller");
+        }
         $data = $this->session->all_userdata();
         foreach($data as $row => $rows_value){
             $this->session->unset_userdata($row);

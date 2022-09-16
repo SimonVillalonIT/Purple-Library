@@ -647,6 +647,10 @@
             border-radius: 12px;
 
         }
+
+        #cambiarPassword{
+            margin-top: 35px;
+        }
     </style>
 </head>
 
@@ -909,6 +913,20 @@
                     </div>
                 </div>
             </form>
+            <form id="cambiarPassword" method="post" action="<?php echo base_url("index.php/Usuario/cambiarContrasena/" . $user[0]->ID) ?>">
+                <div class="botonCategorias"><a href="#" id="continuarPassword" class="btn-neon">Cambiar contraseña</a></div>
+                <div class="overlay" id="overlayPassword">
+                    <div class="popup" id="popUpPassword">
+                        <i id="btn-cerrar-popupPassword" class="btn-cerrar-popup fas fa-times"></i>
+                        <h3>Cambiar contraseña</h3>
+                        <div class="contenido">
+                            <input type="password" name="AContraseña" id="" placeholder="Anterior contraseña">
+                            <input type="password" name="NContraseña" id="" placeholder="Nueva contraseña">
+                        </div>
+                        <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="derecha">
             <h1>Libros Comentados</h1>
@@ -931,7 +949,7 @@
                 <button aria-label="Next" class="glider-next">»</button>
                 <div role="tablist" class="dots"></div>
             </div>
-            <h1>Libros Valorados</h1>
+            <h1>Libros Favoritos</h1>
             <div class="glider-contain">
                 <div class="glider" id="glider">
                     <?php foreach ($valoraciones as $row) {
@@ -1068,6 +1086,21 @@
         btnCerrarPopUpEmail.addEventListener("click", function() {
             overlayEmail.classList.remove("active");
             popUpEmail.classList.add("active")
+        })
+    </script>
+    <script>
+        let btnContinuarPassword = document.getElementById("continuarPassword");
+        let overlayPassword = document.getElementById("overlayPassword");
+        let popUpPassword = document.getElementById("popUpPassword");
+        let btnCerrarPopUpPassword = document.getElementById("btn-cerrar-popupPassword")
+
+        btnContinuarPassword.addEventListener("click", function() {
+            overlayPassword.classList.add("active");
+            popUpPassword.classList.add("active");
+        })
+        btnCerrarPopUpPassword.addEventListener("click", function() {
+            overlayPassword.classList.remove("active");
+            popUpPassword.classList.add("active")
         })
     </script>
 </body>

@@ -45,8 +45,18 @@
             return $query->result();
         }
         public function mostrarValoracionesUsuario($id){
-            $sql = "SELECT DISTINCT l.Titulo, l.Autor,l.img,l.Descripcion,l.ID FROM valoracion v, libro l WHERE v.IDUsuario = $id AND v.IDLibro = l.ID";
+            $sql = "SELECT DISTINCT l.Titulo, l.Autor,l.img,l.Descripcion,l.ID FROM valoracion v, libro l WHERE v.IDUsuario = $id AND v.IDLibro = l.ID ORDER BY valoracion DESC";
             $query = $this->db->query($sql);
             return $query->result();
         }
+        public function seleccionarContrasena($id){
+            $sql = "SELECT Contraseña FROM usuario WHERE ID = $id ";
+            $query = $this->db->query($sql);
+            return $query->result();
+        }
+        public function cambiarContrasena($id,$password){
+            $sql = "UPDATE usuario SET Contraseña = '$password' WHERE ID = $id ";
+            $this->db->query($sql);
+        }
+
     }

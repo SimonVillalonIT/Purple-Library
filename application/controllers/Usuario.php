@@ -5,13 +5,15 @@ class Usuario extends CI_controller
     {
         parent::__construct();
 
-        // Load cart library
         $this->load->library('session');
 
-        // Load product model
         $this->load->model('Usuario_model');
 
         $this->load->model("Registro_model");
+        
+        $this->load->library('form_validation');
+        
+        $this->load->library('encrypt');
     }
     
     public function index()
@@ -82,4 +84,15 @@ class Usuario extends CI_controller
 
         redirect("Usuario");
     }
+    public function cambiarContrasena($id){
+        $digesto = $this->Usuario_model->seleccionarContrasena($id);
+        $contraseñaVieja = $this->encrypt->decode($digesto[0]->Contraseña);   
+            if($contraseñaVieja === $this->input->post('AContraseña')){
+            $encrypted_password = $this->encrypt->encode($this->input->post('NContraseña'));
+            $this->Usuario_model->cambiarContrasena($id,$encrypted_password);
+            redirect("Usuario");}
+            else{
+                redirect("Usuario");
+            }
+        }
 }

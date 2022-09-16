@@ -14,6 +14,9 @@ class Cart extends CI_Controller{
     }
     
     function index(){
+        if(empty($this->session->userdata("ID"))){
+            redirect("Inicio_controller");
+        }
         $data = array();
         
         // Retrieve cart data from the session
