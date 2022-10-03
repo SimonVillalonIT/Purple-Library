@@ -5,15 +5,17 @@ class Usuario extends CI_controller
     {
         parent::__construct();
 
-        // Load cart library
         $this->load->library('session');
 
-        // Load product model
         $this->load->model('Usuario_model');
 
         $this->load->model("Registro_model");
+
+        $this->load->library('form_validation');
+
+        $this->load->library('encrypt');
     }
-    
+
     public function index()
     {
         $id = $this->session->userdata("ID");
@@ -23,8 +25,8 @@ class Usuario extends CI_controller
         $datos['comentario'] = $this->Usuario_model->comentarioPersona($id);
         $datos['valoracion'] = $this->Usuario_model->puntuacion();
         $datos['valoraciones'] = $this->Usuario_model->mostrarValoracionesUsuario($id);
-        foreach($categorias as $row){
-            array_push($datos["categorias"],$row->IDCategoria);
+        foreach ($categorias as $row) {
+            array_push($datos["categorias"], $row->IDCategoria);
         }
 
         $this->load->view('Usuario', $datos);
@@ -77,9 +79,27 @@ class Usuario extends CI_controller
         }
         redirect("Usuario");
     }
-    public function cambiarEmail($id){
+    public function cambiarEmail($id)
+    {
 
 
         redirect("Usuario");
+    }
+    public function cambiarContrasena($id)
+    {
+        if ($this->session->userdata("ID")) {
+            $this->form_validation->set_rules('ContraseñaNueva', 'ContraseñaNueva', 'required');
+            $digesto = $this->Usuario_model->seleccionarContrasena($id);
+            $contraseñaVieja = $this->encrypt->decode($digesto[0]->Contraseña);
+            if ($contraseñaVieja === $this->input->post('ContraseñaNueva')) {
+                $encrypted_password = $this->encrypt->encode($this->input->post('ContraseñaNueva'));
+                $this->Usuario_model->cambiarContrasena($id, $encrypted_password);
+                redirect("Usuario");
+            } else {
+                redirect("Usuario");
+            }
+        } else {
+            redirect("Inicio_controller");
+        }
     }
 }

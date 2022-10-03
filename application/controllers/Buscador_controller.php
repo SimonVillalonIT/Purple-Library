@@ -25,6 +25,9 @@ class Buscador_controller extends CI_Controller
         }
     }
     public function buscar_categoria($id){
+        if(empty($id)){
+            redirect("Inicio_controller");
+        }
         $datos["resultado"]=$this->Buscador_model->buscar_categoria($id);
         $this->load->view('Busquedas_view', $datos);
     }

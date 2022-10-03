@@ -14,6 +14,9 @@ class Products extends CI_Controller{
     }
     
     function index(){
+        if(empty($this->session->userdata("ID"))){
+            redirect("Inicio_controller");
+        }
         $data = array();
         
         // Fetch products from the database
@@ -24,7 +27,9 @@ class Products extends CI_Controller{
     }
     
     function addToCart($proID){
-        
+        if(empty($this->session->userdata("ID"))){
+            redirect("Inicio_controller");
+        }
         // Fetch specific product by ID
         $product = $this->product->getRows($proID);
         // Add product to the cart
