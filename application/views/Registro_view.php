@@ -403,12 +403,26 @@
         .valorcategoria {
             display: none;
         }
+
+        .form-error {
+            background-color: red;
+            width: 100%;
+            margin-top: 35px;
+        }
+
+        .form-error p {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            background-color: red;
+        }
     </style>
 </head>
 
 <body>
     <div id="particles-js">
     </div>
+
     <div class="main-container">
         <h1>Registro de usuario</h1>
         <?php if ($this->session->flashdata('message')) {
@@ -440,6 +454,7 @@
                         <div class="item">
                             <label for="Contraseña">Contraseña</label>
                             <input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña" value="<?php echo set_value('Contraseña'); ?>">
+                            <span><?php echo form_error('Contraseña'); ?></span>
                         </div>
                         <div class="item">
                             <label for="Re-contraseña">Confirme su contraseña</label>
@@ -464,7 +479,6 @@
                         <i id="btn-cerrar-popup" class="btn-cerrar-popup fas fa-times"></i>
                         <h3>Categorías</h3>
                         <h4>Descubre libros entre nuestras categorías</h4>
-                        /*BOLUDON tenes que usar un in_array para despues filtrar si lo selecciono o no */ 
                         <div class="categorias">
                             <input type="checkbox" name="checkbox[]" value="1" id="CNC-FIC" class="valorcategoria">
                             <input type="checkbox" name="checkbox[]" value="2" id="FANT" class="valorcategoria">

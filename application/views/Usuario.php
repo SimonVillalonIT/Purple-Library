@@ -28,13 +28,6 @@
         }
 
         /*                 HEADER                  */
-
-        body {
-            background-color: #171717;
-            font-family: "Century Gothic";
-            margin: 0;
-        }
-
         h1 {
             color: white;
             margin: 0;
@@ -196,7 +189,7 @@
         }
 
         .Avatar {
-            padding-top: 60px;
+            margin-top: 10px;
             border-radius: 100%;
             width: 150px;
             height: 150px;
@@ -251,7 +244,7 @@
             font-size: 30px;
             color: white;
             text-align: center;
-            width: m;
+            width: min-content;
         }
 
         #pen {
@@ -668,6 +661,27 @@
             width: 100%;
             height: 40%;
         }
+    .form-error{
+        background-color: red;
+        width: 100%;
+        margin-top:35px;
+    }
+
+    .form-error p{
+        color: white;
+        font-size: 24px;
+        text-align: center;
+    }
+    #Exito{
+        background-color: green;
+        width: 100%;
+        margin-top:35px;
+    }
+    #Exito p{
+        text-align: center;
+        color:white;
+        font-size: 24px;
+    }
     </style>
 </head>
 
@@ -706,6 +720,10 @@
     </nav>
     <main>
         <div class="perfil">
+        <?php if ($this->session->flashdata('message')) {
+            echo $this->session->flashdata('message');
+        } ?>
+            <span class="form-error"><?php echo form_error('ContraseñaNueva'); ?></span>
             <img id="avatar" class="Avatar" src="<?php echo base_url("index.php/Usuario/mostrarImagen/" . $user[0]->ID) ?>">
             <form id="name-form" action="<?php echo base_url("index.php/Usuario/cambiarNombreUsuario") ?>" method="post"><input id="Nombre" value="<?php echo $user[0]->Nombre ?>" name="Nombre"><img id="pen" src="<?php echo base_url("imgs/iconos/load.png") ?>" alt="" srcset=""></form>
             <div class="botones">
@@ -773,8 +791,8 @@
                     <i id="btn-cerrar-popupEmail" class="btn-cerrar-popup fas fa-times"></i>
                     <h3>Cambiar Email</h3>
                     <div class="contenido">
-                        <input type="email" name="" id="" placeholder="Anterior correo electrónico">
-                        <input type="email" name="" id="" placeholder="Nuevo correo electrónico">
+                        <input type="email" name="anteriorCorreo" id="anteriorCorreo" placeholder="Anterior correo electrónico">
+                        <input type="email" name="nuevoCorreo" id="nuevoCorreo" placeholder="Nuevo correo electrónico">
                     </div>
                     <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
 
@@ -982,16 +1000,14 @@
                 </div>
             </div>
         </form>
-        <?php echo validation_errors(); ?>
-        <?php echo form_open('form'); ?>
         <form id="cambiarPassword" method="post" action="<?php echo base_url("index.php/Usuario/cambiarContrasena/" . $user[0]->ID) ?>">
             <div class="overlay" id="overlayPassword">
                 <div class="popup" id="popUpPassword">
                     <i id="btn-cerrar-popupPassword" class="btn-cerrar-popup fas fa-times"></i>
                     <h3>Cambiar contraseña</h3>
                     <div class="contenido">
-                        <input type="password" name="AContraseña" id="" placeholder="Anterior contraseña">
-                        <input type="password" value="<?php echo set_value('ContraseñaNueva'); ?>" name="ContraseñaNueva" id="ContraseñaNueva" placeholder="Nueva contraseña">
+                        <input type="password" name="AContraseña" id="Acontraseña" placeholder="Anterior contraseña">
+                        <input type="password" name="ContraseñaNueva" id="ContraseñaNueva" placeholder="Nueva contraseña">
                     </div>
                     <input type="submit" class="btn-submit" name="Confirmar" value="Confirmar">
                 </div>

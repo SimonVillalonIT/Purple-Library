@@ -70,10 +70,15 @@ class Usuario extends CI_controller
 
     public function modificarCategorias($id)
     {
-        $this->Usuario_model->borrarCategorias($id);
-
         $categorias = $this->input->post('checkbox');
-
+       
+        if (empty($categorias)) {
+            $this->session->set_flashdata('message', '<span class="form-error"><p>Debe seleccionar al menos 1 categoría</p></span>');
+            redirect("Usuario");
+            return;
+        }
+        $this->Usuario_model->borrarCategorias($id);
+        
         foreach ($categorias as $valor) {
             $this->Registro_model->insertarcategoria($id, $valor);
         }
@@ -81,22 +86,32 @@ class Usuario extends CI_controller
     }
     public function cambiarEmail($id)
     {
-
-
         redirect("Usuario");
     }
     public function cambiarContrasena($id)
     {
         if ($this->session->userdata("ID")) {
-            $this->form_validation->set_rules('ContraseñaNueva', 'ContraseñaNueva', 'required');
+            $this->form_validation->set_rules('AContraseña', 'AContraseña', 'required');
+            $this->form_validation->set_rules('ContraseñaNueva', 'ContraseñaNueva', 'trim|required|min_length[8]|max_length[15]');
+            $this->form_validation->set_message('required', 'Todos los campos son requeridos');
+            $this->form_validation->set_message('min_length', 'El largo mínimo de la contraseña es de 8 caracteres');
+            $this->form_validation->set_message('max_length', 'El largo máximo de la contraseña es de 15 caracteres');
+
             $digesto = $this->Usuario_model->seleccionarContrasena($id);
             $contraseñaVieja = $this->encrypt->decode($digesto[0]->Contraseña);
-            if ($contraseñaVieja === $this->input->post('ContraseñaNueva')) {
+
+            if ($contraseñaVieja == $this->input->post('AContraseña')) {
                 $encrypted_password = $this->encrypt->encode($this->input->post('ContraseñaNueva'));
-                $this->Usuario_model->cambiarContrasena($id, $encrypted_password);
-                redirect("Usuario");
+                if ($this->form_validation->run()) {
+                    $this->session->set_flashdata('message', '<span id="Exito"><p>Contraseña cambiada con exito!</p></span>');
+                    $this->Usuario_model->cambiarContrasena($id, $encrypted_password);
+                    redirect("Usuario");
+                } else {
+                    $this->index();
+                }
             } else {
-                redirect("Usuario");
+                $this->session->set_flashdata('message', '<span class="form-error"><p>No coinciden!</p></span>');
+                $this->index();
             }
         } else {
             redirect("Inicio_controller");
