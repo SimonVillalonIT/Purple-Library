@@ -723,7 +723,7 @@
         <?php if ($this->session->flashdata('message')) {
             echo $this->session->flashdata('message');
         } ?>
-            <span class="form-error"><?php echo form_error('ContraseñaNueva'); ?></span>
+            <span class="form-error"><?php echo form_error('ContraseñaNueva'); ?><?php echo form_error('nuevoCorreo'); ?></span>
             <img id="avatar" class="Avatar" src="<?php echo base_url("index.php/Usuario/mostrarImagen/" . $user[0]->ID) ?>">
             <form id="name-form" action="<?php echo base_url("index.php/Usuario/cambiarNombreUsuario") ?>" method="post"><input id="Nombre" value="<?php echo $user[0]->Nombre ?>" name="Nombre"><img id="pen" src="<?php echo base_url("imgs/iconos/load.png") ?>" alt="" srcset=""></form>
             <div class="botones">

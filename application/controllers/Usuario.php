@@ -71,14 +71,14 @@ class Usuario extends CI_controller
     public function modificarCategorias($id)
     {
         $categorias = $this->input->post('checkbox');
-       
+
         if (empty($categorias)) {
             $this->session->set_flashdata('message', '<span class="form-error"><p>Debe seleccionar al menos 1 categoría</p></span>');
             redirect("Usuario");
             return;
         }
         $this->Usuario_model->borrarCategorias($id);
-        
+
         foreach ($categorias as $valor) {
             $this->Registro_model->insertarcategoria($id, $valor);
         }
@@ -86,7 +86,24 @@ class Usuario extends CI_controller
     }
     public function cambiarEmail($id)
     {
-        redirect("Usuario");
+        $emailViejo = $this->Usuario_model->seleccionarEmail($id);
+        $this->form_validation->set_rules('anteriorCorreo', 'anteriorCorreo', 'trim|required');
+        $this->form_validation->set_rules('nuevoCorreo', 'nuevoCorreo', 'trim|required|valid_email|is_unique[usuario.Email]');
+        $this->form_validation->set_message('is_unique', 'El email ya esta asociado a otra cuenta');
+        $this->form_validation->set_message('valid_email', 'Debe escribir un e-mail válido');
+
+        if ($this->form_validation->run()) {
+            if ($emailViejo[0]->Email == $this->input->post("anteriorCorreo")) {
+                $this->session->set_flashdata('message', '<span id="Exito"><p>Contraseña cambiada con exito!</p></span>');
+                $this->Usuario_model->cambiarEmail($id, $this->input->post("nuevoCorreo"));
+                redirect("Usuario");
+            } else {
+                $this->session->set_flashdata('message', '<span class="form-error"><p>No coinciden!</p></span>');
+                redirect("Usuario");
+            }
+        } else {
+            $this->index();
+        }
     }
     public function cambiarContrasena($id)
     {
