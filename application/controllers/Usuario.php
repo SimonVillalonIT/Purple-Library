@@ -115,9 +115,8 @@ class Usuario extends CI_controller
             $this->form_validation->set_message('max_length', 'El largo máximo de la contraseña es de 15 caracteres');
 
             $digesto = $this->Usuario_model->seleccionarContrasena($id);
-            $contraseñaVieja = $this->encrypt->decode($digesto[0]->Contraseña);
 
-            if ($contraseñaVieja == $this->input->post('AContraseña')) {
+            if (password_verify($this->input->post('AContraseña'), $digesto[0]->Contraseña)) {
                 $encrypted_password = $this->encrypt->encode($this->input->post('ContraseñaNueva'));
                 if ($this->form_validation->run()) {
                     $this->session->set_flashdata('message', '<span id="Exito"><p>Contraseña cambiada con exito!</p></span>');

@@ -16,7 +16,15 @@
     <link rel="stylesheet" href="<?php echo base_url("css/Busquedas_view.css") ?>">
 </head>
 
-<body>
+<body class="oculto">
+	<div class="centrado" id="onload">
+		<div class="lds-ring">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+    </div>
     <header>
         <div class="logo">
             <img id="barra" src="<?php echo base_url("imgs/iconos/barra.png") ?>">
@@ -143,6 +151,7 @@
             nav.classList.toggle("animate__fadeInLeft")
         })
     </script>
+	<script src="<?php echo base_url("scripts/spinner.js") ?>"></script>
 </body>
 
 </html>

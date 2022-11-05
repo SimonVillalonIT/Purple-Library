@@ -10,8 +10,8 @@
 
                 foreach($query->result() as $row){
                     if($row->is_email_verified == 'yes'){
-                        $store_password = $this->encrypt->decode($row->Contraseña);
-                        if($contraseña == $store_password){
+                        
+                        if(password_verify($contraseña,$row->Contraseña)){
                             $this->session->set_userdata('ID',$row->ID);
                         }
                         else{

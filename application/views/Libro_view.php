@@ -18,7 +18,15 @@
     <title><?php echo $resultado[0]->Titulo; ?></title>
 </head>
 
-<body>
+<body class="oculto">
+    <div class="centrado" id="onload">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <header>
         <div class="logo">
             <img id="barra" src="<?php echo base_url("imgs/iconos/barra.png") ?>">
@@ -165,7 +173,7 @@
             }
             ?>
             <?php foreach ($comentarios as $row) {
-                echo '<div class="comentario"><div class="referencia"><img src="' . base_url("index.php/Usuario/mostrarImagen/".$row->IDUsuario) . '">';
+                echo '<div class="comentario"><div class="referencia"><img src="' . base_url("index.php/Usuario/mostrarImagen/" . $row->IDUsuario) . '">';
                 echo '<p>' . $row->Nombre . '</p>';
                 echo '<p>' . $row->Fecha . '</p></div>';
                 echo '<p class="content">' . $row->Contenido . '</p></div>';
@@ -255,6 +263,7 @@
             nav.classList.toggle("animate__fadeInLeft")
         })
     </script>
+    <script src="<?php echo base_url("scripts/spinner.js") ?>"></script>
 </body>
 
 </html>

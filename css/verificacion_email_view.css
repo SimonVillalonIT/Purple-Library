@@ -1,0 +1,83 @@
+body {
+	font-family: "Century Gothic";
+	color: white;
+	margin: 0;
+	background-color: #171717;
+}
+/*Spinner */
+
+.centrado{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.oculto{
+	overflow: hidden;
+}
+
+.lds-ring {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+.lds-ring div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border: 8px solid #fff;
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+	animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+	animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+	animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+#particles-js {
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	z-index: -1;
+}
+.Verificar {
+	display: flex;
+	width: 100%;
+	background: rgba(20, 20, 20, 0.5);
+	font-size: 18px;
+	color: #6f1db9;
+	justify-content: center;
+	border-radius: 12px;
+	transition: 0.3s;
+}
+a:hover {
+	color: #d620fa;
+}
+#error {
+	display: flex;
+	width: 100%;
+	background: rgba(20, 20, 20, 0.5);
+	font-size: 24px;
+	color: red;
+	border-radius: 12px;
+	justify-content: center;
+}
