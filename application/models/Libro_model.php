@@ -21,7 +21,7 @@
             return $query->result();
         }
         public function valorar($usuario,$libro,$valor){
-            $sql = "INSERT INTO valoracion (IDLibro,IDUsuario,Valoracion) VALUES ('.$libro.','.$usuario.','.$valor.')";
+            $sql = "INSERT INTO valoracion (IDLibro,IDUsuario,Valoracion) VALUES ('$libro','$usuario','$valor')";
             $this->db->query($sql);
             
         }

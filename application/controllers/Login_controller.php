@@ -7,7 +7,6 @@ class Login_controller extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->library('encrypt');
         $this->load->model('Login_model');
     }
 
@@ -20,7 +19,7 @@ class Login_controller extends CI_Controller {
     {
         $this->form_validation->set_rules('Email','Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('Contraseña', 'Contraseña', 'required');
-
+        $this->form_validation->set_message('required', 'Ingrese todos los datos');
         if ($this->form_validation->run())
         {
             $result = $this->Login_model->can_login($this->input->post('Email'), $this->input->post('Contraseña'));
